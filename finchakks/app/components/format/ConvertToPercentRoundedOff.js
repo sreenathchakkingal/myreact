@@ -1,11 +1,11 @@
 var React = require('react');
 var numeral = require('numeral');
+var formatter = require('../../utils/formatter');
 
 var ConvertToPercentRoundedOff = React.createClass({
   render: function(){
     var num=this.props.data;
-    var result=numeral(num).format('0%');
-    return <div>{result}</div>;
+    return <div>{formatter.convertToPercentRoundedOff(num)}</div>;
   }
 })
 

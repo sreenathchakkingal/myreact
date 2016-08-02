@@ -24,11 +24,11 @@ function NDaysHistoryStocks (props) {
       columns={
         ["stockName", "simpleMovingAverageAndSellDeltaNormalized", "netNDaysGain",
         "stockRatingValue", "investmentRatio", "industryInvestmentRatio",
-        "industry", "sellPrice", "simpleMovingAverage",
-        "nDay1Gain","nDay2Gain","nDay3Gain","nDay4Gain","nDay5Gain","nDay6Gain"]
+         "sellPrice", "simpleMovingAverage",
+        "nDay1Gain","nDay2Gain","nDay3Gain","nDay4Gain","nDay5Gain","nDay6Gain", "industry"]
       }
       columnMetadata={metaData}
-      enableInfiniteScroll={true} bodyHeight={400}
+      enableInfiniteScroll={true} bodyHeight={400} showSettings={true}
       />
     )
   }

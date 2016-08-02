@@ -21,15 +21,12 @@ function UserDetails (user) {
 UserDetails.propTypes = {
   score: PropTypes.number,
   info: PropTypes.shape({
-    avatar_url: PropTypes.string.isRequired,
-    blog: PropTypes.string,
-    company: PropTypes.string,
-    followers: PropTypes.number.isRequired,
-    following: PropTypes.number.isRequired,
-    location: PropTypes.string,
-    login: PropTypes.string.isRequired,
-    name: PropTypes.string,
-    public_repos: PropTypes.number.isRequired,
+    averageReturn: PropTypes.number.isRequired,
+    totalInvestment: PropTypes.number.isRequired,
+    totalReturn: PropTypes.number.isRequired,
+    totalInvestment: PropTypes.number.isRequired,
+    totalReturnIfBank: PropTypes.number.isRequired,
+    totalReturnVsIfBank: PropTypes.number.isRequired
   })
 }
 

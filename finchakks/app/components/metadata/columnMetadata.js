@@ -3,6 +3,7 @@ var MoneyFormat = require('../format/MoneyFormat');
 var ConvertToPercent = require('../format/ConvertToPercent');
 var AppendPercentRoundedOff = require('../format/AppendPercentRoundedOff');
 var ConvertToPercentRoundedOff = require('../format/ConvertToPercentRoundedOff');
+var Trim = require('../format/Trim');
 
 var helpers = {
 
@@ -10,7 +11,8 @@ var helpers = {
     var metadata=[
       {
       "columnName": "stockName",
-      "displayName": "Stock Name"
+      "displayName": "Stock Name",
+      "customComponent": Trim
       },
       {
       "columnName": "returnTillDate",

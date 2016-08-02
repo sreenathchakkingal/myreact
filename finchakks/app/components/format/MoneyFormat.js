@@ -1,12 +1,11 @@
 var React = require('react');
 var numeral = require('numeral');
-
+var formatter = require('../../utils/formatter');
 
 var MoneyFormat = React.createClass({
   render: function(){
     var num=this.props.data;
-    var result=numeral(num).format('0,0');
-    return <div>{result}</div>;
+    return <div>{formatter.moneyFormat(num)}</div>;
   }
 })
 

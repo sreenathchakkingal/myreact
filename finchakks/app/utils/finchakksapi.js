@@ -1,11 +1,23 @@
 var axios = require('axios');
-var param = "";
 
 function getApiResult(methodName) {
     return axios.get('https://finchakks.appspot.com/_ah/api/initalizeControllerEndPoint/v1/' +methodName);
 }
 
 var helpers = {
+  listprofitAndloss: function() {
+    return getApiResult('profitandlossdbobject')
+    .then(function(response)
+    {
+      var stocksInfo= response.data;
+      console.log('response for listprofitAndloss', stocksInfo)
+      return stocksInfo;
+    })
+    .catch(function(err)
+    {
+        console.warn('Error in listprofitAndloss ', err);
+    });
+  },
 
   listBlackListedStocks: function() {
     return getApiResult('unrealizedsummarydbobject')
@@ -55,7 +67,7 @@ var helpers = {
     })
     .catch(function(err)
     {
-        console.warn('Error in listNDaysHistoryStocks ', err);
+        console.warn('Error in listUnrealizedDetails ', err);
     });
   }
 };

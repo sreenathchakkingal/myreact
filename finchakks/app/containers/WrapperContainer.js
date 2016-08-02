@@ -3,6 +3,7 @@ var ListBlackListedStocksContainer = require("./ListBlackListedStocksContainer")
 var StockExceptionsContainer = require("./StockExceptionsContainer");
 var NDaysHistoryStocksContainer = require("./NDaysHistoryStocksContainer");
 var UnrealizedDetailsContainer = require("./UnrealizedDetailsContainer");
+var ProfitAndLossContainer = require("./ProfitAndLossContainer");
 var Main  = require("../components/Main");
 var PageHeader = require('react-bootstrap/lib/PageHeader');
 
@@ -14,6 +15,10 @@ var WrapperContainer = React.createClass({
       return (
         <Main>
           <StockExceptionsContainer/>
+
+          <PageHeader>Summary</PageHeader>
+          <ProfitAndLossContainer/>
+
           <PageHeader>Black List</PageHeader>
           <ListBlackListedStocksContainer/>
 
@@ -22,6 +27,7 @@ var WrapperContainer = React.createClass({
 
           <PageHeader>Unrealized</PageHeader>
           <UnrealizedDetailsContainer/>
+
         </Main>
       )
   }
