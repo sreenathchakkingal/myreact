@@ -1,0 +1,29 @@
+{
+  "name": "finchakks",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "production": "webpack -p"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "griddle-react": "^0.6.1",
+    "numeral": "^1.5.3",
+    "react": "^15.2.1",
+    "react-bootstrap": "^0.30.0",
+    "react-bootstrap-table": "^2.3.9",
+    "react-datagrid": "^2.1.1",
+    "react-dom": "^15.2.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.11.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-react": "^6.11.1",
+    "html-webpack-plugin": "^2.22.0",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
