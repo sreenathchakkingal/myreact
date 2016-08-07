@@ -4,13 +4,7 @@ var Loading = require('./Loading');
 var columnMetadata = require('./metadata/columnMetadata');
 var PropTypes = React.PropTypes;
 var Griddle = require('griddle-react');
-var Panel = require('react-bootstrap/lib/Panel');
-var AppendPercent = require('./format/AppendPercent');
-var MoneyFormat = require('./format/MoneyFormat');
-var ConvertToPercent = require('./format/ConvertToPercent');
-var AppendPercentRoundedOff = require('./format/AppendPercentRoundedOff');
-var ConvertToPercentRoundedOff = require('./format/ConvertToPercentRoundedOff');
-var Trim = require('./format/Trim');
+var PanelWrapper = require('./PanelWrapper');
 
 function puke(obj)
 {
@@ -36,11 +30,11 @@ function ListBlackListedStocks (props) {
 
     return (
       <div>
-        <Panel header='Black List' bsStyle="info">
+        <PanelWrapper header='Black List'>
           <Griddle results={props.stocksInfo} tableClassName="table" showFilter={true} resultsPerPage="20"
           columns={["stockName","impactOnAverageReturn","returnTillDate","totalInvestment","totalReturn","totalReturnIfBank","quantity"]}
           columnMetadata={metaData}/>
-        </Panel>
+        </PanelWrapper>
       </div>
     )
   }

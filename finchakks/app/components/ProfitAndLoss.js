@@ -3,7 +3,7 @@ var finchakksapi = require('../utils/finchakksapi');
 var Loading = require('./Loading');
 var PropTypes = React.PropTypes;
 var Table = require('react-bootstrap/lib/Table');
-var Panel = require('react-bootstrap/lib/Panel');
+var PanelWrapper = require('./PanelWrapper');
 var formatter = require('../utils/formatter');
 
 function puke(obj)
@@ -21,7 +21,7 @@ function ProfitAndLoss (props) {
     var stockData = props.stocksInfo;
     return (
       <div>
-        <Panel header='Summary' bsStyle="info">
+        <PanelWrapper header='Summary'>
           <Table striped bordered condensed hover>
             <thead>
               <tr>
@@ -42,7 +42,7 @@ function ProfitAndLoss (props) {
               </tr>
             </tbody>
           </Table>
-        </Panel>
+        </PanelWrapper>
       </div>
     )
   }

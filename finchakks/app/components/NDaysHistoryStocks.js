@@ -4,7 +4,7 @@ var Loading = require('./Loading');
 var columnMetadata = require('./metadata/columnMetadata');
 var PropTypes = React.PropTypes;
 var Griddle = require('griddle-react');
-var Panel = require('react-bootstrap/lib/Panel');
+var PanelWrapper = require('./PanelWrapper');
 
 function puke(obj)
 {
@@ -38,7 +38,7 @@ function NDaysHistoryStocks (props) {
 
     return (
     <div>
-      <Panel header='Watch List' bsStyle="info">
+      <PanelWrapper header='Watch List'>
         <Griddle results={props.stocksInfo} tableClassName="table" showFilter={true} resultsPerPage="10"
         columns={
         ["stockName", "simpleMovingAverageAndSellDeltaNormalized", "netNDaysGain",
@@ -49,7 +49,7 @@ function NDaysHistoryStocks (props) {
         columnMetadata={metaData}
         enableInfiniteScroll={true} bodyHeight={400} showSettings={true}
         />
-      </Panel>
+      </PanelWrapper>
     </div>
     )
   }
