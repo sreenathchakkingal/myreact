@@ -13,7 +13,6 @@ var routes = (
   <Router history={hashHistory}>
     <Route path='/' component={Main}>
       <IndexRoute component={WrapperContainer} />
-      <Route path='detailedDrilldown' component={UnrealizedDetailsSelectedContainer} />
     </Route>
   </Router>
 );

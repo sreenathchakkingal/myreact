@@ -26,6 +26,7 @@ function NDaysHistoryStocks (props) {
       columnMetadata.investmentRatio(),
       columnMetadata.industryInvestmentRatio(),
       columnMetadata.sellPrice(),
+      columnMetadata.simpleMovingAverage(),
       columnMetadata.nDay1Gain(),
       columnMetadata.nDay2Gain(),
       columnMetadata.nDay3Gain(),

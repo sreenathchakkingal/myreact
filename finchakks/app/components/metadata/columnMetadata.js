@@ -286,8 +286,8 @@ var helpers = {
       "displayName": "Duration"
     };
     return duration;
-  },
-
+  }
+/*
   listColumnMetadata: function() {
     var metadata=[
       {
@@ -423,7 +423,7 @@ var helpers = {
       }
     ];
     return metadata;
-  }
+  }*/
 };
 
 module.exports = helpers;

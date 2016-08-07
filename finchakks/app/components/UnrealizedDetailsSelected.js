@@ -8,7 +8,6 @@ var ConvertToPercent = require('./format/ConvertToPercent');
 var AppendPercentRoundedOff = require('./format/AppendPercentRoundedOff');
 var ConvertToPercentRoundedOff = require('./format/ConvertToPercentRoundedOff');
 
-
 function UnrealizedDetailsSelected (props) {
   if(props.isLoading ===true )
   {

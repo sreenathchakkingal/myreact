@@ -1,7 +1,6 @@
 var React = require('react');
 var finchakksapi = require('../utils/finchakksapi');
 var Loading = require('./Loading');
-var columnMetadata = require('./metadata/columnMetadata');
 var PropTypes = React.PropTypes;
 var Table = require('react-bootstrap/lib/Table');
 var Panel = require('react-bootstrap/lib/Panel');
@@ -19,7 +18,6 @@ function ProfitAndLoss (props) {
   }
   else
   {
-    var metaData=columnMetadata.listColumnMetadata();
     var stockData = props.stocksInfo;
     return (
       <div>
