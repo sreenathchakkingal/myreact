@@ -5,7 +5,8 @@ var NDaysHistoryStocksContainer = require("./NDaysHistoryStocksContainer");
 var UnrealizedDetailsContainer = require("./UnrealizedDetailsContainer");
 var ProfitAndLossContainer = require("./ProfitAndLossContainer");
 var Main  = require("../components/Main");
-var PageHeader = require('react-bootstrap/lib/PageHeader');
+var Nav = require('react-bootstrap/lib/Nav');
+var NavItem = require('react-bootstrap/lib/NavItem');
 
 var WrapperContainer = React.createClass({
   contextTypes: {

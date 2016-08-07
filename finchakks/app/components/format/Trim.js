@@ -21,8 +21,8 @@ var Trim = React.createClass({
     var result=name.substring(0,8);
     return (
       <div>
-        <Button bsStyle="primary" bsSize="small" onClick={this.open}>{result}</Button>
-        <Modal show={this.state.showModal} onHide={this.close}>
+        <Button bsStyle="link" bsSize="small" onClick={this.open}>{result}</Button>
+        <Modal bsSize="large" aria-labelledby="contained-modal-title-lg" show={this.state.showModal} onHide={this.close}>
           <Modal.Header closeButton>
             <Modal.Title>Unrealized Details</Modal.Title>
           </Modal.Header>
