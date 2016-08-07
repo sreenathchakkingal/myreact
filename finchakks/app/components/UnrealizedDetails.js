@@ -17,12 +17,20 @@ function UnrealizedDetails (props) {
   }
   else
   {
-    var metaData=columnMetadata.listColumnMetadata();
+    var metaData=[
+      columnMetadata.stockNameWithOptions(),
+      columnMetadata.returnPercent(),
+      columnMetadata.buyDate(),
+      columnMetadata.buyPrice(),
+      columnMetadata.duration(),
+      columnMetadata.sellPrice(),
+      columnMetadata.bankReturn(),
+      columnMetadata.quantity()
+    ];
 
     return (
       <Griddle results={props.stocksInfo} tableClassName="table" showFilter={true} resultsPerPage="10"
-      columns={["stockName","returnTillDate","buyDate","buyPrice","duration","sellPrice","bankSellPrice","quantity",
-      "sellableQuantity"]}
+      columns={["stockName","returnTillDate","buyDate","buyPrice","duration","sellPrice","bankSellPrice","quantity"]}
       columnMetadata={metaData}
       enableInfiniteScroll={true} bodyHeight={400}
       />
