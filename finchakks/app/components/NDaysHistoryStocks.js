@@ -18,7 +18,22 @@ function NDaysHistoryStocks (props) {
   }
   else
   {
-    var metaData=columnMetadata.listColumnMetadata();
+    var metaData=[
+      columnMetadata.stockNameWithOptions(),
+      columnMetadata.smvPercent(),
+      columnMetadata.netNDaysGain(),
+      columnMetadata.score(),
+      columnMetadata.investmentRatio(),
+      columnMetadata.industryInvestmentRatio(),
+      columnMetadata.sellPrice(),
+      columnMetadata.nDay1Gain(),
+      columnMetadata.nDay2Gain(),
+      columnMetadata.nDay3Gain(),
+      columnMetadata.nDay4Gain(),
+      columnMetadata.nDay5Gain(),
+      columnMetadata.nDay6Gain(),
+      columnMetadata.industry()
+    ];
 
     return (
     <div>
