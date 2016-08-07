@@ -17,15 +17,15 @@ var helpers = {
     return nameWithOptions;
   },
 
-  name: function()
+  nameStock: function()
   {
-    var name =
+    var nameStock =
     {
       "columnName": "stockName",
       "displayName": "Stock Name",
       "customComponent": Trim
     };
-    return name;
+    return nameStock;
   },
 
   impact: function()
