@@ -6,6 +6,7 @@ var PromptContainer = React.createClass({
     router: React.PropTypes.object.isRequired
   },
   getInitialState: function () {
+    console.log('in getInitialState');
     return {
       username: ''
     }
@@ -18,6 +19,7 @@ var PromptContainer = React.createClass({
     });
 
     if (this.props.routeParams.playerOne) {
+      console.log('inside this.props.routeParams.playerOne if')
       this.context.router.push({
         pathname: '/battle',
         query: {
@@ -26,6 +28,7 @@ var PromptContainer = React.createClass({
         }
       })
     } else {
+      console.log('inside this.props.routeParams.playerOne else')
       this.context.router.push('/playerTwo/' + this.state.username)
     }
   },

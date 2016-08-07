@@ -15,19 +15,9 @@ var WrapperContainer = React.createClass({
       return (
         <Main>
           <StockExceptionsContainer/>
-
-          <PageHeader>Summary</PageHeader>
           <ProfitAndLossContainer/>
-
-          <PageHeader>Black List</PageHeader>
           <ListBlackListedStocksContainer/>
-
-          <PageHeader>Watch List </PageHeader>
           <NDaysHistoryStocksContainer/>
-
-          <PageHeader>Unrealized</PageHeader>
-          <UnrealizedDetailsContainer/>
-
         </Main>
       )
   }

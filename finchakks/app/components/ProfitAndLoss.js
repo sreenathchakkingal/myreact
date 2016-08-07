@@ -4,6 +4,7 @@ var Loading = require('./Loading');
 var columnMetadata = require('./metadata/columnMetadata');
 var PropTypes = React.PropTypes;
 var Table = require('react-bootstrap/lib/Table');
+var Panel = require('react-bootstrap/lib/Panel');
 var formatter = require('../utils/formatter');
 
 function puke(obj)
@@ -22,26 +23,28 @@ function ProfitAndLoss (props) {
     var stockData = props.stocksInfo;
     return (
       <div>
-      <Table striped bordered condensed hover>
-      <thead>
-        <tr>
-          <th>Return(%)</th>
-          <th>Investment</th>
-          <th>Return</th>
-          <th>Return(Bank)</th>
-          <th>Diff</th>
-        </tr>
-      </thead>
-      <tbody>
-      <tr>
-        <td>{formatter.convertToPercent(stockData.averageReturn)}</td>
-        <td>{formatter.moneyFormat(stockData.totalInvestment)}</td>
-        <td>{formatter.moneyFormat(stockData.totalReturn)}</td>
-        <td>{formatter.moneyFormat(stockData.totalReturnIfBank)}</td>
-        <td>{formatter.moneyFormat(stockData.totalReturnVsIfBank)}</td>
-      </tr>
-      </tbody>
-      </Table>
+        <Panel header='Summary' bsStyle="info">
+          <Table striped bordered condensed hover>
+            <thead>
+              <tr>
+                <th>Return(%)</th>
+                <th>Investment</th>
+                <th>Return</th>
+                <th>Return(Bank)</th>
+                <th>Diff</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{formatter.convertToPercent(stockData.averageReturn)}</td>
+                <td>{formatter.moneyFormat(stockData.totalInvestment)}</td>
+                <td>{formatter.moneyFormat(stockData.totalReturn)}</td>
+                <td>{formatter.moneyFormat(stockData.totalReturnIfBank)}</td>
+                <td>{formatter.moneyFormat(stockData.totalReturnVsIfBank)}</td>
+              </tr>
+            </tbody>
+          </Table>
+        </Panel>
       </div>
     )
   }

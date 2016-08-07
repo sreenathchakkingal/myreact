@@ -4,6 +4,7 @@ var Loading = require('./Loading');
 var columnMetadata = require('./metadata/columnMetadata');
 var PropTypes = React.PropTypes;
 var Griddle = require('griddle-react');
+var Panel = require('react-bootstrap/lib/Panel');
 
 function puke(obj)
 {
@@ -20,16 +21,20 @@ function NDaysHistoryStocks (props) {
     var metaData=columnMetadata.listColumnMetadata();
 
     return (
-      <Griddle results={props.stocksInfo} tableClassName="table" showFilter={true} resultsPerPage="10"
-      columns={
+    <div>
+      <Panel header='Watch List' bsStyle="info">
+        <Griddle results={props.stocksInfo} tableClassName="table" showFilter={true} resultsPerPage="10"
+        columns={
         ["stockName", "simpleMovingAverageAndSellDeltaNormalized", "netNDaysGain",
         "stockRatingValue", "investmentRatio", "industryInvestmentRatio",
-         "sellPrice", "simpleMovingAverage",
+        "sellPrice", "simpleMovingAverage",
         "nDay1Gain","nDay2Gain","nDay3Gain","nDay4Gain","nDay5Gain","nDay6Gain", "industry"]
-      }
-      columnMetadata={metaData}
-      enableInfiniteScroll={true} bodyHeight={400} showSettings={true}
-      />
+        }
+        columnMetadata={metaData}
+        enableInfiniteScroll={true} bodyHeight={400} showSettings={true}
+        />
+      </Panel>
+    </div>
     )
   }
 }

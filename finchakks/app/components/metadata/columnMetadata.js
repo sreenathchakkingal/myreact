@@ -125,11 +125,7 @@ var helpers = {
       "columnName": "buyPrice",
       "displayName": "Buy Price",
       "customComponent": MoneyFormat
-      },
-      {
-      "columnName": "buyDate",
-      "displayName": "Buy Date"
-      },
+    },
       {
       "columnName": "duration",
       "displayName": "Duration"
