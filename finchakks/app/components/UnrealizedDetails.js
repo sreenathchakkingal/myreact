@@ -25,7 +25,7 @@ function UnrealizedDetails (props) {
       columnMetadata.buyPrice(),
       columnMetadata.duration(),
       columnMetadata.sellPrice(),
-      columnMetadata.bankReturn(),
+      columnMetadata.bankSellPrice(),
       columnMetadata.quantity()
     ];
 

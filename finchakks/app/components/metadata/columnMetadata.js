@@ -286,7 +286,19 @@ var helpers = {
       "displayName": "Duration"
     };
     return duration;
+  },
+
+  bankSellPrice: function()
+  {
+    var bankSellPrice=
+    {
+      "columnName": "bankSellPrice",
+      "displayName": "Return(Bank)",
+      "customComponent": MoneyFormat
+    };
+    return bankSellPrice;
   }
+
 /*
   listColumnMetadata: function() {
     var metadata=[
