@@ -24,7 +24,7 @@ var helpers = {
   },
 
   listBlackListedStocks: function() {
-    return getApiResult('unrealizedsummarydbobject')
+    return getApiResult('listBlackListedStocks')
     .then(function(response)
     {
       var stocksInfo= response.data.items;
@@ -117,6 +117,20 @@ var helpers = {
         console.warn('Error in listUnrealizedDetails ', err);
     });
   },
+
+  listUnrealizedSummary: function() {
+    return getApiResult('listUnrealizedSummaryStocks')
+    .then(function(response)
+    {
+      var stocksInfo= response.data.items;
+      return stocksInfo;
+    })
+    .catch(function(err)
+    {
+        console.warn('Error in listUnrealizedSummary', err);
+    });
+  },
+
 
   listUnrealizedSelectedDetails: function(stockName) {
     return getApiResult('unrealizeddetaildbobject/'+stockName)

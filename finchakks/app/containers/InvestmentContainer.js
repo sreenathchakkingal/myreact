@@ -1,5 +1,6 @@
 var React = require('react');
 var UnrealizedDetailsContainer = require("./UnrealizedDetailsContainer");
+var UnrealizedSummaryContainer = require("./UnrealizedSummaryContainer");
 var ProfitAndLossContainer = require("./ProfitAndLossContainer");
 var Main  = require("../components/Main");
 
@@ -12,6 +13,7 @@ var InvestmentContainer = React.createClass({
         <Main>
           <ProfitAndLossContainer/>
           <UnrealizedDetailsContainer/>
+          <UnrealizedSummaryContainer/>
         </Main>
       )
   }
