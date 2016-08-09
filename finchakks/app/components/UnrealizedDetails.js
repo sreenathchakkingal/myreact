@@ -26,13 +26,18 @@ function UnrealizedDetails (props) {
       columnMetadata.duration(),
       columnMetadata.sellPrice(),
       columnMetadata.bankSellPrice(),
-      columnMetadata.quantity()
+      columnMetadata.quantity(),
+      columnMetadata.investment(),
+      columnMetadata.absReturn(),
+      columnMetadata.bankReturn(),
+      columnMetadata.diff()
     ];
 
     return (
       <PanelWrapper header='Unrealized Details'>
         <Griddle results={props.stocksInfo} tableClassName="table" showFilter={true} resultsPerPage="10"
-        columns={["stockName","returnTillDate","buyDate","buyPrice","duration","sellPrice","bankSellPrice","quantity"]}
+        columns={["stockName","returnTillDate","buyDate","buyPrice","duration","sellPrice","bankSellPrice","quantity", "totalInvestment",
+      "totalReturn", "totalReturnIfBank", "diff"]}
         columnMetadata={metaData}
         enableInfiniteScroll={true} bodyHeight={400}
         />

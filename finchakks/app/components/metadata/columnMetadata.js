@@ -297,6 +297,17 @@ var helpers = {
       "customComponent": MoneyFormat
     };
     return bankSellPrice;
+  },
+
+  diff: function()
+  {
+    var diff=
+    {
+      "columnName": "diff",
+      "displayName": "Diff",
+      "customComponent": MoneyFormat
+    };
+    return diff;
   }
 
 /*

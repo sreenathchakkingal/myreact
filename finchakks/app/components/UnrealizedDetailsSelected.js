@@ -52,12 +52,33 @@ function UnrealizedDetailsSelected (props) {
       "columnName": "quantity",
       "displayName": "Qty",
       "customComponent": MoneyFormat
-      }
+    },
+    {
+      "columnName": "totalInvestment",
+      "displayName": "Inv",
+      "customComponent": MoneyFormat
+    },
+    {
+      "columnName": "totalReturn",
+      "displayName": "Return",
+      "customComponent": MoneyFormat
+    },
+    {
+      "columnName": "totalReturnIfBank",
+      "displayName": "Bank",
+      "customComponent": MoneyFormat
+    },
+    {
+      "columnName": "diff",
+      "displayName": "Diff",
+      "customComponent": MoneyFormat
+    }
     ];
 
     return (
       <Griddle results={props.stocksInfo} tableClassName="table" showFilter={true} resultsPerPage="10"
-      columns={["stockName","returnTillDate","duration","buyPrice","sellPrice","bankSellPrice","quantity"]}
+      columns={["stockName","returnTillDate","duration","buyPrice","sellPrice","bankSellPrice","quantity", "totalInvestment",
+    "totalReturn", "totalReturnIfBank", "diff"]}
       columnMetadata={metaData}
       enableInfiniteScroll={true} bodyHeight={400}
       />
