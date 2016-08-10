@@ -293,7 +293,7 @@ var helpers = {
     var bankSellPrice=
     {
       "columnName": "bankSellPrice",
-      "displayName": "Return(Bank)",
+      "displayName": "Sell Price(Bank)",
       "customComponent": MoneyFormat
     };
     return bankSellPrice;
