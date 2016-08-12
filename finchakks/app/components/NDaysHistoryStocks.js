@@ -47,7 +47,7 @@ function NDaysHistoryStocks (props) {
         "nDay1Gain","nDay2Gain","nDay3Gain","nDay4Gain","nDay5Gain","nDay6Gain", "industry"]
         }
         columnMetadata={metaData}
-        enableInfiniteScroll={true} bodyHeight={400} showSettings={true}
+        enableInfiniteScroll={true} bodyHeight={400} showSettings={true} useFixedHeader={true}
         />
       </PanelWrapper>
     </div>

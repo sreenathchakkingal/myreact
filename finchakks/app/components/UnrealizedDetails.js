@@ -39,7 +39,7 @@ function UnrealizedDetails (props) {
         columns={["stockName","returnTillDate","buyDate","buyPrice","duration","sellPrice","bankSellPrice","quantity", "totalInvestment",
       "totalReturn", "totalReturnIfBank", "diff"]}
         columnMetadata={metaData}
-        enableInfiniteScroll={true} bodyHeight={400}
+        enableInfiniteScroll={true} bodyHeight={400} useFixedHeader={true}
         />
       </PanelWrapper>
     )

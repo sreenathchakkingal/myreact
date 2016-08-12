@@ -7,6 +7,7 @@ var MoneyFormat = require('./format/MoneyFormat');
 var ConvertToPercent = require('./format/ConvertToPercent');
 var AppendPercentRoundedOff = require('./format/AppendPercentRoundedOff');
 var ConvertToPercentRoundedOff = require('./format/ConvertToPercentRoundedOff');
+var PanelWrapper = require('./PanelWrapper');
 
 function UnrealizedDetailsSelected (props) {
   if(props.isLoading ===true )
@@ -76,12 +77,14 @@ function UnrealizedDetailsSelected (props) {
     ];
 
     return (
-      <Griddle results={props.stocksInfo} tableClassName="table" showFilter={true} resultsPerPage="10"
-      columns={["stockName","returnTillDate","duration","buyPrice","sellPrice","bankSellPrice","quantity", "totalInvestment",
-    "totalReturn", "totalReturnIfBank", "diff"]}
-      columnMetadata={metaData}
-      enableInfiniteScroll={true} bodyHeight={400}
-      />
+      <PanelWrapper header='Unrealized Details'>
+        <Griddle results={props.stocksInfo} tableClassName="table" showFilter={true} resultsPerPage="10"
+        columns={["stockName","returnTillDate","duration","buyPrice","sellPrice","bankSellPrice","quantity", "totalInvestment",
+      "totalReturn", "totalReturnIfBank", "diff"]}
+        columnMetadata={metaData}
+        enableInfiniteScroll={true} bodyHeight={400}
+        />
+      </PanelWrapper>
     )
   }
 }

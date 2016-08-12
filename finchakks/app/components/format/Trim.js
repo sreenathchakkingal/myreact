@@ -23,9 +23,6 @@ var Trim = React.createClass({
       <div>
         <Button bsStyle="link" bsSize="small" onClick={this.open}>{result}</Button>
         <Modal bsSize="large" aria-labelledby="contained-modal-title-lg" show={this.state.showModal} onHide={this.close}>
-          <Modal.Header closeButton>
-            <Modal.Title>Unrealized Details</Modal.Title>
-          </Modal.Header>
           <Modal.Body>
             <UnrealizedDetailsSelectedContainer stockName={name}/>
           </Modal.Body>

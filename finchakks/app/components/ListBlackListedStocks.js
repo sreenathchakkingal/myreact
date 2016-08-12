@@ -33,7 +33,7 @@ function ListBlackListedStocks (props) {
         <PanelWrapper header='Black List'>
           <Griddle results={props.stocksInfo} tableClassName="table" showFilter={true} resultsPerPage="20"
           columns={["stockName","impactOnAverageReturn","returnTillDate","totalInvestment","totalReturn","totalReturnIfBank","quantity"]}
-          columnMetadata={metaData}/>
+          columnMetadata={metaData} useFixedHeader={true}/>
         </PanelWrapper>
       </div>
     )
