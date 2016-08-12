@@ -36,6 +36,22 @@ var helpers = {
     });
   },
 
+
+  listTargetReachedStocks: function() {
+
+    return getApiResult('listTargetReachedStocks')
+    .then(function(response)
+    {
+      var stocksInfo= response.data.items;
+      console.log('listTargetReachedStocks.stocksInfo ', stocksInfo);
+      return stocksInfo;
+    })
+    .catch(function(err)
+    {
+        console.warn('Error in listTargetReachedStocks ', err);
+    });
+  },
+
   listStockExceptions: function() {
     return getApiResult('stockexceptiondbobject')
     .then(function(response)
