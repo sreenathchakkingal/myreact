@@ -3,7 +3,7 @@ var finchakksapi = require('../utils/finchakksapi');
 var Loading = require('./Loading');
 var PropTypes = React.PropTypes;
 var Table = require('react-bootstrap/lib/Table');
-var PanelWrapper = require('./PanelWrapper');
+var PanelWrapper = require('./wrapper/PanelWrapper');
 var formatter = require('../utils/formatter');
 
 function puke(obj)

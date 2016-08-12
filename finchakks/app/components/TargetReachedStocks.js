@@ -4,7 +4,7 @@ var Loading = require('./Loading');
 var columnMetadata = require('./metadata/columnMetadata');
 var PropTypes = React.PropTypes;
 var Griddle = require('griddle-react');
-var PanelWrapper = require('./PanelWrapper');
+var PanelWrapper = require('./wrapper/PanelWrapper');
 
 function puke(obj)
 {

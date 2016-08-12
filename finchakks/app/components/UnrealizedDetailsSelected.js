@@ -7,7 +7,7 @@ var MoneyFormat = require('./format/MoneyFormat');
 var ConvertToPercent = require('./format/ConvertToPercent');
 var AppendPercentRoundedOff = require('./format/AppendPercentRoundedOff');
 var ConvertToPercentRoundedOff = require('./format/ConvertToPercentRoundedOff');
-var PanelWrapper = require('./PanelWrapper');
+var PanelWrapper = require('./wrapper/PanelWrapper');
 
 function UnrealizedDetailsSelected (props) {
   if(props.isLoading ===true )
