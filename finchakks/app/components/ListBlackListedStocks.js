@@ -3,7 +3,7 @@ var finchakksapi = require('../utils/finchakksapi');
 var Loading = require('./Loading');
 var columnMetadata = require('./metadata/columnMetadata');
 var PropTypes = React.PropTypes;
-var Griddle = require('griddle-react');
+var GriddleWrapper = require('./wrapper/GriddleWrapper');
 var PanelWrapper = require('./wrapper/PanelWrapper');
 
 function puke(obj)
@@ -31,9 +31,9 @@ function ListBlackListedStocks (props) {
     return (
       <div>
         <PanelWrapper header='Black List'>
-          <Griddle results={props.stocksInfo} tableClassName="table" showFilter={true} resultsPerPage="20"
+          <GriddleWrapper results={props.stocksInfo}
           columns={["stockName","impactOnAverageReturn","returnTillDate","totalInvestment","totalReturn","totalReturnIfBank","quantity"]}
-          columnMetadata={metaData} useFixedHeader={true}/>
+          columnMetadata={metaData} />
         </PanelWrapper>
       </div>
     )

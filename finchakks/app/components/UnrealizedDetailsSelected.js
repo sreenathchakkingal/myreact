@@ -1,13 +1,13 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
 var Loading = require('./Loading');
-var Griddle = require('griddle-react');
 var AppendPercent = require('./format/AppendPercent');
 var MoneyFormat = require('./format/MoneyFormat');
 var ConvertToPercent = require('./format/ConvertToPercent');
 var AppendPercentRoundedOff = require('./format/AppendPercentRoundedOff');
 var ConvertToPercentRoundedOff = require('./format/ConvertToPercentRoundedOff');
 var PanelWrapper = require('./wrapper/PanelWrapper');
+var GriddleWrapper = require('./wrapper/GriddleWrapper');
 
 function UnrealizedDetailsSelected (props) {
   if(props.isLoading ===true )
@@ -78,11 +78,10 @@ function UnrealizedDetailsSelected (props) {
 
     return (
       <PanelWrapper header='Unrealized Details'>
-        <Griddle results={props.stocksInfo} tableClassName="table" showFilter={true} resultsPerPage="10"
+        <GriddleWrapper results={props.stocksInfo}
         columns={["stockName","returnTillDate","duration","buyPrice","sellPrice","bankSellPrice","quantity", "totalInvestment",
       "totalReturn", "totalReturnIfBank", "diff"]}
         columnMetadata={metaData}
-        enableInfiniteScroll={true} bodyHeight={400}
         />
       </PanelWrapper>
     )

@@ -3,8 +3,9 @@ var finchakksapi = require('../utils/finchakksapi');
 var Loading = require('./Loading');
 var columnMetadata = require('./metadata/columnMetadata');
 var PropTypes = React.PropTypes;
-var Griddle = require('griddle-react');
+// var Griddle = require('griddle-react');
 var PanelWrapper = require('./wrapper/PanelWrapper');
+var GriddleWrapper = require('./wrapper/GriddleWrapper');
 
 function puke(obj)
 {
@@ -39,16 +40,14 @@ function NDaysHistoryStocks (props) {
     return (
     <div>
       <PanelWrapper header='Watch List'>
-        <Griddle results={props.stocksInfo} tableClassName="table" showFilter={true} resultsPerPage="10"
+        <GriddleWrapper results={props.stocksInfo}
         columns={
         ["stockName", "simpleMovingAverageAndSellDeltaNormalized", "netNDaysGain",
         "stockRatingValue", "investmentRatio", "industryInvestmentRatio",
         "sellPrice", "simpleMovingAverage",
         "nDay1Gain","nDay2Gain","nDay3Gain","nDay4Gain","nDay5Gain","nDay6Gain", "industry"]
         }
-        columnMetadata={metaData}
-        enableInfiniteScroll={true} bodyHeight={400} showSettings={true} useFixedHeader={true}
-        />
+        columnMetadata={metaData} />
       </PanelWrapper>
     </div>
     )
@@ -57,7 +56,7 @@ function NDaysHistoryStocks (props) {
 
 NDaysHistoryStocks.propTypes = {
   isLoading: PropTypes.bool.isRequired,
-  stocksInfo:PropTypes.array.isRequired
+  stocksInfo: PropTypes.array.isRequired
 }
 
 module.exports = NDaysHistoryStocks

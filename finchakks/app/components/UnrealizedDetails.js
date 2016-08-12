@@ -3,7 +3,7 @@ var finchakksapi = require('../utils/finchakksapi');
 var Loading = require('./Loading');
 var columnMetadata = require('./metadata/columnMetadata');
 var PropTypes = React.PropTypes;
-var Griddle = require('griddle-react');
+var GriddleWrapper = require('./wrapper/GriddleWrapper');
 var PanelWrapper = require('./wrapper/PanelWrapper');
 
 function puke(obj)
@@ -35,11 +35,10 @@ function UnrealizedDetails (props) {
 
     return (
       <PanelWrapper header='Unrealized Details'>
-        <Griddle results={props.stocksInfo} tableClassName="table" showFilter={true} resultsPerPage="10"
+        <GriddleWrapper results={props.stocksInfo}
         columns={["stockName","returnTillDate","buyDate","buyPrice","duration","sellPrice","bankSellPrice","quantity", "totalInvestment",
-      "totalReturn", "totalReturnIfBank", "diff"]}
+          "totalReturn", "totalReturnIfBank", "diff"]}
         columnMetadata={metaData}
-        enableInfiniteScroll={true} bodyHeight={400} useFixedHeader={true}
         />
       </PanelWrapper>
     )

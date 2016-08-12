@@ -3,7 +3,7 @@ var finchakksapi = require('../utils/finchakksapi');
 var Loading = require('./Loading');
 var columnMetadata = require('./metadata/columnMetadata');
 var PropTypes = React.PropTypes;
-var Griddle = require('griddle-react');
+var GriddleWrapper = require('./wrapper/GriddleWrapper');
 var PanelWrapper = require('./wrapper/PanelWrapper');
 
 function puke(obj)
@@ -33,11 +33,10 @@ function TargetReachedStocks (props) {
 
     return (
       <PanelWrapper header='Target Reached Stocks'>
-        <Griddle results={props.stocksInfo} tableClassName="table" showFilter={true} resultsPerPage="10"
+        <GriddleWrapper results={props.stocksInfo}
         columns={["stockName","duration","quantity","buyPrice","totalInvestment", "returnTillDate","sellPrice","targetReturnPercent",
         "targetSellPrice","targetDate",  ]}
         columnMetadata={metaData}
-        enableInfiniteScroll={true} bodyHeight={400} useFixedHeader={true}
         />
       </PanelWrapper>
     )
