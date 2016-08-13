@@ -310,36 +310,68 @@ var helpers = {
     return diff;
   },
 
-  targetReturnPercent: function()
+  lowerReturnPercentTarget: function()
   {
-    var targetReturnPercent=
+    var lowerReturnPercentTarget=
     {
-      "columnName": "targetReturnPercent",
-      "displayName": "Target Return %",
+      "columnName": "lowerReturnPercentTarget",
+      "displayName": "L. Target Return %",
       "customComponent": AppendPercent
     };
-    return targetReturnPercent;
+    return lowerReturnPercentTarget;
   },
 
-  targetSellPrice: function()
+  upperReturnPercentTarget: function()
   {
-    var targetSellPrice=
+    var upperReturnPercentTarget=
     {
-      "columnName": "targetSellPrice",
-      "displayName": "Target Price",
+      "columnName": "upperReturnPercentTarget",
+      "displayName": "U. Target Return %",
+      "customComponent": AppendPercent
+    };
+    return upperReturnPercentTarget;
+  },
+
+  lowerSellPriceTarget: function()
+  {
+    var lowerSellPriceTarget=
+    {
+      "columnName": "lowerSellPriceTarget",
+      "displayName": "L. Target Price",
       "customComponent": MoneyFormat
     };
-    return targetSellPrice;
+    return lowerSellPriceTarget;
   },
 
-  targetDate: function()
+  upperSellPriceTarget: function()
   {
-    var targetDate=
+    var upperSellPriceTarget=
     {
-      "columnName": "targetDate",
-      "displayName": "Target Date"
+      "columnName": "upperSellPriceTarget",
+      "displayName": "U. Target Price",
+      "customComponent": MoneyFormat
     };
-    return targetDate;
+    return upperSellPriceTarget;
+  },
+
+  achieveAfterDate: function()
+  {
+    var achieveAfterDate=
+    {
+      "columnName": "achieveAfterDate",
+      "displayName": "Achieve After"
+    };
+    return achieveAfterDate;
+  },
+
+  achieveByDate: function()
+  {
+    var achieveByDate=
+    {
+      "columnName": "achieveByDate",
+      "displayName": "Achieve By"
+    };
+    return achieveByDate;
   }
 
 };

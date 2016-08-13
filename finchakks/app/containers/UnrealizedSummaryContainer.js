@@ -1,5 +1,5 @@
 var React = require('react');
-var UnrealizedDetails = require('../components/UnrealizedDetails');
+var UnrealizedSummary = require('../components/UnrealizedSummary');
 var finchakksapi = require('../utils/finchakksapi');
 
 var UnrealizedSummaryContainer = React.createClass({
@@ -28,7 +28,7 @@ var UnrealizedSummaryContainer = React.createClass({
 
 render: function () {
     return (
-      <UnrealizedDetails isLoading={this.state.isLoading}
+      <UnrealizedSummary isLoading={this.state.isLoading}
       stocksInfo={this.state.stocksInfo}
       />
     )

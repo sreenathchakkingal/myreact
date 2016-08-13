@@ -26,16 +26,20 @@ function TargetReachedStocks (props) {
       columnMetadata.investment(),
       columnMetadata.returnPercent(),
       columnMetadata.sellPrice(),
-      columnMetadata.targetReturnPercent(),
-      columnMetadata.targetSellPrice(),
-      columnMetadata.targetDate()
+      columnMetadata.lowerReturnPercentTarget(),
+      columnMetadata.upperReturnPercentTarget(),
+      columnMetadata.lowerSellPriceTarget(),
+      columnMetadata.upperSellPriceTarget(),
+      columnMetadata.achieveAfterDate(),
+      columnMetadata.achieveAfterDate()
     ];
 
     return (
       <PanelWrapper header='Target Reached Stocks'>
         <GriddleWrapper results={props.stocksInfo}
-        columns={["stockName","duration","quantity","buyPrice","totalInvestment", "returnTillDate","sellPrice","targetReturnPercent",
-        "targetSellPrice","targetDate",  ]}
+        columns={["stockName","duration","quantity","buyPrice","totalInvestment", "returnTillDate","sellPrice",
+        "lowerReturnPercentTarget","upperReturnPercentTarget","lowerSellPriceTarget","upperSellPriceTarget",
+        "achieveAfterDate","achieveByDate"]}
         columnMetadata={metaData}
         />
       </PanelWrapper>

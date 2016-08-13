@@ -10,33 +10,27 @@ function puke(obj)
   return <pre>{JSON.stringify(obj , null, ' ')}</pre>
 }
 
-function UnrealizedDetails (props) {
+function UnrealizedSummary (props) {
   if(props.isLoading ===true )
   {
-  return <Loading text='Loading UnrealizedDetails'/>;
+  return <Loading text='Loading UnrealizedSummary'/>;
   }
   else
   {
     var metaData=[
       columnMetadata.stockNameWithOptions(),
       columnMetadata.returnPercent(),
-      columnMetadata.buyDate(),
-      columnMetadata.buyPrice(),
-      columnMetadata.duration(),
-      columnMetadata.sellPrice(),
-      columnMetadata.bankSellPrice(),
       columnMetadata.quantity(),
       columnMetadata.investment(),
       columnMetadata.absReturn(),
       columnMetadata.bankReturn(),
-      columnMetadata.diff()
+      columnMetadata.impact()
     ];
 
     return (
-      <PanelWrapper header='Unrealized Details'>
+      <PanelWrapper header='Unrealized Summary'>
         <GriddleWrapper results={props.stocksInfo}
-        columns={["stockName","returnTillDate","buyDate","buyPrice","duration","sellPrice","bankSellPrice","quantity", "totalInvestment",
-          "totalReturn", "totalReturnIfBank", "diff"]}
+        columns={["stockName","returnTillDate","quantity", "totalInvestment","totalReturn", "totalReturnIfBank","impactOnAverageReturn"]}
         columnMetadata={metaData}
         />
       </PanelWrapper>
@@ -44,9 +38,9 @@ function UnrealizedDetails (props) {
   }
 }
 
-UnrealizedDetails.propTypes = {
+UnrealizedSummary.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   stocksInfo:PropTypes.array.isRequired
 }
 
-module.exports = UnrealizedDetails
+module.exports = UnrealizedSummary
