@@ -2,6 +2,7 @@ var React = require('react');
 var UnrealizedDetailsContainer = require("./UnrealizedDetailsContainer");
 var UnrealizedSummaryContainer = require("./UnrealizedSummaryContainer");
 var ProfitAndLossContainer = require("./ProfitAndLossContainer");
+var TargetReachedStocksContainer = require("./TargetReachedStocksContainer");
 var Main  = require("../components/Main");
 
 var InvestmentContainer = React.createClass({
@@ -12,6 +13,7 @@ var InvestmentContainer = React.createClass({
       return (
         <Main>
           <ProfitAndLossContainer/>
+          <TargetReachedStocksContainer/>
           <UnrealizedDetailsContainer/>
           <UnrealizedSummaryContainer/>
         </Main>

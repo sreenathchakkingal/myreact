@@ -38,7 +38,6 @@ var helpers = {
 
 
   listTargetReachedStocks: function() {
-
     return getApiResult('listTargetReachedStocks')
     .then(function(response)
     {
