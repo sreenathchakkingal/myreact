@@ -42,7 +42,6 @@ var helpers = {
     .then(function(response)
     {
       var stocksInfo= response.data.items;
-      console.log('listTargetReachedStocks.stocksInfo ', stocksInfo);
       return stocksInfo;
     })
     .catch(function(err)

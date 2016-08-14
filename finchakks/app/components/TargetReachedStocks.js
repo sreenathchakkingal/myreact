@@ -39,9 +39,8 @@ function TargetReachedStocks (props) {
     return (
       <PanelWrapper header='Target Reached Stocks'>
         <GriddleWrapper results={props.stocksInfo}
-        columns={["stockName","quantity", "totalInvestment","totalReturn", "totalReturnIfBank",
-        "impactOnAverageReturn","diff","sellPrice","returnTillDate", "lowerReturnPercentTarget","upperReturnPercentTarget","lowerSellPriceTarget",
-        "upperSellPriceTarget","achieveAfterDate","achieveByDate"
+        columns={["stockName","returnTillDate", "lowerReturnPercentTarget","upperReturnPercentTarget",
+         "quantity", "totalInvestment","totalReturn"
         ]}
         columnMetadata={metaData}
         />
