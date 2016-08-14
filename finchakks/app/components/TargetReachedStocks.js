@@ -20,26 +20,29 @@ function TargetReachedStocks (props) {
   {
     var metaData=[
       columnMetadata.stockNameWithOptions(),
-      columnMetadata.duration(),
-      columnMetadata.quantity(),
-      columnMetadata.buyPrice(),
-      columnMetadata.investment(),
       columnMetadata.returnPercent(),
-      columnMetadata.sellPrice(),
+      columnMetadata.quantity(),
+      columnMetadata.investment(),
+      columnMetadata.absReturn(),
+      columnMetadata.bankReturn(),
+      columnMetadata.impact(),
+      columnMetadata.diff(),
       columnMetadata.lowerReturnPercentTarget(),
       columnMetadata.upperReturnPercentTarget(),
       columnMetadata.lowerSellPriceTarget(),
       columnMetadata.upperSellPriceTarget(),
       columnMetadata.achieveAfterDate(),
-      columnMetadata.achieveAfterDate()
+      columnMetadata.achieveByDate(),
+      columnMetadata.sellPrice()
     ];
 
     return (
       <PanelWrapper header='Target Reached Stocks'>
         <GriddleWrapper results={props.stocksInfo}
-        columns={["stockName","duration","quantity","buyPrice","totalInvestment", "returnTillDate","sellPrice",
-        "lowerReturnPercentTarget","upperReturnPercentTarget","lowerSellPriceTarget","upperSellPriceTarget",
-        "achieveAfterDate","achieveByDate"]}
+        columns={["stockName","quantity", "totalInvestment","totalReturn", "totalReturnIfBank",
+        "impactOnAverageReturn","diff","sellPrice","returnTillDate", "lowerReturnPercentTarget","upperReturnPercentTarget","lowerSellPriceTarget",
+        "upperSellPriceTarget","achieveAfterDate","achieveByDate"
+        ]}
         columnMetadata={metaData}
         />
       </PanelWrapper>
