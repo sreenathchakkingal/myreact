@@ -6,9 +6,9 @@ var hashHistory = ReactRouter.hashHistory;
 var IndexRoute = ReactRouter.IndexRoute;
 var Main = require('../components/Main');
 var Home = require("../components/Home");
-var WrapperContainer = require("../containers/WrapperContainer");
-var InvestmentContainer = require("../containers/InvestmentContainer");
-var DeprecatedContainer = require("../containers/DeprecatedContainer");
+var WrapperContainer = require("../containers/wrapper/WrapperContainer");
+var InvestmentContainer = require("../containers/wrapper/InvestmentContainer");
+var DeprecatedContainer = require("../containers/wrapper/DeprecatedContainer");
 
 var routes = (
   <Router history={hashHistory}>

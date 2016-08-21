@@ -1,9 +1,9 @@
 var React = require('react');
-var StockExceptionsContainer = require("./StockExceptionsContainer");
-var NDaysHistoryStocksContainer = require("./NDaysHistoryStocksContainer");
-var ProfitAndLossContainer = require("./ProfitAndLossContainer");
-var TargetReachedStocksContainer = require('./TargetReachedStocksContainer');
-var Main  = require("../components/Main");
+var StockExceptionsContainer = require("../StockExceptionsContainer");
+var NDaysHistoryStocksContainer = require("../NDaysHistoryStocksContainer");
+var ProfitAndLossContainer = require("../ProfitAndLossContainer");
+var TargetReachedStocksContainer = require('../TargetReachedStocksContainer');
+var Main  = require("../../components/Main");
 
 var WrapperContainer = React.createClass({
     render: function () {

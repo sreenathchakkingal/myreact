@@ -1,6 +1,6 @@
 var React = require('react');
-var ListBlackListedStocksContainer = require("./ListBlackListedStocksContainer");
-var Main  = require("../components/Main");
+var ListBlackListedStocksContainer = require("../ListBlackListedStocksContainer");
+var Main  = require("../../components/Main");
 
 var DeprecatedContainer = React.createClass({
     render: function () {
