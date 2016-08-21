@@ -1,11 +1,9 @@
 var React = require('react');
-var ListBlackListedStocksContainer = require("./ListBlackListedStocksContainer");
 var StockExceptionsContainer = require("./StockExceptionsContainer");
 var NDaysHistoryStocksContainer = require("./NDaysHistoryStocksContainer");
 var ProfitAndLossContainer = require("./ProfitAndLossContainer");
+var TargetReachedStocksContainer = require('./TargetReachedStocksContainer');
 var Main  = require("../components/Main");
-var Nav = require('react-bootstrap/lib/Nav');
-var NavItem = require('react-bootstrap/lib/NavItem');
 
 var WrapperContainer = React.createClass({
   contextTypes: {
@@ -16,7 +14,7 @@ var WrapperContainer = React.createClass({
         <Main>
           <StockExceptionsContainer/>
           <ProfitAndLossContainer/>
-          <ListBlackListedStocksContainer/>
+          <TargetReachedStocksContainer/>
           <NDaysHistoryStocksContainer/>
         </Main>
       )
