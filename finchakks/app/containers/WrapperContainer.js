@@ -6,9 +6,6 @@ var TargetReachedStocksContainer = require('./TargetReachedStocksContainer');
 var Main  = require("../components/Main");
 
 var WrapperContainer = React.createClass({
-  contextTypes: {
-      router: React.PropTypes.object.isRequired
-    },
     render: function () {
       return (
         <Main>
