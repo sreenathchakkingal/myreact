@@ -1,7 +1,11 @@
 var axios = require('axios');
 
-function getApiResult(methodName) {
+function getInitializeApiResult(methodName) {
     return axios.get('https://finchakks.appspot.com/_ah/api/initalizeControllerEndPoint/v1/' +methodName);
+}
+
+function getMaintApiResult(methodName) {
+    return axios.get('https://finchakks.appspot.com/_ah/api/maintainanceControllerEndPoint/v1/' +methodName);
 }
 
 function puke(obj)
@@ -11,7 +15,7 @@ function puke(obj)
 
 var helpers = {
   listprofitAndloss: function() {
-    return getApiResult('profitandlossdbobject')
+    return getInitializeApiResult('profitandlossdbobject')
     .then(function(response)
     {
       var stocksInfo= response.data;
@@ -23,8 +27,34 @@ var helpers = {
     });
   },
 
+  listStockTargets: function() {
+    return getInitializeApiResult('listStockTargets')
+    .then(function(response)
+    {
+      var stocksInfo= response.data.items;
+      return stocksInfo;
+    })
+    .catch(function(err)
+    {
+        console.warn('Error in listStockTargets ', err);
+    });
+  },
+
+  getModifiableStockAttributes: function(stockName) {
+    return getMaintApiResult('getModifiableStockAttributes')
+    .then(function(response)
+    {
+      var stocksInfo= response.data;
+      return stocksInfo;
+    })
+    .catch(function(err)
+    {
+        console.warn('Error in getModifiableStockAttributes ', err);
+    });
+  },
+
   listBlackListedStocks: function() {
-    return getApiResult('listBlackListedStocks')
+    return getInitializeApiResult('listBlackListedStocks')
     .then(function(response)
     {
       var stocksInfo= response.data.items;
@@ -38,7 +68,7 @@ var helpers = {
 
 
   listTargetReachedStocks: function() {
-    return getApiResult('listTargetReachedStocks')
+    return getInitializeApiResult('listTargetReachedStocks')
     .then(function(response)
     {
       var stocksInfo= response.data.items;
@@ -51,7 +81,7 @@ var helpers = {
   },
 
   listStockExceptions: function() {
-    return getApiResult('stockexceptiondbobject')
+    return getInitializeApiResult('stockexceptiondbobject')
     .then(function(response)
     {
       var stocksInfo= response.data.items;
@@ -65,7 +95,7 @@ var helpers = {
 
   listNDaysHistoryStocks: function() {
 
-    return getApiResult('ndayshistoryflatteneddbobject')
+    return getInitializeApiResult('ndayshistoryflatteneddbobject')
     .then(function(response)
     {
       var stocksInfo= response.data.items;
@@ -120,7 +150,7 @@ var helpers = {
   },
 
   listUnrealizedDetails: function() {
-    return getApiResult('unrealizeddetaildbobject')
+    return getInitializeApiResult('unrealizeddetaildbobject')
     .then(function(response)
     {
       var stocksInfo= response.data.items;
@@ -133,7 +163,7 @@ var helpers = {
   },
 
   listUnrealizedSummary: function() {
-    return getApiResult('listUnrealizedSummaryStocks')
+    return getInitializeApiResult('listUnrealizedSummaryStocks')
     .then(function(response)
     {
       var stocksInfo= response.data.items;
@@ -147,7 +177,7 @@ var helpers = {
 
 
   listUnrealizedSelectedDetails: function(stockName) {
-    return getApiResult('unrealizeddetaildbobject/'+stockName)
+    return getInitializeApiResult('unrealizeddetaildbobject/'+stockName)
     .then(function(response)
     {
       var stocksInfo= response.data.items;

@@ -9,6 +9,7 @@ var Home = require("../components/Home");
 var WrapperContainer = require("../containers/wrapper/WrapperContainer");
 var InvestmentContainer = require("../containers/wrapper/InvestmentContainer");
 var DeprecatedContainer = require("../containers/wrapper/DeprecatedContainer");
+var MaintenanceContainer = require("../containers/wrapper/MaintenanceContainer");
 
 var routes = (
   <Router history={hashHistory}>
@@ -16,6 +17,7 @@ var routes = (
       <IndexRoute component={WrapperContainer} />
       <Route path='investment' component={InvestmentContainer} />
       <Route path='deprecated' component={DeprecatedContainer} />
+      <Route path='maint' component={MaintenanceContainer} />
     </Route>
   </Router>
 );

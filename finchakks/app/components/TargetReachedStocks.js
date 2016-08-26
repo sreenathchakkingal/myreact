@@ -14,7 +14,7 @@ function puke(obj)
 function TargetReachedStocks (props) {
   if(props.isLoading ===true )
   {
-  return <Loading text='Loading TargetReachedStocks'/>;
+    return <Loading text='Loading TargetReachedStocks'/>;
   }
   else
   {
