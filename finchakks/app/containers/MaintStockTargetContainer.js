@@ -27,7 +27,7 @@ var MaintStockTargetContainer = React.createClass({
       }
     );
 
-    finchakksapi.getModifiableStockAttributes(this.props.stockName).
+    finchakksapi.getModifiableStockAttributes(stockNameTemp).
     then(function(stocksInfoResult)
     {
       this.setState({
@@ -41,13 +41,6 @@ var MaintStockTargetContainer = React.createClass({
 
   render: function () {
       return (
-        // <form>
-        //     <label>Stock Name</label>
-        //     <input type='text' onChange={this.handleChange}/>
-        //     <FormControl.Feedback />
-        //     <Button type='submit' onClick={this.handleSubmit}>Submit</Button>
-        //   </form>
-
         <MaintStockTarget
         isStocksInfoRetrieving={this.state.isStocksInfoRetrieving}
         onStockNameSubmit={this.handleSubmit}

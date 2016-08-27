@@ -17,7 +17,6 @@ function puke(obj)
 }
 
 function MaintStockTarget (props) {
-  console.log('in MaintStockTarget ', props.isStocksInfoRetrieved);
   var isRetrieving=props.isStocksInfoRetrieving;
   var isRetrieved = props.isStocksInfoRetrieved;
   return(
@@ -28,11 +27,13 @@ function MaintStockTarget (props) {
         <FormControl type="text"  onChange={props.onCaptureChange}/>
       </FormGroup>
       {' '}
+
       <Button bsStyle="primary" bsSize="small" disabled={isRetrieving} type="submit" onClick={!isRetrieving ? props.onStockNameSubmit : null}>
         {isRetrieving ? 'Retrieving...' : 'Retrieve All Details'}
       </Button>
 
-      <ModifiableAttributes isRetrieved={isRetrieved} stocksInfo={props.stocksInfo}/>
+      <ModifiableAttributes isRetrieved={isRetrieved} stocksInfo={props.stocksInfo} refreshRequest='true'/>
+
 
     </Form>
 

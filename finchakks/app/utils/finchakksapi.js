@@ -1,11 +1,17 @@
 var axios = require('axios');
 
+var maintEndPoint = 'https://finchakks.appspot.com/_ah/api/maintainanceControllerEndPoint/v1/';
+
 function getInitializeApiResult(methodName) {
     return axios.get('https://finchakks.appspot.com/_ah/api/initalizeControllerEndPoint/v1/' +methodName);
 }
 
 function getMaintApiResult(methodName) {
-    return axios.get('https://finchakks.appspot.com/_ah/api/maintainanceControllerEndPoint/v1/' +methodName);
+    return axios.get(maintEndPoint +methodName);
+}
+
+function putMaintApiResult(isWatchListedTemp, stockNameTemp) {
+  return axios.post('https://finchakks.appspot.com/_ah/api/maintainanceControllerEndPoint/v1/updateStockAttributes?isWatchListed=isWatchListed&stockName=isWatchListed');
 }
 
 function puke(obj)
@@ -24,6 +30,18 @@ var helpers = {
     .catch(function(err)
     {
         console.warn('Error in listprofitAndloss ', err);
+    });
+  },
+
+  updateStockAttributes: function(stockName, isWatchListed) {
+    return putMaintApiResult('updateStockAttributes?isWatchListed'+isWatchListed+'&stockName='+stockName)
+    .then(function(response)
+    {
+      return response.data;
+    })
+    .catch(function(err)
+    {
+        console.warn('Error in updateStockAttributes ', err);
     });
   },
 
