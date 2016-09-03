@@ -24,7 +24,7 @@ function MaintStockTarget (props) {
       <FormGroup controlId="formControlsText">
         <ControlLabel >Stock Name</ControlLabel>
         {' '}
-        <FormControl type="text"  onChange={props.onCaptureChange}/>
+        <FormControl type="text"  onChange={props.onCaptureChange} />
       </FormGroup>
       {' '}
 
@@ -32,7 +32,7 @@ function MaintStockTarget (props) {
         {isRetrieving ? 'Retrieving...' : 'Retrieve All Details'}
       </Button>
 
-      <ModifiableAttributes isRetrieved={isRetrieved} stocksInfo={props.stocksInfo} refreshRequest='true'/>
+      <ModifiableAttributes isRetrieved={isRetrieved} stocksInfo={props.stocksInfo} />
 
 
     </Form>

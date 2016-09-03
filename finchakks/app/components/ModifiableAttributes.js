@@ -6,6 +6,7 @@ var Button = require('react-bootstrap/lib/Button');
 var ControlLabel = require('react-bootstrap/lib/ControlLabel');
 var Table = require('react-bootstrap/lib/Table');
 var finchakksapi = require('../utils/finchakksapi');
+var SelectorWrapper = require('./wrapper/SelectorWrapper');
 
 var ModifiableAttributes = React.createClass({
   getInitialState: function () {
@@ -55,10 +56,14 @@ var ModifiableAttributes = React.createClass({
 
   render: function () {
     var refreshRequestTemp=this.props.refreshRequest;
-    console.log('in render ', refreshRequestTemp);
+    var yes = 'Yes';
+    var no = 'No';
     if(this.props.isRetrieved ===true )
     {
       var info = this.props.stocksInfo.items[0];
+      var defaultWatchListed =info.watchListed ? yes : no ;
+      var wathListOptions=['Yes', 'No'];
+
       return(
         <div>
           <Table striped bordered condensed hover>
@@ -78,8 +83,14 @@ var ModifiableAttributes = React.createClass({
               <tr>
                 <td>Is Watch Listed </td>
                 <td>{info.isWatchListed}</td>
-                <td><FormControl type="text" onChange={this.handleIsWatchlistedChange}/></td>
+                <td><SelectorWrapper onChange={this.handleIsWatchlistedChange} defaultValue = {defaultWatchListed}  options={wathListOptions}/></td>
               </tr>
+              {
+                info.ratings.forEach(function(entry) {
+                  <tr>something</tr>
+              console.log('info.ratings blah', entry);
+              })
+            }
             </tbody>
           </Table>
 

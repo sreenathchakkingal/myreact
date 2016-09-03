@@ -59,7 +59,7 @@ var helpers = {
   },
 
   getModifiableStockAttributes: function(stockName) {
-    return getMaintApiResult('getModifiableStockAttributes')
+    return getMaintApiResult('getModifiableStockAttributes?stockName='+'BPCL')
     .then(function(response)
     {
       var stocksInfo= response.data;
