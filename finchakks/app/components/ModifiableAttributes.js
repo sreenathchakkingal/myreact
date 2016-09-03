@@ -87,8 +87,7 @@ var ModifiableAttributes = React.createClass({
               </tr>
               {
                 info.ratings.forEach(function(entry) {
-                  <tr>something</tr>
-              console.log('info.ratings blah', entry);
+                  return <tr>something</tr>
               })
             }
             </tbody>
