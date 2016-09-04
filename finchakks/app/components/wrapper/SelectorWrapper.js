@@ -1,5 +1,4 @@
 var React = require('react');
-var Panel = require('react-bootstrap/lib/Panel');
 var PropTypes = React.PropTypes;
 var FormGroup = require('react-bootstrap/lib/FormGroup');
 var FormControl = require('react-bootstrap/lib/FormControl');

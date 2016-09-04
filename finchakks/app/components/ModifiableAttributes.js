@@ -7,6 +7,7 @@ var ControlLabel = require('react-bootstrap/lib/ControlLabel');
 var Table = require('react-bootstrap/lib/Table');
 var finchakksapi = require('../utils/finchakksapi');
 var SelectorWrapper = require('./wrapper/SelectorWrapper');
+var StockRatingsWrapper = require('./wrapper/StockRatingsWrapper');
 
 var ModifiableAttributes = React.createClass({
   getInitialState: function () {
@@ -54,6 +55,10 @@ var ModifiableAttributes = React.createClass({
     })
    },
 
+   handleRatingsChange(e) {
+     console.log('handleRatingsChange.e.target.value ', e.target.value);
+   },
+
   render: function () {
     var refreshRequestTemp=this.props.refreshRequest;
     var yes = 'Yes';
@@ -63,6 +68,21 @@ var ModifiableAttributes = React.createClass({
       var info = this.props.stocksInfo.items[0];
       var defaultWatchListed =info.watchListed ? yes : no ;
       var wathListOptions=['Yes', 'No'];
+      var ratingValues=['Good', 'Average', 'Bad', 'Not Rated'];
+
+      var rows = [];
+      for (var i=0; i < info.ratings.length ; i++) {
+          console.log('info.ratings[i] ', info.ratings[i]);
+          rows.push(
+            <StockRatingsWrapper  ratingName={info.ratings[i].ratingName}
+                                  ratingValue={info.ratings[i].ratingValue}
+                                  onChange={this.handleRatingsChange}
+                                  defaultValue = {info.ratings[i].ratingValue}
+                                  options={ratingValues}
+            />
+
+          );
+      }
 
       return(
         <div>
@@ -83,13 +103,13 @@ var ModifiableAttributes = React.createClass({
               <tr>
                 <td>Is Watch Listed </td>
                 <td>{info.isWatchListed}</td>
-                <td><SelectorWrapper onChange={this.handleIsWatchlistedChange} defaultValue = {defaultWatchListed}  options={wathListOptions}/></td>
+                <td>
+                  <SelectorWrapper  onChange={this.handleIsWatchlistedChange}
+                                    defaultValue = {defaultWatchListed}
+                                    options={wathListOptions} />
+                </td>
               </tr>
-              {
-                info.ratings.forEach(function(entry) {
-                  return <tr>something</tr>
-              })
-            }
+              {rows}
             </tbody>
           </Table>
 
