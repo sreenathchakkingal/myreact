@@ -33,27 +33,6 @@ var helpers = {
     });
   },
 
-  updateStockAttributes: function(stockName, isWatchListed, stockRatings) {
-    var stockRatingsFlattened = '';
-
-    console.log('stockRatings.length ', stockRatings.length);
-    for (var i=0; i<stockRatings.length ; i++)
-    {
-        var ratingSpaceReplacedWithPlus = stockRatings[i].split(' ').join('+');
-        stockRatingsFlattened = stockRatingsFlattened + '&stockRatings='+ratingSpaceReplacedWithPlus;
-    }
-    console.log('stockRatingsFlattened ', stockRatingsFlattened);
-    return postMaintApiResult('updateStockAttributes?isWatchListed'+isWatchListed+'&stockName='+stockName)
-    .then(function(response)
-    {
-      return response.data;
-    })
-    .catch(function(err)
-    {
-        console.warn('Error in updateStockAttributes ', err);
-    });
-  },
-
   listStockTargets: function() {
     return getInitializeApiResult('listStockTargets')
     .then(function(response)
@@ -77,6 +56,33 @@ var helpers = {
     .catch(function(err)
     {
         console.warn('Error in getModifiableStockAttributes ', err);
+    });
+  },
+
+  updateStockAttributes: function(stockName, moneycontrolStockName,
+     isWatchListed, lowerReturnPercentTarget, upperReturnPercentTarget, stockRatings) {
+    var stockRatingsFlattened = '';
+    var apiParams='updateStockAttributes?';
+    if(isWatchListed != '')
+    {
+      apiParams=
+    }
+
+    console.log('stockRatings.length ', stockRatings.length);
+    for (var i=0; i<stockRatings.length ; i++)
+    {
+        var ratingSpaceReplacedWithPlus = stockRatings[i].split(' ').join('+');
+        stockRatingsFlattened = stockRatingsFlattened + '&stockRatings='+ratingSpaceReplacedWithPlus;
+    }
+    console.log('stockRatingsFlattened ', stockRatingsFlattened);
+    return postMaintApiResult('updateStockAttributes?isWatchListed'+isWatchListed+'&stockName='+stockName)
+    .then(function(response)
+    {
+      return response.data;
+    })
+    .catch(function(err)
+    {
+        console.warn('Error in updateStockAttributes ', err);
     });
   },
 

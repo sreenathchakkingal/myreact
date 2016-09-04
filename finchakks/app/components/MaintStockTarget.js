@@ -28,7 +28,8 @@ function MaintStockTarget (props) {
       </FormGroup>
       {' '}
 
-      <Button bsStyle="primary" bsSize="small" disabled={isRetrieving} type="submit" onClick={!isRetrieving ? props.onStockNameSubmit : null}>
+      <Button bsStyle="primary" bsSize="small" disabled={isRetrieving} type="submit"
+      onClick={!isRetrieving ? props.onStockNameSubmit : null}>
         {isRetrieving ? 'Retrieving...' : 'Retrieve All Details'}
       </Button>
 

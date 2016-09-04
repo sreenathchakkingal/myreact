@@ -15,16 +15,37 @@ var ModifiableAttributes = React.createClass({
        buttonSytle :'',
        buttonText : '',
        buttonDisabled : false,
+       moneycontrolStockName : '',
+       isWatchListed : '',
+       lowerReturnPercentTarget : 0.0,
+       upperReturnPercentTarget : 0.0,
        stockRatings:[]
      }
    },
 
-  handleStockNameChange(e) {
-    this.setState({ stockName: e.target.value });
+  handleMoneyControlStockNameChange(e) {
+    this.setState({ moneycontrolStockName: e.target.value });
   },
 
   handleIsWatchlistedChange(e) {
     this.setState({ isWatchListed: e.target.value });
+  },
+
+  handleLowerReturnPercentTargetChange(e) {
+    this.setState({ lowerReturnPercentTarget: e.target.value });
+  },
+
+  handleUpperReturnPercentTargetChange(e) {
+    this.setState({ upperReturnPercentTarget: e.target.value });
+  },
+
+  handleRatingsChange(index, e) {
+    var stockRatings = this.state.stockRatings.slice();
+    stockRatings[index] = e.target.name;
+    stockRatings[index+1] = e.target.value;
+    this.setState({
+      stockRatings: stockRatings
+    });
   },
 
   handleSubmit(e) {
@@ -34,7 +55,10 @@ var ModifiableAttributes = React.createClass({
       buttonDisabled : true
      });
 
-    finchakksapi.updateStockAttributes(this.state.stockName, this.state.isWatchListed, this.state.stockRatings).
+    finchakksapi.updateStockAttributes(this.props.stocksInfo.items[0].stockName,
+       this.state.moneycontrolStockName, this.state.isWatchListed,
+       this.state.lowerReturnPercentTarget, this.state.upperReturnPercentTarget,
+       this.state.stockRatings).
     then(function(updatedResponse)
     {
       var bStyle = updatedResponse.success ? 'success' : 'error';
@@ -54,15 +78,6 @@ var ModifiableAttributes = React.createClass({
       buttonText : 'Update Changes',
       buttonDisabled : false
     })
-   },
-
-   handleRatingsChange(index, e) {
-     var stockRatings = this.state.stockRatings.slice();
-     stockRatings[index] = e.target.name;
-     stockRatings[index+1] = e.target.value;
-     this.setState({
-       stockRatings: stockRatings
-     });
    },
 
   render: function () {
@@ -86,15 +101,14 @@ var ModifiableAttributes = React.createClass({
                                   ratingValue={ratingValue}
                                   onChange={this.handleRatingsChange.bind(this, index)}
                                   defaultValue = {ratingValue}
-                                  options={ratingValues}
-
-            />
+                                  options={ratingValues} />
 
           );
       }
 
       return(
         <div>
+          <h1> Stock Name : {info.stockName} </h1>
           <Table striped bordered condensed hover>
             <thead>
               <tr>
@@ -105,9 +119,9 @@ var ModifiableAttributes = React.createClass({
             </thead>
             <tbody>
               <tr>
-                <td>Stock Name</td>
-                <td>{info.stockName}</td>
-                <td><FormControl type="text" onChange={this.handleStockNameChange}/> </td>
+                <td>Money Control Name</td>
+                <td>{info.moneycontrolName}</td>
+                <td><FormControl type="text" onChange={this.handleMoneyControlStockNameChange}/> </td>
               </tr>
               <tr>
                 <td>Is Watch Listed </td>
@@ -117,6 +131,16 @@ var ModifiableAttributes = React.createClass({
                                     defaultValue = {defaultWatchListed}
                                     options={wathListOptions} />
                 </td>
+              </tr>
+              <tr>
+                <td>Lower Target Percent </td>
+                <td>{info.lowerReturnPercentTarget}</td>
+                <td><FormControl type="text" onChange={this.handleLowerReturnPercentTargetChange}/> </td>
+              </tr>
+              <tr>
+                <td>Upper Target Percent </td>
+                <td>{info.upperReturnPercentTarget}</td>
+                <td><FormControl type="text" onChange={this.handleUpperReturnPercentTargetChange}/> </td>
               </tr>
               {stockRatingRows}
             </tbody>
