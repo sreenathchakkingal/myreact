@@ -14,7 +14,8 @@ var ModifiableAttributes = React.createClass({
      return {
        buttonSytle :'',
        buttonText : '',
-       buttonDisabled : false
+       buttonDisabled : false,
+       stockRatings:[]
      }
    },
 
@@ -55,9 +56,16 @@ var ModifiableAttributes = React.createClass({
     })
    },
 
-   handleRatingsChange(e) {
-     console.log('handleRatingsChange.e.target.name ', e.target.name);
-     console.log('handleRatingsChange.e.target.value ', e.target.value);
+   handleRatingsChange(name, e) {
+     var stockRatings = this.state.stockRatings.slice();
+     stockRatings[name] = {
+       ratingName : e.target.name,
+       ratingValue : e.target.value
+     }
+
+     this.setState({
+       stockRatings: stockRatings
+     });
    },
 
   render: function () {
@@ -73,13 +81,15 @@ var ModifiableAttributes = React.createClass({
 
       var stockRatingRows = [];
       for (var i=0; i < info.ratings.length ; i++) {
+          var ratingName = info.ratings[i].ratingName;
+          var ratingValue = info.ratings[i].ratingValue;
           stockRatingRows.push(
-            <StockRatingsWrapper key={info.ratings[i].ratingName} ratingName={info.ratings[i].ratingName}
-                                  ratingValue={info.ratings[i].ratingValue}
-                                  onChange={this.handleRatingsChange}
-                                  defaultValue = {info.ratings[i].ratingValue}
+            <StockRatingsWrapper key={ratingName} name = {ratingName} ratingName={ratingName}
+                                  ratingValue={ratingValue}
+                                  onChange={this.handleRatingsChange.bind(this, i)}
+                                  defaultValue = {ratingValue}
                                   options={ratingValues}
-                                  name = {info.ratings[i].ratingName}
+
             />
 
           );
