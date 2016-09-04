@@ -34,10 +34,15 @@ var helpers = {
   },
 
   updateStockAttributes: function(stockName, isWatchListed, stockRatings) {
+    var stockRatingsFlattened = '';
+
+    console.log('stockRatings.length ', stockRatings.length);
     for (var i=0; i<stockRatings.length ; i++)
     {
-      console.log('updateStockAttributes.stockRatings[i] ', stockRatings[i]);
+        var ratingSpaceReplacedWithPlus = stockRatings[i].split(' ').join('+');
+        stockRatingsFlattened = stockRatingsFlattened + '&stockRatings='+ratingSpaceReplacedWithPlus;
     }
+    console.log('stockRatingsFlattened ', stockRatingsFlattened);
     return postMaintApiResult('updateStockAttributes?isWatchListed'+isWatchListed+'&stockName='+stockName)
     .then(function(response)
     {
