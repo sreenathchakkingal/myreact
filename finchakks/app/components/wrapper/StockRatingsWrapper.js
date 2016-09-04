@@ -13,7 +13,8 @@ var StockRatingsWrapper = React.createClass({
         <td>
           <SelectorWrapper  onChange={this.props.onChange}
                             defaultValue = {this.props.ratingValue}
-                            options={this.props.options} />
+                            options={this.props.options}
+                            name={this.props.name}  />
         </td>
       </tr>
     )
@@ -25,7 +26,8 @@ StockRatingsWrapper.propTypes = {
   options: PropTypes.array.isRequired,
   defaultValue: PropTypes.string,
   ratingName: PropTypes.string.isRequired,
-  ratingValue: PropTypes.string.isRequired
+  ratingValue: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired
 }
 
 module.exports = StockRatingsWrapper;

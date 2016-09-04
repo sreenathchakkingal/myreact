@@ -13,7 +13,7 @@ var SelectorWrapper = React.createClass({
 
     return (
       <FormGroup controlId="formControlsSelectMultiple">
-        <FormControl componentClass="select" onChange={this.props.onChange} defaultValue ={this.props.defaultValue}>
+        <FormControl componentClass="select" name={this.props.name} onChange={this.props.onChange} defaultValue ={this.props.defaultValue}>
           {options}
         </FormControl>
       </FormGroup>
@@ -24,7 +24,8 @@ var SelectorWrapper = React.createClass({
 SelectorWrapper.propTypes = {
   onChange: PropTypes.func.isRequired,
   options: PropTypes.array.isRequired,
-  defaultValue: PropTypes.string
+  defaultValue: PropTypes.string,
+  name: PropTypes.string
 }
 
 module.exports = SelectorWrapper;

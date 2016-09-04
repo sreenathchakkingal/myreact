@@ -56,6 +56,7 @@ var ModifiableAttributes = React.createClass({
    },
 
    handleRatingsChange(e) {
+     console.log('handleRatingsChange.e.target.name ', e.target.name);
      console.log('handleRatingsChange.e.target.value ', e.target.value);
    },
 
@@ -70,15 +71,15 @@ var ModifiableAttributes = React.createClass({
       var wathListOptions=['Yes', 'No'];
       var ratingValues=['Good', 'Average', 'Bad', 'Not Rated'];
 
-      var rows = [];
+      var stockRatingRows = [];
       for (var i=0; i < info.ratings.length ; i++) {
-          console.log('info.ratings[i] ', info.ratings[i]);
-          rows.push(
-            <StockRatingsWrapper  ratingName={info.ratings[i].ratingName}
+          stockRatingRows.push(
+            <StockRatingsWrapper key={info.ratings[i].ratingName} ratingName={info.ratings[i].ratingName}
                                   ratingValue={info.ratings[i].ratingValue}
                                   onChange={this.handleRatingsChange}
                                   defaultValue = {info.ratings[i].ratingValue}
                                   options={ratingValues}
+                                  name = {info.ratings[i].ratingName}
             />
 
           );
@@ -109,7 +110,7 @@ var ModifiableAttributes = React.createClass({
                                     options={wathListOptions} />
                 </td>
               </tr>
-              {rows}
+              {stockRatingRows}
             </tbody>
           </Table>
 
