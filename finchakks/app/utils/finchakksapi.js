@@ -10,7 +10,7 @@ function getMaintApiResult(methodName) {
     return axios.get(maintEndPoint +methodName);
 }
 
-function putMaintApiResult(isWatchListedTemp, stockNameTemp) {
+function postMaintApiResult(isWatchListedTemp, stockNameTemp) {
   return axios.post('https://finchakks.appspot.com/_ah/api/maintainanceControllerEndPoint/v1/updateStockAttributes?isWatchListed=isWatchListed&stockName=isWatchListed');
 }
 
@@ -33,8 +33,12 @@ var helpers = {
     });
   },
 
-  updateStockAttributes: function(stockName, isWatchListed) {
-    return putMaintApiResult('updateStockAttributes?isWatchListed'+isWatchListed+'&stockName='+stockName)
+  updateStockAttributes: function(stockName, isWatchListed, stockRatings) {
+    for (var i=0; i<stockRatings.length ; i++)
+    {
+      console.log('updateStockAttributes.stockRatings[i] ', stockRatings[i]);
+    }
+    return postMaintApiResult('updateStockAttributes?isWatchListed'+isWatchListed+'&stockName='+stockName)
     .then(function(response)
     {
       return response.data;

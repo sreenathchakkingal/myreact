@@ -34,7 +34,7 @@ var ModifiableAttributes = React.createClass({
       buttonDisabled : true
      });
 
-    finchakksapi.updateStockAttributes(this.state.stockName, this.state.isWatchListed).
+    finchakksapi.updateStockAttributes(this.state.stockName, this.state.isWatchListed, this.state.stockRatings).
     then(function(updatedResponse)
     {
       var bStyle = updatedResponse.success ? 'success' : 'error';
@@ -56,13 +56,10 @@ var ModifiableAttributes = React.createClass({
     })
    },
 
-   handleRatingsChange(name, e) {
+   handleRatingsChange(index, e) {
      var stockRatings = this.state.stockRatings.slice();
-     stockRatings[name] = {
-       ratingName : e.target.name,
-       ratingValue : e.target.value
-     }
-
+     stockRatings[index] = e.target.name;
+     stockRatings[index+1] = e.target.value;
      this.setState({
        stockRatings: stockRatings
      });
@@ -83,10 +80,11 @@ var ModifiableAttributes = React.createClass({
       for (var i=0; i < info.ratings.length ; i++) {
           var ratingName = info.ratings[i].ratingName;
           var ratingValue = info.ratings[i].ratingValue;
+          var index=i*2;
           stockRatingRows.push(
             <StockRatingsWrapper key={ratingName} name = {ratingName} ratingName={ratingName}
                                   ratingValue={ratingValue}
-                                  onChange={this.handleRatingsChange.bind(this, i)}
+                                  onChange={this.handleRatingsChange.bind(this, index)}
                                   defaultValue = {ratingValue}
                                   options={ratingValues}
 
