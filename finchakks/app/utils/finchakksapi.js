@@ -1,4 +1,5 @@
 var axios = require('axios');
+var querystring = require('querystring');
 
 var maintEndPoint = 'https://finchakks.appspot.com/_ah/api/maintainanceControllerEndPoint/v1/';
 
@@ -10,8 +11,22 @@ function getMaintApiResult(methodName) {
     return axios.get(maintEndPoint +methodName);
 }
 
-function postMaintApiResult(isWatchListedTemp, stockNameTemp) {
-  return axios.post('https://finchakks.appspot.com/_ah/api/maintainanceControllerEndPoint/v1/updateStockAttributes?isWatchListed=isWatchListed&stockName=isWatchListed');
+function postMaintApiResult(stockName, moneycontrolStockName,
+   isWatchListed, lowerReturnPercentTarget, upperReturnPercentTarget, stockRatings) {
+  // return axios.post('https://finchakks.appspot.com/_ah/api/maintainanceControllerEndPoint/v1/updateStockAttributes?isWatchListed=isWatchListed&stockName=isWatchListed');
+  return axios.post('https://finchakks.appspot.com/_ah/api/maintainanceControllerEndPoint/v1/updateStockAttributes',
+      querystring.stringify({
+              stockName: 'abcd',
+              isWatchListed: '1235!',
+              lowerReturnPercentTarget: 0,
+              upperReturnPercentTarget: 0,
+              stockRatings: stockRatings
+      }), {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
+      });
+
 }
 
 function puke(obj)
@@ -63,10 +78,6 @@ var helpers = {
      isWatchListed, lowerReturnPercentTarget, upperReturnPercentTarget, stockRatings) {
     var stockRatingsFlattened = '';
     var apiParams='updateStockAttributes?';
-    if(isWatchListed != '')
-    {
-      apiParams=
-    }
 
     console.log('stockRatings.length ', stockRatings.length);
     for (var i=0; i<stockRatings.length ; i++)
@@ -75,7 +86,9 @@ var helpers = {
         stockRatingsFlattened = stockRatingsFlattened + '&stockRatings='+ratingSpaceReplacedWithPlus;
     }
     console.log('stockRatingsFlattened ', stockRatingsFlattened);
-    return postMaintApiResult('updateStockAttributes?isWatchListed'+isWatchListed+'&stockName='+stockName)
+    // return postMaintApiResult('updateStockAttributes?isWatchListed'+isWatchListed+'&stockName='+stockName)
+    return postMaintApiResult(stockName, moneycontrolStockName,
+       isWatchListed, lowerReturnPercentTarget, upperReturnPercentTarget, stockRatings)
     .then(function(response)
     {
       return response.data;
