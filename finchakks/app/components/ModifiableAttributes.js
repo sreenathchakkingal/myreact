@@ -135,12 +135,12 @@ var ModifiableAttributes = React.createClass({
               <tr>
                 <td>Lower Target Percent </td>
                 <td>{info.lowerReturnPercentTarget}</td>
-                <td><FormControl type="text" onChange={this.handleLowerReturnPercentTargetChange}/> </td>
+                <td><FormControl type="text" defaultValue="0.0" onChange={this.handleLowerReturnPercentTargetChange}/> </td>
               </tr>
               <tr>
                 <td>Upper Target Percent </td>
                 <td>{info.upperReturnPercentTarget}</td>
-                <td><FormControl type="text" onChange={this.handleUpperReturnPercentTargetChange}/> </td>
+                <td><FormControl type="text" defaultValue="0.0" onChange={this.handleUpperReturnPercentTargetChange}/> </td>
               </tr>
               {stockRatingRows}
             </tbody>

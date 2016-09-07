@@ -11,15 +11,16 @@ function getMaintApiResult(methodName) {
     return axios.get(maintEndPoint +methodName);
 }
 
-function postMaintApiResult(stockName, moneycontrolStockName,
+function postMaintApiResult(stockName, moneycontrolName,
    isWatchListed, lowerReturnPercentTarget, upperReturnPercentTarget, stockRatings) {
   // return axios.post('https://finchakks.appspot.com/_ah/api/maintainanceControllerEndPoint/v1/updateStockAttributes?isWatchListed=isWatchListed&stockName=isWatchListed');
   return axios.post('https://finchakks.appspot.com/_ah/api/maintainanceControllerEndPoint/v1/updateStockAttributes',
       querystring.stringify({
-              stockName: 'abcd',
-              isWatchListed: '1235!',
-              lowerReturnPercentTarget: 0,
-              upperReturnPercentTarget: 0,
+              stockName: stockName,
+              moneycontrolName: moneycontrolName,
+              isWatchListed: isWatchListed,
+              lowerReturnPercentTarget: lowerReturnPercentTarget,
+              upperReturnPercentTarget: upperReturnPercentTarget,
               stockRatings: stockRatings
       }), {
         headers: {
@@ -74,20 +75,22 @@ var helpers = {
     });
   },
 
-  updateStockAttributes: function(stockName, moneycontrolStockName,
+  updateStockAttributes: function(stockName, moneycontrolName,
      isWatchListed, lowerReturnPercentTarget, upperReturnPercentTarget, stockRatings) {
-    var stockRatingsFlattened = '';
-    var apiParams='updateStockAttributes?';
 
-    console.log('stockRatings.length ', stockRatings.length);
-    for (var i=0; i<stockRatings.length ; i++)
-    {
-        var ratingSpaceReplacedWithPlus = stockRatings[i].split(' ').join('+');
-        stockRatingsFlattened = stockRatingsFlattened + '&stockRatings='+ratingSpaceReplacedWithPlus;
-    }
-    console.log('stockRatingsFlattened ', stockRatingsFlattened);
-    // return postMaintApiResult('updateStockAttributes?isWatchListed'+isWatchListed+'&stockName='+stockName)
-    return postMaintApiResult(stockName, moneycontrolStockName,
+        // stockRatingsFlattened = stockRatingsFlattened + '&stockRatings='+ratingSpaceReplacedWithPlus;
+        console.log('updateStockAttributes.stockName ', stockName);
+        console.log('updateStockAttributes.moneycontrolName ', moneycontrolName);
+        console.log('updateStockAttributes.isWatchListed ', isWatchListed);
+        console.log('updateStockAttributes.lowerReturnPercentTarget ', lowerReturnPercentTarget);
+        console.log('updateStockAttributes.upperReturnPercentTarget ', upperReturnPercentTarget);
+        for(var i=0; i<=stockRatings.length ; i ++)
+        {
+        console.log('updateStockAttributes.stockRatings ', stockRatings[i]);
+        }
+
+
+    return postMaintApiResult(stockName, moneycontrolName,
        isWatchListed, lowerReturnPercentTarget, upperReturnPercentTarget, stockRatings)
     .then(function(response)
     {
