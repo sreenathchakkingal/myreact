@@ -5,7 +5,6 @@ var Route = ReactRouter.Route;
 var hashHistory = ReactRouter.hashHistory;
 var IndexRoute = ReactRouter.IndexRoute;
 var Main = require('../components/Main');
-var Home = require("../components/Home");
 var WrapperContainer = require("../containers/wrapper/WrapperContainer");
 var InvestmentContainer = require("../containers/wrapper/InvestmentContainer");
 var DeprecatedContainer = require("../containers/wrapper/DeprecatedContainer");
