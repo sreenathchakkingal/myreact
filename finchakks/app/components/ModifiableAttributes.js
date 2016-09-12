@@ -146,7 +146,8 @@ var ModifiableAttributes = React.createClass({
             </tbody>
           </Table>
 
-          <Button bsStyle={this.state.buttonSytle} disabled={this.state.buttonDisabled} bsSize="small" type="submit" onClick={this.handleSubmit}>
+          <Button bsStyle={this.state.buttonSytle} disabled={this.state.buttonDisabled} bsSize="small" type="submit"
+           onClick={this.handleSubmit}>
           {this.state.buttonText}
           </Button>
 

@@ -1,10 +1,15 @@
 var axios = require('axios');
 var querystring = require('querystring');
+var prodHost = 'https://finchakks.appspot.com/_ah/api/';
+var devHost = 'http://localhost:8888/_ah/api/';
 
-var maintEndPoint = 'https://finchakks.appspot.com/_ah/api/maintainanceControllerEndPoint/v1/';
+var envIsProd = true;
+var host = envIsProd ? prodHost : devHost;
+
+var maintEndPoint = host+'maintainanceControllerEndPoint/v1/';
 
 function getInitializeApiResult(methodName) {
-    return axios.get('https://finchakks.appspot.com/_ah/api/initalizeControllerEndPoint/v1/' +methodName);
+    return axios.get(host+'initalizeControllerEndPoint/v1/' +methodName);
 }
 
 function getMaintApiResult(methodName) {
@@ -13,8 +18,7 @@ function getMaintApiResult(methodName) {
 
 function postMaintApiResult(stockName, moneycontrolName,
    isWatchListed, lowerReturnPercentTarget, upperReturnPercentTarget, stockRatings) {
-  // return axios.post('https://finchakks.appspot.com/_ah/api/maintainanceControllerEndPoint/v1/updateStockAttributes?isWatchListed=isWatchListed&stockName=isWatchListed');
-  return axios.post('https://finchakks.appspot.com/_ah/api/maintainanceControllerEndPoint/v1/updateStockAttributes',
+  return axios.post(host+'maintainanceControllerEndPoint/v1/updateStockAttributes',
       querystring.stringify({
               stockName: stockName,
               moneycontrolName: moneycontrolName,
@@ -63,7 +67,12 @@ var helpers = {
   },
 
   getModifiableStockAttributes: function(stockName) {
-    return getMaintApiResult('getModifiableStockAttributes?stockName='+'BPCL')
+    if(stockName === null || stockName ==='')
+    {
+      stockName='BPCL'
+      console.log('getModifiableStockAttributes.DEFUALTING');
+    }
+    return getMaintApiResult('getModifiableStockAttributes?stockName='+stockName)
     .then(function(response)
     {
       var stocksInfo= response.data;
@@ -78,7 +87,6 @@ var helpers = {
   updateStockAttributes: function(stockName, moneycontrolName,
      isWatchListed, lowerReturnPercentTarget, upperReturnPercentTarget, stockRatings) {
 
-        // stockRatingsFlattened = stockRatingsFlattened + '&stockRatings='+ratingSpaceReplacedWithPlus;
         console.log('updateStockAttributes.stockName ', stockName);
         console.log('updateStockAttributes.moneycontrolName ', moneycontrolName);
         console.log('updateStockAttributes.isWatchListed ', isWatchListed);
@@ -154,48 +162,6 @@ var helpers = {
     {
         console.warn('Error in listNDaysHistoryStocks ', err);
     });
-
-
-  /*  var hardCodedResult=[
-      {
-       "stockName": "BPCL",
-       "stockRatingValue": "3/9",
-       "investmentRatio": 0.0065246583,
-       "industryInvestmentRatio": 0.0065246583,
-       "sellPrice": 586.55,
-       "simpleMovingAverage": 867.549,
-       "simpleMovingAverageAndSellDeltaNormalized": -32.389988,
-       "netNDaysGain": -0.0023009311,
-       "industry": "Refineries/ Petro-Products",
-       "nDay1Gain": 3.030037,
-       "nDay2Gain": -0.6283883,
-       "nDay3Gain": -2.5647495,
-       "nDay4Gain": 0.32902238,
-       "nDay5Gain": 1.5159364,
-       "nDay6Gain": -0.79864275,
-       "kind": "initalizeControllerEndPoint#resourcesItem"
-      },
-      {
-       "stockName": "ICICIBANK",
-       "stockRatingValue": "5/9",
-       "investmentRatio": 0.016842855,
-       "industryInvestmentRatio": 0.1387367,
-       "sellPrice": 245.95,
-       "simpleMovingAverage": 249.51398,
-       "simpleMovingAverageAndSellDeltaNormalized": -1.4283689,
-       "netNDaysGain": -0.093060166,
-       "industry": "Banks",
-       "nDay1Gain": 2.3299315,
-       "nDay2Gain": -0.7228418,
-       "nDay3Gain": -1.6833656,
-       "nDay4Gain": -5.096993,
-       "nDay5Gain": -3.3455904,
-       "nDay6Gain": 0.5173665,
-       "kind": "initalizeControllerEndPoint#resourcesItem"
-      }
-    ];
-
-  return hardCodedResult; */
   },
 
   listUnrealizedDetails: function() {
