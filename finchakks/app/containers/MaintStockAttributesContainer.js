@@ -1,8 +1,8 @@
 var React = require('react');
-var MaintStockTarget = require('../components/MaintStockTarget');
+var MaintStockAttributes  = require('../components/MaintStockAttributes');
 var finchakksapi = require('../utils/finchakksapi');
 
-var MaintStockTargetContainer = React.createClass({
+var MaintStockAttributesContainer = React.createClass({
   getInitialState: function () {
      return {
        stockName: '',
@@ -41,7 +41,7 @@ var MaintStockTargetContainer = React.createClass({
 
   render: function () {
       return (
-        <MaintStockTarget
+        <MaintStockAttributes
         isStocksInfoRetrieving={this.state.isStocksInfoRetrieving}
         onStockNameSubmit={this.handleSubmit}
         onCaptureChange={this.handleChange}
@@ -53,4 +53,4 @@ var MaintStockTargetContainer = React.createClass({
 
   });
 
-module.exports = MaintStockTargetContainer;
+module.exports = MaintStockAttributesContainer;

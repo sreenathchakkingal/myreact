@@ -1,16 +1,16 @@
 var React = require('react');
-var MaintStockTargetContainer = require("../MaintStockTargetContainer");
+var MaintStockAttributesContainer = require("../MaintStockAttributesContainer");
 var Main  = require("../../components/Main");
 
 var MaintenanceContainer = React.createClass({
     render: function () {
       return (
         <Main>
-          <MaintStockTargetContainer/>
+          <MaintStockAttributesContainer/>
         </Main>
       )
   }
 
 });
 
-module.exports = MaintenanceContainer;
+module.exports = MaintStockAttributesContainer;

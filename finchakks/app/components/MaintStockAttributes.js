@@ -16,7 +16,7 @@ function puke(obj)
   return <pre>{JSON.stringify(obj , null, ' ')}</pre>
 }
 
-function MaintStockTarget (props) {
+function MaintStockAttributes (props) {
   var isRetrieving=props.isStocksInfoRetrieving;
   var isRetrieved = props.isStocksInfoRetrieved;
   return(
@@ -46,4 +46,4 @@ function MaintStockTarget (props) {
 
 }
 
-module.exports = MaintStockTarget
+module.exports = MaintStockAttributes
