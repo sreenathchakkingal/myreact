@@ -3,6 +3,7 @@ var Loading = require('./Loading');
 var PropTypes = React.PropTypes;
 var Griddle = require('griddle-react');
 var NoDataComponent = require('./NoDataComponent');
+var columnMetadata = require('./metadata/columnMetadata');
 
 function puke(obj)
 {
@@ -16,9 +17,14 @@ function StocksException (props) {
   }
   else
   {
+    var metaData=[
+      columnMetadata.stockNameWithoutOptions(),
+      columnMetadata.exceptionComment()
+    ];
+
     return (
-      <Griddle customNoDataComponent={NoDataComponent}
-       results={props.stocksInfo}/>
+        <Griddle customNoDataComponent={NoDataComponent}
+         results={props.stocksInfo} columnMetadata={metaData}/>
     )
   }
 }

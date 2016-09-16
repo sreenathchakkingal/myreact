@@ -17,15 +17,14 @@ var helpers = {
     return nameWithOptions;
   },
 
-  nameStock: function()
+  stockNameWithoutOptions: function()
   {
-    var nameStock =
+    var stockNameWithoutOptions =
     {
       "columnName": "stockName",
-      "displayName": "Stock Name",
-      "customComponent": Trim
+      "displayName": "Stock Name"
     };
-    return nameStock;
+    return stockNameWithoutOptions;
   },
 
   impact: function()
@@ -372,6 +371,16 @@ var helpers = {
       "displayName": "Achieve By"
     };
     return achieveByDate;
+  },
+
+  exceptionComment: function()
+  {
+    var exceptionComment=
+    {
+      "columnName": "exceptionComment",
+      "displayName": "Description"
+    };
+    return exceptionComment;
   }
 
 };

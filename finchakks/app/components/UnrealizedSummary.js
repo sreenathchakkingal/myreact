@@ -24,7 +24,11 @@ function UnrealizedSummary (props) {
       columnMetadata.investment(),
       columnMetadata.absReturn(),
       columnMetadata.bankReturn(),
-      columnMetadata.impact()
+      columnMetadata.impact(),
+      columnMetadata.lowerReturnPercentTarget(),
+      columnMetadata.upperReturnPercentTarget(),
+      columnMetadata.lowerSellPriceTarget(),
+      columnMetadata.upperSellPriceTarget()
     ];
 
     return (

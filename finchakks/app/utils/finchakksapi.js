@@ -7,6 +7,19 @@ var envIsProd = true;
 var host = envIsProd ? prodHost : devHost;
 
 var maintEndPoint = host+'maintainanceControllerEndPoint/v1/';
+//mock
+// var stocksInfo=
+// [
+//  {
+//   "stockName": "BATAINDIA",
+//   "exceptionComment" : "BATAINDIA"
+//  },
+//  {
+//   "stockName": "BATAINDIA1",
+//   "exceptionComment" : "BATAINDIA1"
+//  }
+// ]
+
 
 function getInitializeApiResult(methodName) {
     return axios.get(host+'initalizeControllerEndPoint/v1/' +methodName);
