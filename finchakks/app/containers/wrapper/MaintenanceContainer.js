@@ -1,16 +1,16 @@
 var React = require('react');
-var MaintStockAttributesContainer = require("../MaintStockAttributesContainer");
+var RetrieveModifiableStockAttributesContainer = require("../RetrieveModifiableStockAttributesContainer");
 var Main  = require("../../components/Main");
 
 var MaintenanceContainer = React.createClass({
     render: function () {
       return (
         <Main>
-          <MaintStockAttributesContainer/>
+          <RetrieveModifiableStockAttributesContainer/>
         </Main>
       )
   }
 
 });
 
-module.exports = MaintStockAttributesContainer;
+module.exports = MaintenanceContainer;

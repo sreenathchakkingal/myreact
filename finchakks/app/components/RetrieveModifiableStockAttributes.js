@@ -8,15 +8,14 @@ var Col = require('react-bootstrap/lib/Col');
 var Row = require('react-bootstrap/lib/Row');
 var Grid = require('react-bootstrap/lib/Grid');
 var Label = require('react-bootstrap/lib/Label');
-var ModifiableAttributes = require('./ModifiableAttributes');
-
+var ModifiableAttributesContainer = require('../containers/ModifiableAttributesContainer');
 
 function puke(obj)
 {
   return <pre>{JSON.stringify(obj , null, ' ')}</pre>
 }
 
-function MaintStockAttributes (props) {
+function RetrieveModifiableStockAttributes (props) {
   var isRetrieving=props.isStocksInfoRetrieving;
   var isRetrieved = props.isStocksInfoRetrieved;
   return(
@@ -33,17 +32,9 @@ function MaintStockAttributes (props) {
         {isRetrieving ? 'Retrieving...' : 'Retrieve All Details'}
       </Button>
 
-      <ModifiableAttributes isRetrieved={isRetrieved} stocksInfo={props.stocksInfo} />
-
-
+      <ModifiableAttributesContainer isRetrieved={isRetrieved} stocksInfo={props.stocksInfo} />
     </Form>
-
-
-
-
-
   );
-
 }
 
-module.exports = MaintStockAttributes
+module.exports = RetrieveModifiableStockAttributes

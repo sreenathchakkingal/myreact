@@ -5,83 +5,13 @@ var FormControl = require('react-bootstrap/lib/FormControl');
 var Button = require('react-bootstrap/lib/Button');
 var ControlLabel = require('react-bootstrap/lib/ControlLabel');
 var Table = require('react-bootstrap/lib/Table');
-var finchakksapi = require('../utils/finchakksapi');
 var SelectorWrapper = require('./wrapper/SelectorWrapper');
 var StockRatingsWrapper = require('./wrapper/StockRatingsWrapper');
 
 var ModifiableAttributes = React.createClass({
-  getInitialState: function () {
-     return {
-       buttonSytle :'',
-       buttonText : '',
-       buttonDisabled : false,
-       moneycontrolStockName : '',
-       isWatchListed : '',
-       lowerReturnPercentTarget : 0.0,
-       upperReturnPercentTarget : 0.0,
-       stockRatings:[]
-     }
-   },
-
-  handleMoneyControlStockNameChange(e) {
-    this.setState({ moneycontrolStockName: e.target.value });
-  },
-
-  handleIsWatchlistedChange(e) {
-    this.setState({ isWatchListed: e.target.value });
-  },
-
-  handleLowerReturnPercentTargetChange(e) {
-    this.setState({ lowerReturnPercentTarget: e.target.value });
-  },
-
-  handleUpperReturnPercentTargetChange(e) {
-    this.setState({ upperReturnPercentTarget: e.target.value });
-  },
-
-  handleRatingsChange(index, e) {
-    var stockRatings = this.state.stockRatings.slice();
-    stockRatings[index] = e.target.name;
-    stockRatings[index+1] = e.target.value;
-    this.setState({
-      stockRatings: stockRatings
-    });
-  },
-
-  handleSubmit(e) {
-    this.setState({
-      buttonSytle :'info',
-      buttonText : 'Updating Changes',
-      buttonDisabled : true
-     });
-
-    finchakksapi.updateStockAttributes(this.props.stocksInfo.items[0].stockName,
-       this.state.moneycontrolStockName, this.state.isWatchListed,
-       this.state.lowerReturnPercentTarget, this.state.upperReturnPercentTarget,
-       this.state.stockRatings).
-    then(function(updatedResponse)
-    {
-      var bStyle = updatedResponse.success ? 'success' : 'error';
-      var bText = updatedResponse.success ? 'Updated Attributes' : updatedResponse.statusMessage;
-      this.setState({
-        buttonSytle : bStyle,
-        buttonText : bText,
-        buttonDisabled : true
-      })
-    }.bind(this))
-
-  },
-
-  componentWillReceiveProps: function () {
-    this.setState({
-      buttonSytle :'primary',
-      buttonText : 'Update Changes',
-      buttonDisabled : false
-    })
-   },
 
   render: function () {
-    var refreshRequestTemp=this.props.refreshRequest;
+
     var yes = 'Yes';
     var no = 'No';
     if(this.props.isRetrieved ===true )
@@ -99,7 +29,7 @@ var ModifiableAttributes = React.createClass({
           stockRatingRows.push(
             <StockRatingsWrapper key={ratingName} name = {ratingName} ratingName={ratingName}
                                   ratingValue={ratingValue}
-                                  onChange={this.handleRatingsChange.bind(this, index)}
+                                  onChange={this.props.onRatingsChange.bind(this, index)}
                                   defaultValue = {ratingValue}
                                   options={ratingValues} />
 
@@ -121,13 +51,13 @@ var ModifiableAttributes = React.createClass({
               <tr>
                 <td>Money Control Name</td>
                 <td>{info.moneycontrolName}</td>
-                <td><FormControl type="text" onChange={this.handleMoneyControlStockNameChange}/> </td>
+                <td><FormControl type="text" onChange={this.props.onMoneyControlStockNameChange}/> </td>
               </tr>
               <tr>
                 <td>Is Watch Listed </td>
                 <td>{info.isWatchListed}</td>
                 <td>
-                  <SelectorWrapper  onChange={this.handleIsWatchlistedChange}
+                  <SelectorWrapper  onChange={this.props.onIsWatchlistedChange}
                                     defaultValue = {defaultWatchListed}
                                     options={wathListOptions} />
                 </td>
@@ -135,20 +65,20 @@ var ModifiableAttributes = React.createClass({
               <tr>
                 <td>Lower Target Percent </td>
                 <td>{info.lowerReturnPercentTarget}</td>
-                <td><FormControl type="text" defaultValue="0.0" onChange={this.handleLowerReturnPercentTargetChange}/> </td>
+                <td><FormControl type='text' defaultValue='0.0'  onChange={this.props.onLowerReturnPercentTargetChange}/> </td>
               </tr>
               <tr>
                 <td>Upper Target Percent </td>
                 <td>{info.upperReturnPercentTarget}</td>
-                <td><FormControl type="text" defaultValue="0.0" onChange={this.handleUpperReturnPercentTargetChange}/> </td>
+                <td><FormControl type='text' defaultValue='0.0' onChange={this.props.onUpperReturnPercentTargetChange}/> </td>
               </tr>
               {stockRatingRows}
             </tbody>
           </Table>
 
-          <Button bsStyle={this.state.buttonSytle} disabled={this.state.buttonDisabled} bsSize="small" type="submit"
-           onClick={this.handleSubmit}>
-          {this.state.buttonText}
+          <Button bsStyle={this.props.buttonSytle} disabled={this.props.buttonDisabled} bsSize="small" type="submit"
+           onClick={this.props.onSubmit}>
+          {this.props.buttonText}
           </Button>
 
 
