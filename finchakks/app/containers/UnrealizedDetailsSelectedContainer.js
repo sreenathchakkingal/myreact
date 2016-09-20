@@ -1,5 +1,5 @@
 var React = require('react');
-var UnrealizedDetailsSelectedOne = require('../components/UnrealizedDetailsSelected');
+var UnrealizedDetailsSelected = require('../components/UnrealizedDetailsSelected');
 var finchakksapi = require('../utils/finchakksapi');
 
 
@@ -30,7 +30,7 @@ var UnrealizedDetailsSelectedContainer = React.createClass({
 
   render: function () {
        return (
-         <UnrealizedDetailsSelectedOne isLoading={this.state.isLoading}
+         <UnrealizedDetailsSelected isLoading={this.state.isLoading}
          stocksInfo={this.state.stocksInfo}/>
       )
     }

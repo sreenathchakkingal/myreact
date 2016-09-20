@@ -76,11 +76,12 @@ function UnrealizedDetailsSelected (props) {
     }
     ];
 
+    var headerName = 'Unrealized Details: '+props.stocksInfo[0].stockName;
     return (
-      <PanelWrapper header='Unrealized Details'>
+      <PanelWrapper header={headerName}>
         <GriddleWrapper results={props.stocksInfo}
         columns={["returnTillDate","duration","buyPrice","sellPrice","bankSellPrice","quantity", "totalInvestment",
-      "totalReturn", "totalReturnIfBank", "diff", "stockName"]}
+        "totalReturn", "totalReturnIfBank", "diff"]}
         columnMetadata={metaData}
         />
       </PanelWrapper>
