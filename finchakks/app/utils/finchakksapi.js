@@ -82,8 +82,7 @@ var helpers = {
   getModifiableStockAttributes: function(stockName) {
     if(stockName === null || stockName ==='')
     {
-      stockName='BPCL'
-      console.log('getModifiableStockAttributes.DEFUALTING');
+      stockName='SYNDIBANK';
     }
     return getMaintApiResult('getModifiableStockAttributes?stockName='+stockName)
     .then(function(response)
@@ -95,6 +94,10 @@ var helpers = {
     {
         console.warn('Error in getModifiableStockAttributes ', err);
     });
+  },
+
+  uploadUnrealized: function(commaSeperatedUnrealized) {
+        console.log('commaSeperatedUnrealized ', commaSeperatedUnrealized);
   },
 
   updateStockAttributes: function(stockName, moneycontrolName,

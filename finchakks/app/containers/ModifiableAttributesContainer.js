@@ -1,5 +1,6 @@
 var React = require('react');
 var ModifiableAttributes  = require('../components/ModifiableAttributes');
+var UnrealizedFileUploadContainer  = require('./UnrealizedFileUploadContainer');
 var finchakksapi = require('../utils/finchakksapi');
 
 var ModifiableAttributesContainer = React.createClass({
@@ -75,6 +76,7 @@ var ModifiableAttributesContainer = React.createClass({
 
   render: function () {
       return (
+        <div>
           <ModifiableAttributes
           isRetrieved={this.props.isRetrieved}
           stocksInfo={this.props.stocksInfo}
@@ -88,6 +90,8 @@ var ModifiableAttributesContainer = React.createClass({
           buttonDisabled={this.state.buttonDisabled}
           buttonText={this.state.buttonText}
           />
+          <UnrealizedFileUploadContainer/>
+        </div>
       )
     }
 
