@@ -8,7 +8,8 @@ var UnrealizedFileUploadContainer = React.createClass({
 
    getInitialState: function () {
       return {
-        fileContent: null
+        fileContent: null,
+        buttonText: ''
       }
     },
 
@@ -17,7 +18,11 @@ var UnrealizedFileUploadContainer = React.createClass({
       var reader = new FileReader();
       var file = e.target.files[0];
       reader.onload = function(upload) {
-        finchakksapi.uploadUnrealized(upload.target.result);
+        finchakksapi.uploadUnrealized(upload.target.result).
+        then(function(updatedResponse)
+        {
+          console.log('handleFile.updatedResponse ', updatedResponse);
+        })
       }
       reader.readAsText(file);
     },
@@ -26,6 +31,7 @@ render: function () {
     return (
       <form onSubmit={this.handleSubmit}>
         <input type="file" onChange={this.handleFile} />
+        <label>{this.state.buttonText}</label>
       </form>
     )
   }

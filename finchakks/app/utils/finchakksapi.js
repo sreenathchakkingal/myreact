@@ -21,6 +21,11 @@ var maintEndPoint = host+'maintainanceControllerEndPoint/v1/';
 // ]
 
 
+function puke(obj)
+{
+  return <pre>{JSON.stringify(obj , null, ' ')}</pre>
+}
+
 function getInitializeApiResult(methodName) {
     return axios.get(host+'initalizeControllerEndPoint/v1/' +methodName);
 }
@@ -29,7 +34,7 @@ function getMaintApiResult(methodName) {
     return axios.get(maintEndPoint +methodName);
 }
 
-function postMaintApiResult(stockName, moneycontrolName,
+function updateStockAttributesApi(stockName, moneycontrolName,
    isWatchListed, lowerReturnPercentTarget, upperReturnPercentTarget, stockRatings) {
   return axios.post(host+'maintainanceControllerEndPoint/v1/updateStockAttributes',
       querystring.stringify({
@@ -44,12 +49,17 @@ function postMaintApiResult(stockName, moneycontrolName,
           "Content-Type": "application/x-www-form-urlencoded"
         }
       });
-
 }
 
-function puke(obj)
-{
-  return <pre>{JSON.stringify(obj , null, ' ')}</pre>
+function uploadUnrealizedApi(unrealized) {
+  return axios.post(host+'maintainanceControllerEndPoint/v1/uploadUnrealized',
+      querystring.stringify({
+              unrealized: unrealized
+      }), {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        }
+      });
 }
 
 var helpers = {
@@ -97,7 +107,16 @@ var helpers = {
   },
 
   uploadUnrealized: function(commaSeperatedUnrealized) {
-        console.log('commaSeperatedUnrealized ', commaSeperatedUnrealized);
+        console.log('commaSeperatedUnrealized:', commaSeperatedUnrealized);
+        return uploadUnrealizedApi(commaSeperatedUnrealized)
+        .then(function(response)
+        {
+          return response.data;
+        })
+        .catch(function(err)
+        {
+            console.warn('Error in updateStockAttributes ', err);
+        });
   },
 
   updateStockAttributes: function(stockName, moneycontrolName,
@@ -113,17 +132,16 @@ var helpers = {
         console.log('updateStockAttributes.stockRatings ', stockRatings[i]);
         }
 
-
-    return postMaintApiResult(stockName, moneycontrolName,
-       isWatchListed, lowerReturnPercentTarget, upperReturnPercentTarget, stockRatings)
-    .then(function(response)
-    {
-      return response.data;
-    })
-    .catch(function(err)
-    {
-        console.warn('Error in updateStockAttributes ', err);
-    });
+      return updateStockAttributesApi(stockName, moneycontrolName,
+         isWatchListed, lowerReturnPercentTarget, upperReturnPercentTarget, stockRatings)
+      .then(function(response)
+      {
+        return response.data;
+      })
+      .catch(function(err)
+      {
+          console.warn('Error in updateStockAttributes ', err);
+      });
   },
 
   listBlackListedStocks: function() {
