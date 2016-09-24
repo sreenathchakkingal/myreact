@@ -55,7 +55,7 @@ var ModifiableAttributesContainer = React.createClass({
        this.state.stockRatings).
     then(function(updatedResponse)
     {
-      var bStyle = updatedResponse.success ? 'success' : 'error';
+      var bStyle = updatedResponse.success ? 'success' : 'danger';
       var bText = updatedResponse.success ? 'Updated Attributes' : updatedResponse.statusMessage;
       this.setState({
         buttonSytle : bStyle,
@@ -90,7 +90,6 @@ var ModifiableAttributesContainer = React.createClass({
           buttonDisabled={this.state.buttonDisabled}
           buttonText={this.state.buttonText}
           />
-          <UnrealizedFileUploadContainer/>
         </div>
       )
     }

@@ -1,4 +1,5 @@
 var React = require('react');
+var PropTypes = React.PropTypes;
 var Form  = require('react-bootstrap/lib/Form');
 var FormGroup = require('react-bootstrap/lib/FormGroup');
 var FormControl = require('react-bootstrap/lib/FormControl');
@@ -81,7 +82,6 @@ var ModifiableAttributes = React.createClass({
           {this.props.buttonText}
           </Button>
 
-
         </div>
       )
     }
@@ -92,10 +92,17 @@ var ModifiableAttributes = React.createClass({
   }
 })
 
-
-function ModifiableAttributes (props) {
-
-
+ModifiableAttributes.propTypes = {
+  isRetrieved: PropTypes.bool.isRequired,
+  stocksInfo: PropTypes.array.isRequired,
+  onRatingsChange: PropTypes.func.isRequired,
+  onMoneyControlStockNameChange: PropTypes.func.isRequired,
+  onIsWatchlistedChange: PropTypes.func.isRequired,
+  onLowerReturnPercentTargetChange: PropTypes.func.isRequired,
+  onUpperReturnPercentTargetChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  buttonSytle: PropTypes.string.isRequired,
+  buttonText: PropTypes.string.isRequired
 }
 
 module.exports = ModifiableAttributes

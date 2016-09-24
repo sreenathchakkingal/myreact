@@ -33,6 +33,7 @@ function RetrieveModifiableStockAttributes (props) {
       </Button>
 
       <ModifiableAttributesContainer isRetrieved={isRetrieved} stocksInfo={props.stocksInfo} />
+
     </Form>
   );
 }

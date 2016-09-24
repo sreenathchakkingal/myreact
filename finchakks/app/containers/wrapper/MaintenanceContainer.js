@@ -1,5 +1,6 @@
 var React = require('react');
 var RetrieveModifiableStockAttributesContainer = require("../RetrieveModifiableStockAttributesContainer");
+var UnrealizedFileUploadContainer = require("../UnrealizedFileUploadContainer");
 var Main  = require("../../components/Main");
 
 var MaintenanceContainer = React.createClass({
@@ -7,10 +8,10 @@ var MaintenanceContainer = React.createClass({
       return (
         <Main>
           <RetrieveModifiableStockAttributesContainer/>
+          <UnrealizedFileUploadContainer/>
         </Main>
       )
   }
-
 });
 
 module.exports = MaintenanceContainer;
