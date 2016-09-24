@@ -42,7 +42,7 @@ var UnrealizedFileUploadContainer = React.createClass({
       {
         console.log('handleSubmit.updatedResponse ', updatedResponse);
         var bStyle = updatedResponse.success ? 'success' : 'danger';
-        var bText = updatedResponse.success ? 'Uploaded!!!': updatedResponse.statusMessage;
+        var bText =  updatedResponse.statusMessage;
 
         this.setState({
           buttonSytle : bStyle,

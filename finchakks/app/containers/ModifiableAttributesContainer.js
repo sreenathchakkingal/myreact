@@ -56,7 +56,7 @@ var ModifiableAttributesContainer = React.createClass({
     then(function(updatedResponse)
     {
       var bStyle = updatedResponse.success ? 'success' : 'danger';
-      var bText = updatedResponse.success ? 'Updated Attributes' : updatedResponse.statusMessage;
+      var bText =  updatedResponse.statusMessage;
       this.setState({
         buttonSytle : bStyle,
         buttonText : bText,
