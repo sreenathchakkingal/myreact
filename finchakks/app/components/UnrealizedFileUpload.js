@@ -12,11 +12,15 @@ var UnrealizedFileUpload = React.createClass({
       return(
         <div>
           <form>
-            <input type="file" onChange={this.props.onChange} />
-            <Button bsStyle={this.props.buttonSytle} disabled={this.props.buttonDisabled} bsSize="small" type="submit"
-             onClick={this.props.onSubmit}>
-            {this.props.buttonText}
-            </Button>
+            <FormGroup controlId='formControlsFile'>
+
+              <input type="file" onChange={this.props.onChange}  />
+            </FormGroup>
+            {' '}
+               <Button bsStyle={this.props.buttonSytle} disabled={this.props.buttonDisabled} bsSize="small" type="submit"
+               onClick={this.props.onSubmit}>
+              {this.props.buttonText}
+              </Button>
           </form>
         </div>
       )
