@@ -46,7 +46,7 @@ function NDaysHistoryStocks (props) {
         "sellPrice", "simpleMovingAverage",
         "nDay1Gain","nDay2Gain","nDay3Gain","nDay4Gain","nDay5Gain","nDay6Gain", "industry"]
         }
-        columnMetadata={metaData} />
+        columnMetadata={metaData} bodyHeight={800}/>
       </PanelWrapper>
     </div>
     )

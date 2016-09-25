@@ -26,7 +26,7 @@ var RefreshContainer = React.createClass({
       this.setState({
         buttonSytle : bStyle,
         buttonText : bText,
-        buttonDisabled : true
+        buttonDisabled : false
       })
     }.bind(this))
   },

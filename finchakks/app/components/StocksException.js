@@ -23,8 +23,8 @@ function StocksException (props) {
     ];
 
     return (
-        <Griddle customNoDataComponent={NoDataComponent}
-         results={props.stocksInfo} columnMetadata={metaData}/>
+      <Griddle customNoDataComponent={NoDataComponent}
+       results={props.stocksInfo} columnMetadata={metaData} bodyHeight={100} />
     )
   }
 }
