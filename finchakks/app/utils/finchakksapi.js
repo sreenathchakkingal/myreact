@@ -62,6 +62,10 @@ function uploadUnrealizedApi(unrealized) {
       });
 }
 
+function refreshApi() {
+  return axios.post(host+'maintainanceControllerEndPoint/v1/refresh');
+}
+
 var helpers = {
   listprofitAndloss: function() {
     return getInitializeApiResult('profitandlossdbobject')
@@ -106,8 +110,19 @@ var helpers = {
     });
   },
 
+  refresh: function() {
+    return refreshApi()
+    .then(function(response)
+    {
+        return response.data;
+    })
+    .catch(function(err)
+    {
+        console.warn('Error in refresh ', err);
+    });
+  },
+
   uploadUnrealized: function(commaSeperatedUnrealized) {
-        console.log('commaSeperatedUnrealized:', commaSeperatedUnrealized);
         return uploadUnrealizedApi(commaSeperatedUnrealized)
         .then(function(response)
         {
@@ -115,7 +130,7 @@ var helpers = {
         })
         .catch(function(err)
         {
-            console.warn('Error in updateStockAttributes ', err);
+            console.warn('Error in uploadUnrealized ', err);
         });
   },
 
@@ -223,7 +238,6 @@ var helpers = {
         console.warn('Error in listUnrealizedSummary', err);
     });
   },
-
 
   listUnrealizedSelectedDetails: function(stockName) {
     return getInitializeApiResult('unrealizeddetaildbobject/'+stockName)

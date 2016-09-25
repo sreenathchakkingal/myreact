@@ -76,7 +76,6 @@ var ModifiableAttributesContainer = React.createClass({
 
   render: function () {
       return (
-        <div>
           <ModifiableAttributes
           isRetrieved={this.props.isRetrieved}
           stocksInfo={this.props.stocksInfo}
@@ -90,7 +89,6 @@ var ModifiableAttributesContainer = React.createClass({
           buttonDisabled={this.state.buttonDisabled}
           buttonText={this.state.buttonText}
           />
-        </div>
       )
     }
 

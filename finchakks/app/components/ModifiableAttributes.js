@@ -102,7 +102,8 @@ ModifiableAttributes.propTypes = {
   onUpperReturnPercentTargetChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
   buttonSytle: PropTypes.string.isRequired,
-  buttonText: PropTypes.string.isRequired
+  buttonText: PropTypes.string.isRequired,
+  buttonDisabled: PropTypes.bool.isRequired
 }
 
 module.exports = ModifiableAttributes
