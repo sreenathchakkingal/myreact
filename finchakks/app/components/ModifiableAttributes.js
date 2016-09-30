@@ -33,7 +33,6 @@ var ModifiableAttributes = React.createClass({
                                   onChange={this.props.onRatingsChange.bind(this, index)}
                                   defaultValue = {ratingValue}
                                   options={ratingValues} />
-
           );
       }
 

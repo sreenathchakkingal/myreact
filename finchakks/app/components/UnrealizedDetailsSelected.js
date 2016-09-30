@@ -81,7 +81,7 @@ function UnrealizedDetailsSelected (props) {
       <PanelWrapper header={headerName}>
         <GriddleWrapper results={props.stocksInfo}
         columns={["returnTillDate","duration","buyPrice","sellPrice","bankSellPrice","quantity", "totalInvestment",
-        "totalReturn", "totalReturnIfBank", "diff"]}
+        "totalReturn", "totalReturnIfBank", "diff"]} bodyHeight={100}
         columnMetadata={metaData}
         />
       </PanelWrapper>
