@@ -30,6 +30,16 @@ function getInitializeApiResult(methodName) {
     return axios.get(host+'initalizeControllerEndPoint/v1/' +methodName);
 }
 
+function getInitializeApiWithParamResult(methodName, stockName) {
+  return axios.get(host+'initalizeControllerEndPoint/v1/'+methodName,
+      {
+        params: {
+            stockName: stockName
+        }
+      }
+    );
+}
+
 function getMaintApiResult(methodName) {
     return axios.get(maintEndPoint +methodName);
 }
@@ -249,6 +259,19 @@ var helpers = {
     .catch(function(err)
     {
         console.warn('Error in listUnrealizedDetails ', err);
+    });
+  },
+
+  listTargetHistorySelected: function(stockName) {
+    return getInitializeApiWithParamResult('listSelectedTargetHistory', stockName)
+    .then(function(response)
+    {
+      var stocksInfo= response.data.items;
+      return stocksInfo;
+    })
+    .catch(function(err)
+    {
+        console.warn('Error in listTargetHistorySelected ', err);
     });
   }
 

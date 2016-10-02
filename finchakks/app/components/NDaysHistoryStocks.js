@@ -35,7 +35,7 @@ function NDaysHistoryStocks (props) {
       columnMetadata.nDay6Gain(),
       columnMetadata.industry()
     ];
-
+    
     return (
     <div>
       <PanelWrapper header='Watch List'>

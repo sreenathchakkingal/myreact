@@ -4,7 +4,17 @@ var Griddle = require('griddle-react');
 
 var GriddleWrapper = React.createClass({
   render: function () {
-    var bodyHeight = typeof this.props.bodyHeight==='undefined' ? 400 : this.props.bodyHeight;
+    var bodyHeight=0;
+    if(typeof this.props.bodyHeight==='undefined')
+    {
+      var sizeOfResultMultipied=this.props.results.length * 35;
+      //number chosen after trial and error for a good display. If the size goes beyound 400, the grid is not displayed right
+      bodyHeight = sizeOfResultMultipied <= 400 ? sizeOfResultMultipied : 400;
+    }
+    else
+    {
+      bodyHeight = this.props.bodyHeight;
+    }
     return (
       <div>
         <Griddle results={this.props.results}  columns={this.props.columns} columnMetadata={this.props.columnMetadata}

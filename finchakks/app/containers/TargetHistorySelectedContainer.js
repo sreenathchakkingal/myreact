@@ -1,12 +1,9 @@
 var React = require('react');
-var UnrealizedDetailsSelected = require('../components/UnrealizedDetailsSelected');
+var TargetHistorySelected = require('../components/TargetHistorySelected');
 var finchakksapi = require('../utils/finchakksapi');
 
 
-var UnrealizedDetailsSelectedContainer = React.createClass({
-  contextTypes: {
-    router: React.PropTypes.object.isRequired
-  },
+var TargetHistorySelectedContainer = React.createClass({
 
   getInitialState: function () {
      return {
@@ -18,7 +15,7 @@ var UnrealizedDetailsSelectedContainer = React.createClass({
 
   componentDidMount: function()
   {
-    finchakksapi.listUnrealizedSelectedDetails(this.props.stockName).
+    finchakksapi.listTargetHistorySelected(this.props.stockName).
     then(function(stocksInfo)
     {
       this.setState({
@@ -30,10 +27,10 @@ var UnrealizedDetailsSelectedContainer = React.createClass({
 
   render: function () {
        return (
-         <UnrealizedDetailsSelected isLoading={this.state.isLoading}
+         <TargetHistorySelected isLoading={this.state.isLoading}
          stocksInfo={this.state.stocksInfo}/>
       )
     }
 });
 
-module.exports = UnrealizedDetailsSelectedContainer;
+module.exports = TargetHistorySelectedContainer;
