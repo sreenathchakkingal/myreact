@@ -2,12 +2,7 @@ var React = require('react');
 var UnrealizedDetailsSelected = require('../components/UnrealizedDetailsSelected');
 var finchakksapi = require('../utils/finchakksapi');
 
-
 var UnrealizedDetailsSelectedContainer = React.createClass({
-  contextTypes: {
-    router: React.PropTypes.object.isRequired
-  },
-
   getInitialState: function () {
      return {
        isLoading: true,
