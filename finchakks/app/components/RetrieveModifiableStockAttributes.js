@@ -18,12 +18,14 @@ function puke(obj)
 function RetrieveModifiableStockAttributes (props) {
   var isRetrieving=props.isStocksInfoRetrieving;
   var isRetrieved = props.isStocksInfoRetrieved;
+  var renderModifiableAttributesContainer;
+
   return(
     <Form inline>
       <FormGroup controlId="formControlsText">
         <ControlLabel >Stock Name</ControlLabel>
         {' '}
-        <FormControl type="text"  onChange={props.onCaptureChange} />
+        <FormControl type="text" defaultValue={props.stockName} onChange={props.onCaptureChange} />
       </FormGroup>
       {' '}
 

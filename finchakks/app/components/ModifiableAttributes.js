@@ -12,7 +12,6 @@ var StockRatingsWrapper = require('./wrapper/StockRatingsWrapper');
 var ModifiableAttributes = React.createClass({
 
   render: function () {
-
     var yes = 'Yes';
     var no = 'No';
     if(this.props.isRetrieved ===true )

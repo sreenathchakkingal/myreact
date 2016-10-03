@@ -5,7 +5,7 @@ var finchakksapi = require('../utils/finchakksapi');
 var RetrieveModifiableStockAttributesContainer = React.createClass({
   getInitialState: function () {
      return {
-       stockName: '',
+       stockName: typeof this.props.stockName==='undefined' ? '' : this.props.stockName,
        stocksInfo:[],
        isStocksInfoRetrieving: false,
        isStocksInfoRetrieved: false
@@ -42,6 +42,7 @@ var RetrieveModifiableStockAttributesContainer = React.createClass({
   render: function () {
       return (
         <RetrieveModifiableStockAttributes
+        stockName={this.state.stockName}
         isStocksInfoRetrieving={this.state.isStocksInfoRetrieving}
         onStockNameSubmit={this.handleSubmit}
         onCaptureChange={this.handleChange}
