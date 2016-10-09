@@ -3,7 +3,7 @@ var SplitButton = require('react-bootstrap/lib/SplitButton');
 var Modal = require('react-bootstrap/lib/Modal');
 var Button = require('react-bootstrap/lib/Button');
 var MenuItem = require('react-bootstrap/lib/MenuItem');
-var UnrealizedDetailsSelectedContainer = require('../../containers/UnrealizedDetailsSelectedContainer');
+var UnrealizedSelectedContainer = require('../../containers/UnrealizedSelectedContainer');
 var TargetHistorySelectedContainer = require('../../containers/TargetHistorySelectedContainer');
 var RetrieveModifiableStockAttributesContainer = require('../../containers/RetrieveModifiableStockAttributesContainer');
 
@@ -53,7 +53,7 @@ var Trim = React.createClass({
           <Modal bsSize="large" aria-labelledby="contained-modal-title-lg" show={this.state.showUnrealizedModal}
           onHide={this.closeUnrealizedModal}>
             <Modal.Body>
-              <UnrealizedDetailsSelectedContainer stockName={name}/>
+              <UnrealizedSelectedContainer stockName={name}/>
             </Modal.Body>
             <Modal.Footer>
               <Button onClick={this.closeUnrealizedModal}>Close</Button>

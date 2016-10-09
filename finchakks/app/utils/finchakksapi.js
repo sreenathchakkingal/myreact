@@ -262,6 +262,20 @@ var helpers = {
     });
   },
 
+  listUnrealizedSelected: function(stockName) {
+    return getInitializeApiResult('listSelectedUnrealized?stockName='+stockName)
+    .then(function(response)
+    {
+      var stocksInfo= response.data;
+      console.log('listUnrealizedSelected.stocksInfo: ', stocksInfo);
+      return stocksInfo;
+    })
+    .catch(function(err)
+    {
+        console.warn('Error in listUnrealizedSelected ', err);
+    });
+  },
+
   listTargetHistorySelected: function(stockName) {
     return getInitializeApiWithParamResult('listSelectedTargetHistory', stockName)
     .then(function(response)
