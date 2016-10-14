@@ -211,10 +211,10 @@ var helpers = {
 
   listNDaysHistoryStocks: function() {
 
-    return getInitializeApiResult('ndayshistoryflatteneddbobject')
+    return getInitializeApiResult('listNDaysHistoryFlattenedStocks')
     .then(function(response)
     {
-      var stocksInfo= response.data.items;
+      var stocksInfo= response.data;
       return stocksInfo;
     })
     .catch(function(err)
@@ -267,7 +267,6 @@ var helpers = {
     .then(function(response)
     {
       var stocksInfo= response.data;
-      console.log('listUnrealizedSelected.stocksInfo: ', stocksInfo);
       return stocksInfo;
     })
     .catch(function(err)

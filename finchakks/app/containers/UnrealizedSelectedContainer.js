@@ -6,7 +6,6 @@ var UnrealizedSelectedContainer = React.createClass({
   getInitialState: function () {
      return {
        isLoading: true,
-       stockName:'',
        stockSummary:{},
        stockDetail:[]
      }
@@ -17,11 +16,12 @@ var UnrealizedSelectedContainer = React.createClass({
     finchakksapi.listUnrealizedSelected(this.props.stockName).
     then(function(stocksInfo)
     {
+      summaryDbObjectTemp=typeof stocksInfo.summaryDbObject==='undefined' ? {} : stocksInfo.summaryDbObject;
+      detailDbObjectsTemp=typeof stocksInfo.detailDbObjects==='undefined' ? [] : stocksInfo.detailDbObjects;
       this.setState({
         isLoading:false,
-        stockName: stocksInfo.summaryDbObject.stockName,
-        stockSummary: stocksInfo.summaryDbObject,
-        stockDetail: stocksInfo.detailDbObjects
+        stockSummary: summaryDbObjectTemp,
+        stockDetail: detailDbObjectsTemp
       })
     }.bind(this))
   },
@@ -29,7 +29,7 @@ var UnrealizedSelectedContainer = React.createClass({
   render: function () {
        return (
          <UnrealizedSelected  isLoading={this.state.isLoading}
-         stockName={this.state.stockName}
+         stockName={this.props.stockName}
          stockSummary={this.state.stockSummary}
          stockDetail={this.state.stockDetail}
          />
