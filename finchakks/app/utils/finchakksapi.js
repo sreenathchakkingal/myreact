@@ -249,19 +249,6 @@ var helpers = {
     });
   },
 
-  listUnrealizedSelectedDetails: function(stockName) {
-    return getInitializeApiResult('unrealizeddetaildbobject/'+stockName)
-    .then(function(response)
-    {
-      var stocksInfo= response.data.items;
-      return stocksInfo;
-    })
-    .catch(function(err)
-    {
-        console.warn('Error in listUnrealizedDetails ', err);
-    });
-  },
-
   listUnrealizedSelected: function(stockName) {
     return getInitializeApiResult('listSelectedUnrealized?stockName='+stockName)
     .then(function(response)
@@ -286,7 +273,20 @@ var helpers = {
     {
         console.warn('Error in listTargetHistorySelected ', err);
     });
-  }
+  },
+
+  listUnrealizedSelectedDetails: function(stockName) {
+    return getInitializeApiResult('unrealizeddetaildbobject/'+stockName)
+    .then(function(response)
+    {
+      var stocksInfo= response.data.items;
+      return stocksInfo;
+    })
+    .catch(function(err)
+    {
+        console.warn('Error in listUnrealizedDetails ', err);
+    });
+  },
 
 };
 

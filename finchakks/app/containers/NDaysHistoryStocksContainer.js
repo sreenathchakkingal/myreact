@@ -10,8 +10,8 @@ var NDaysHistoryStocksContainer = React.createClass({
    getInitialState: function () {
       return {
         isLoading: true,
-        stocksWithoutMin:[],
-        stocksWithMin:[]
+        nDaysWatchlistedStocks:[],
+        nDaysMinOrMaxStocks:[]
       }
     },
 
@@ -22,8 +22,8 @@ var NDaysHistoryStocksContainer = React.createClass({
       {
         this.setState({
           isLoading:false,
-          stocksWithoutMin: stocksInfo.stocksWithoutMinimum,
-          stocksWithMin: stocksInfo.stocksMinimum
+          nDaysWatchlistedStocks: stocksInfo.nDaysWatchlistedStocks,
+          nDaysMinOrMaxStocks: stocksInfo.nDaysMinOrMaxStocks
         })
       }.bind(this))
     },
@@ -31,8 +31,8 @@ var NDaysHistoryStocksContainer = React.createClass({
 render: function () {
     return (
       <NDaysHistoryStocks isLoading={this.state.isLoading}
-      stocksWithoutMin={this.state.stocksWithoutMin}
-      stocksWithMin={this.state.stocksWithMin}
+      nDaysWatchlistedStocks={this.state.nDaysWatchlistedStocks}
+      nDaysMinOrMaxStocks={this.state.nDaysMinOrMaxStocks}
       />
     )
   }

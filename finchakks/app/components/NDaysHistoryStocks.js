@@ -33,32 +33,42 @@ function NDaysHistoryStocks (props) {
       columnMetadata.nDay4Gain(),
       columnMetadata.nDay5Gain(),
       columnMetadata.nDay6Gain(),
-      columnMetadata.industry()
+      columnMetadata.industry(),
+      columnMetadata.minValue(),
+      columnMetadata.minValueDate(),
+      columnMetadata.maxValue(),
+      columnMetadata.maxValueDate(),
+      columnMetadata.latestClosePriceMinimum()
     ];
 
     var stockRatingRows = [];
-    var columns=["stockName", "simpleMovingAverageAndSellDeltaNormalized", "netNDaysGain",
+    var watchListColumns=["stockName", "simpleMovingAverageAndSellDeltaNormalized", "netNDaysGain",
     "stockRatingValue", "investmentRatio", "industryInvestmentRatio",
     "sellPrice", "simpleMovingAverage",
     "nDay1Gain","nDay2Gain","nDay3Gain","nDay4Gain","nDay5Gain","nDay6Gain", "industry"];
 
-    if(typeof props.stocksWithMin!='undefined' && props.stocksWithMin.length!=0)
+    var minMaxColumns=["stockName", "sellPrice","latestClosePriceMinimum",
+    "minValue", "minValueDate","maxValue", "maxValueDate",
+     "simpleMovingAverageAndSellDeltaNormalized", "netNDaysGain",
+    "stockRatingValue", "simpleMovingAverage","nDay1Gain","nDay2Gain"];
+
+    if(typeof props.nDaysMinOrMaxStocks!='undefined' && props.nDaysMinOrMaxStocks.length!=0)
     {
       stockRatingRows.push(
-        <PanelWrapper header='Stocks that hit min' key='min'>
-          <GriddleWrapper results={props.stocksWithMin}
-          columns={columns}
+        <PanelWrapper header='Stocks that hit min/max' key='minMax'>
+          <GriddleWrapper results={props.nDaysMinOrMaxStocks}
+          columns={minMaxColumns}
           columnMetadata={metaData}/>
         </PanelWrapper>
           )
     }
 
-    if(typeof props.stocksWithoutMin!='undefined' && props.stocksWithoutMin.length!=0)
+    if(typeof props.nDaysWatchlistedStocks!='undefined' && props.nDaysWatchlistedStocks.length!=0)
     {
       stockRatingRows.push(
             <PanelWrapper header='Watch List' key='watchlist'>
-              <GriddleWrapper results={props.stocksWithoutMin}
-              columns={columns}
+              <GriddleWrapper results={props.nDaysWatchlistedStocks}
+              columns={watchListColumns}
               columnMetadata={metaData} bodyHeight={800}/>
             </PanelWrapper>
           )
@@ -73,8 +83,8 @@ function NDaysHistoryStocks (props) {
 
 NDaysHistoryStocks.propTypes = {
   isLoading: PropTypes.bool.isRequired,
-  stocksWithoutMin: PropTypes.array,
-  stocksWithMin: PropTypes.array
+  nDaysWatchlistedStocks: PropTypes.array,
+  nDaysMinOrMaxStocks: PropTypes.array
 }
 
 module.exports = NDaysHistoryStocks

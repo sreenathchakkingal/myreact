@@ -4,6 +4,7 @@ var ConvertToPercent = require('../format/ConvertToPercent');
 var AppendPercentRoundedOff = require('../format/AppendPercentRoundedOff');
 var ConvertToPercentRoundedOff = require('../format/ConvertToPercentRoundedOff');
 var Trim = require('../format/Trim');
+var MinOrMaxFormat = require('../format/MinOrMaxFormat');
 
 var helpers = {
     stockNameWithOptions: function()
@@ -50,8 +51,7 @@ var helpers = {
   },
 
   investment: function()
-  {
-    var investment =
+  { investment =
     {
       "columnName": "totalInvestment",
       "displayName": "Investment",
@@ -381,6 +381,57 @@ var helpers = {
       "displayName": "Description"
     };
     return exceptionComment;
+  },
+
+  minValue: function()
+  {
+    var minValue=
+    {
+      "columnName": "minValue",
+      "displayName": "Min"
+    };
+    return minValue;
+  },
+
+  minValueDate: function()
+  {
+    var minValueDate=
+    {
+      "columnName": "minValueDate",
+      "displayName": "Min Dt"
+    };
+    return minValueDate;
+  },
+
+  maxValue: function()
+  {
+    var maxValue=
+    {
+      "columnName": "maxValue",
+      "displayName": "Max"
+    };
+    return maxValue;
+  },
+
+  maxValueDate: function()
+  {
+    var maxValueDate=
+    {
+      "columnName": "maxValueDate",
+      "displayName": "Max Dt"
+    };
+    return maxValueDate;
+  },
+
+  latestClosePriceMinimum: function()
+  {
+    var latestClosePriceMinimum=
+    {
+      "columnName": "latestClosePriceMinimum",
+      "displayName": "Min/Max?",
+      "customComponent": MinOrMaxFormat
+    };
+    return latestClosePriceMinimum;
   }
 
 };
