@@ -10,6 +10,7 @@ var InvestmentContainer = require("../containers/wrapper/InvestmentContainer");
 var DeprecatedContainer = require("../containers/wrapper/DeprecatedContainer");
 var MaintenanceContainer = require("../containers/wrapper/MaintenanceContainer");
 var UnrealizedDetailsSelectedContainer = require("../containers/UnrealizedDetailsSelectedContainer");
+var CalculatorContainer = require('../containers/CalculatorContainer');
 
 var routes = (
   <Router history={hashHistory}>
@@ -19,6 +20,7 @@ var routes = (
       <Route path='deprecated' component={DeprecatedContainer} />
       <Route path='maint' component={MaintenanceContainer} />
       <Route path='selectedUnrealized/:stockName' component={UnrealizedDetailsSelectedContainer} />
+      <Route path='calculator' component={CalculatorContainer} />
     </Route>
   </Router>
 );
