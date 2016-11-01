@@ -1,18 +1,18 @@
 var React = require('react');
-var ListBlackListedStocksContainer = require("../ListBlackListedStocksContainer");
+var CalculatorContainer = require("../CalculatorContainer");
 var Main  = require("../../components/Main");
 var Menu  = require("../../components/Menu");
 
-var DeprecatedContainer = React.createClass({
+var CalculatorWrapperContainer = React.createClass({
     render: function () {
       return (
         <Main>
           <Menu/>
-          <ListBlackListedStocksContainer/>
+          <CalculatorContainer/>
         </Main>
       )
   }
 
 });
 
-module.exports = DeprecatedContainer;
+module.exports = CalculatorWrapperContainer;
