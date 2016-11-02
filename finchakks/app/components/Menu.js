@@ -1,5 +1,6 @@
 var React = require('react');
 var ReactRouter = require('react-router');
+var Link = ReactRouter.Link;
 var Nav  = require('react-bootstrap/lib/Nav');
 var NavItem  = require('react-bootstrap/lib/NavItem');
 
@@ -8,10 +9,10 @@ var Menu = React.createClass({
     return (
       <div>
         <Nav bsStyle="tabs">
-          <NavItem eventKey="1" href="/">Home</NavItem>
-          <NavItem eventKey="2" href="/#/calculator">Calculator</NavItem>
-          <NavItem eventKey="3" href="/#/investment">Investment</NavItem>
-          <NavItem eventKey="4" href="/#/maint">Maint</NavItem>
+          <NavItem> <Link to="/">Home</Link></NavItem>
+          <NavItem> <Link to="/calculator">Calculator</Link></NavItem>
+          <NavItem> <Link to="/investment">Investment</Link></NavItem>
+          <NavItem> <Link to="/maint">Maint</Link></NavItem>
         </Nav>
       </div>
     )
