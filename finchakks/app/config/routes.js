@@ -11,7 +11,7 @@ var Menu = require('../components/Menu');
 var WrapperContainer = require("../containers/wrapper/WrapperContainer");
 var InvestmentContainer = require("../containers/wrapper/InvestmentContainer");
 var MaintenanceContainer = require("../containers/wrapper/MaintenanceContainer");
-var CalculatorWrapperContainer = require('../containers/wrapper/CalculatorWrapperContainer');
+var CalculatorContainer = require('../containers/CalculatorContainer');
 
 var DeprecatedContainer = require("../containers/wrapper/DeprecatedContainer");
 var UnrealizedDetailsSelectedContainer = require("../containers/UnrealizedDetailsSelectedContainer");
@@ -23,7 +23,7 @@ var routes = (
 
       <Route path='investment' component={InvestmentContainer} />
       <Route path='maint' component={MaintenanceContainer} />
-      <Route path='calculator' component={CalculatorWrapperContainer} />
+      <Route path='calculator' component={CalculatorContainer} />
 
       <Route path='selectedUnrealized/:stockName' component={UnrealizedDetailsSelectedContainer} />
       <Route path='deprecated' component={DeprecatedContainer} />

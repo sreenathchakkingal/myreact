@@ -8,12 +8,11 @@ var Menu  = require("../../components/Menu");
 var InvestmentContainer = React.createClass({
     render: function () {
       return (
-        <Main>
-          <Menu/>
+        <div>
           <ProfitAndLossContainer/>
           <UnrealizedSummaryContainer/>
           <UnrealizedDetailsContainer/>
-        </Main>
+        </div>
       )
   }
 

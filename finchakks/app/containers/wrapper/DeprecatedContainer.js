@@ -6,10 +6,7 @@ var Menu  = require("../../components/Menu");
 var DeprecatedContainer = React.createClass({
     render: function () {
       return (
-        <Main>
-          <Menu/>
           <ListBlackListedStocksContainer/>
-        </Main>
       )
   }
 

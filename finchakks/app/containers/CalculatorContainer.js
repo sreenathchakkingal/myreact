@@ -1,4 +1,6 @@
 var React = require('react');
+var Modal = require('react-bootstrap/lib/Modal');
+var Button = require('react-bootstrap/lib/Button');
 var Calculator  = require('../components/Calculator');
 var finchakkCalculatorApi = require('../utils/finchakkCalculatorApi');
 
@@ -11,8 +13,13 @@ var CalculatorContainer = React.createClass({
        finalAmount : 0.0,
        buttonSytle :'primary',
        buttonText : 'Calculate',
-       buttonDisabled : false
+       buttonDisabled : false,
+       showCalculatorModal: true,
      }
+   },
+
+   closeCalculatorModal() {
+     this.setState({ showCalculatorModal: false });
    },
 
    handleInitialAmountChange(e) {
@@ -66,20 +73,30 @@ var CalculatorContainer = React.createClass({
 
   render: function () {
       return (
-          <Calculator
-          initialAmount= {this.state.initialAmount}
-          interestRate = {this.state.interestRate}
-          durationInDays = {this.state.durationInDays}
-          finalAmount= {this.state.finalAmount}
-          onInitialAmountChange={this.handleInitialAmountChange}
-          onInterestRateChange={this.handleInterestRateChange}
-          onDurationInDaysChange={this.handleDurationInDaysChange}
-          onFinalAmountChange={this.handleFinalAmountChange}
-          onSubmit={this.handleSubmit}
-          buttonSytle={this.state.buttonSytle}
-          buttonDisabled={this.state.buttonDisabled}
-          buttonText={this.state.buttonText}
-          />
+        <div>
+          <Modal bsSize="large" aria-labelledby="contained-modal-title-lg" show={this.state.showCalculatorModal}
+          onHide={this.closeCalculatorModal}>
+            <Modal.Body>
+              <Calculator
+              initialAmount= {this.state.initialAmount}
+              interestRate = {this.state.interestRate}
+              durationInDays = {this.state.durationInDays}
+              finalAmount= {this.state.finalAmount}
+              onInitialAmountChange={this.handleInitialAmountChange}
+              onInterestRateChange={this.handleInterestRateChange}
+              onDurationInDaysChange={this.handleDurationInDaysChange}
+              onFinalAmountChange={this.handleFinalAmountChange}
+              onSubmit={this.handleSubmit}
+              buttonSytle={this.state.buttonSytle}
+              buttonDisabled={this.state.buttonDisabled}
+              buttonText={this.state.buttonText}
+              />
+            </Modal.Body>
+            <Modal.Footer>
+              <Button onClick={this.closeCalculatorModal}>Close</Button>
+            </Modal.Footer>
+          </Modal>
+        </div>
       )
     }
 

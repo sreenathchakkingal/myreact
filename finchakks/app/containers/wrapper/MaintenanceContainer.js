@@ -11,8 +11,7 @@ var Menu  = require("../../components/Menu");
 var MaintenanceContainer = React.createClass({
     render: function () {
       return (
-        <Main>
-            <Menu/>
+        <div>
             <PanelWrapper header='Retrieve Modifiable Stock Attributes'>
               <RetrieveModifiableStockAttributesContainer/>
             </PanelWrapper>
@@ -22,7 +21,7 @@ var MaintenanceContainer = React.createClass({
             <PanelWrapper header='Refresh'>
               <RefreshContainer/>
             </PanelWrapper>
-        </Main>
+        </div>
       )
   }
 });

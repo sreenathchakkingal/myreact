@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactRouter = require('react-router');
 var Link = ReactRouter.Link;
+var IndexLink = ReactRouter.IndexLink;
 var Nav  = require('react-bootstrap/lib/Nav');
 var NavItem  = require('react-bootstrap/lib/NavItem');
 
@@ -9,7 +10,7 @@ var Menu = React.createClass({
     return (
       <div>
         <Nav bsStyle="tabs">
-          <NavItem> <Link to="/">Home</Link></NavItem>
+          <NavItem> <IndexLink to="/">Home</IndexLink></NavItem>
           <NavItem> <Link to="/calculator">Calculator</Link></NavItem>
           <NavItem> <Link to="/investment">Investment</Link></NavItem>
           <NavItem> <Link to="/maint">Maint</Link></NavItem>

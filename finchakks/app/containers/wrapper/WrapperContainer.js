@@ -11,13 +11,12 @@ var Menu  = require("../../components/Menu");
 var WrapperContainer = React.createClass({
     render: function () {
       return (
-        <Main>
-          <Menu/>
+        <div>
           <StockExceptionsContainer/>
           <ProfitAndLossContainer/>
           <TargetReachedStocksContainer/>
           <NDaysHistoryStocksContainer/>
-        </Main>
+        </div>
       )
   }
 
