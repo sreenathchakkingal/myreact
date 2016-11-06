@@ -6,7 +6,7 @@ var RefreshContainer = React.createClass({
   getInitialState: function () {
      return {
        buttonSytle :'primary',
-       buttonText : 'Refresh',
+       buttonText : 'Refresh Clear',
        buttonDisabled : false
      }
    },
@@ -17,6 +17,9 @@ var RefreshContainer = React.createClass({
       buttonText : 'Refreshing',
       buttonDisabled : true
      });
+
+    localStorage.clear(); //clear cache
+    console.log('local cache cleared');
 
     finchakksapi.refresh().
     then(function(updatedResponse)

@@ -7,6 +7,7 @@ var envIsProd = true;
 var host = envIsProd ? prodHost : devHost;
 
 var maintEndPoint = host+'maintainanceControllerEndPoint/v1/';
+var listNDaysHistoryStocksResultCache={};
 //mock
 // var stocksInfo=
 // [
@@ -104,10 +105,6 @@ var helpers = {
   },
 
   getModifiableStockAttributes: function(stockName) {
-    if(stockName === null || stockName ==='')
-    {
-      stockName='SYNDIBANK';
-    }
     return getMaintApiResult('getModifiableStockAttributes?stockName='+stockName)
     .then(function(response)
     {
@@ -210,17 +207,24 @@ var helpers = {
   },
 
   listNDaysHistoryStocks: function() {
-
-    return getInitializeApiResult('listNDaysHistoryFlattenedStocks')
-    .then(function(response)
+    if(listNDaysHistoryStocksResultCache === 0)
     {
-      var stocksInfo= response.data;
-      return stocksInfo;
-    })
-    .catch(function(err)
+      return listNDaysHistoryStocksResultCache;
+    }
+    else
     {
-        console.warn('Error in listNDaysHistoryStocks ', err);
-    });
+      return getInitializeApiResult('listNDaysHistoryFlattenedStocks')
+      .then(function(response)
+      {
+        var stocksInfo= response.data;
+        listNDaysHistoryStocksResultCache = stocksInfo;
+        return stocksInfo;
+      })
+      .catch(function(err)
+      {
+          console.warn('Error in listNDaysHistoryStocks ', err);
+      });
+    }
   },
 
   listUnrealizedDetails: function() {

@@ -16,14 +16,30 @@ var TargetReachedStocksContainer = React.createClass({
 
     componentDidMount: function()
     {
-      finchakksapi.listTargetReachedStocks().
-      then(function(stocksInfo)
+      var stocksInfoCachedAsStringTemp = localStorage.getItem('listTargetReachedStocks.stocksInfoCachedAsString');
+      if(stocksInfoCachedAsStringTemp == null || stocksInfoCachedAsStringTemp==='null')
       {
+        console.log('invoking listTargetReachedStocks api');
+        finchakksapi.listTargetReachedStocks().
+        then(function(stocksInfo)
+        {
+          localStorage.setItem('listTargetReachedStocks.stocksInfoCachedAsString', JSON.stringify(stocksInfo));
+          this.setState({
+            isLoading:false,
+            stocksInfo: stocksInfo
+          })
+        }.bind(this))
+      }
+      else
+      {
+        console.log('using cached result instead of listTargetReachedStocks api call');
+        var stocksInfoCached = JSON.parse(stocksInfoCachedAsStringTemp);
         this.setState({
           isLoading:false,
-          stocksInfo: stocksInfo
+          stocksInfo: stocksInfoCached
         })
-      }.bind(this))
+      }
+
     },
 
 render: function () {

@@ -16,14 +16,31 @@ var StockExceptionsContainer = React.createClass({
 
      componentDidMount: function()
      {
-       finchakksapi.listStockExceptions().
-       then(function(stocksInfo)
+       var stocksInfoCachedAsStringTemp = localStorage.getItem('listStockExceptions.stocksInfoCachedAsString');
+
+       if (stocksInfoCachedAsStringTemp == null || stocksInfoCachedAsStringTemp==='null')
        {
+         console.log('invoking listStockExceptions api');
+         finchakksapi.listStockExceptions().
+         then(function(stocksInfo)
+         {
+           localStorage.setItem('listStockExceptions.stocksInfoCachedAsString',  JSON.stringify(stocksInfo) );
+           this.setState({
+             isLoading:false,
+             stocksInfo: stocksInfo
+           })
+         }.bind(this))
+       }
+       else
+       {
+         console.log('using cached result instead of listStockExceptions api call');
+         var stocksInfoCached = JSON.parse(stocksInfoCachedAsStringTemp);
          this.setState({
            isLoading:false,
-           stocksInfo: stocksInfo
+           stocksInfo: stocksInfoCached
          })
-       }.bind(this))
+       }
+
      },
 
      render: function () {

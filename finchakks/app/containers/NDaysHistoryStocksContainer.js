@@ -3,10 +3,6 @@ var NDaysHistoryStocks = require('../components/NDaysHistoryStocks');
 var finchakksapi = require('../utils/finchakksapi');
 
 var NDaysHistoryStocksContainer = React.createClass({
-  contextTypes: {
-      router: React.PropTypes.object.isRequired
-    },
-
    getInitialState: function () {
       return {
         isLoading: true,
@@ -17,15 +13,32 @@ var NDaysHistoryStocksContainer = React.createClass({
 
     componentDidMount: function()
     {
-      finchakksapi.listNDaysHistoryStocks().
-      then(function(stocksInfo)
+      var stocksInfoCachedAsStringTemp = localStorage.getItem('listNDaysHistoryStocks.stocksInfoCachedAsString');
+      if(stocksInfoCachedAsStringTemp == null || stocksInfoCachedAsStringTemp==='null')
       {
+        console.log('invoking listNDaysHistoryStocks api');
+        finchakksapi.listNDaysHistoryStocks().
+        then(function(stocksInfo)
+        {
+          localStorage.setItem('listNDaysHistoryStocks.stocksInfoCachedAsString', JSON.stringify(stocksInfo));
+
+          this.setState({
+            isLoading:false,
+            nDaysWatchlistedStocks: stocksInfo.nDaysWatchlistedStocks,
+            nDaysMinOrMaxStocks: stocksInfo.nDaysMinOrMaxStocks
+          })
+        }.bind(this))
+      }
+      else
+      {
+        console.log('using cached result instead of listNDaysHistoryStocks api call');
+        var stocksInfoCached = JSON.parse(stocksInfoCachedAsStringTemp);
         this.setState({
           isLoading:false,
-          nDaysWatchlistedStocks: stocksInfo.nDaysWatchlistedStocks,
-          nDaysMinOrMaxStocks: stocksInfo.nDaysMinOrMaxStocks
+          nDaysWatchlistedStocks: stocksInfoCached.nDaysWatchlistedStocks,
+          nDaysMinOrMaxStocks: stocksInfoCached.nDaysMinOrMaxStocks
         })
-      }.bind(this))
+      }
     },
 
 render: function () {

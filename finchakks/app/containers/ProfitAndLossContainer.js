@@ -15,14 +15,29 @@ var ProfitAndLossContainer = React.createClass({
 
     componentDidMount: function()
     {
-      finchakksapi.listprofitAndloss().
-      then(function(stocksInfo)
+      var stocksInfoCachedAsStringTemp = localStorage.getItem('listprofitAndloss.stocksInfoCachedAsString');
+      if (stocksInfoCachedAsStringTemp == null || stocksInfoCachedAsStringTemp=='null')
       {
+        console.log('invoking listprofitAndloss api');
+        finchakksapi.listprofitAndloss().
+        then(function(stocksInfo)
+        {
+          localStorage.setItem('listprofitAndloss.stocksInfoCachedAsString', JSON.stringify(stocksInfo));
+          this.setState({
+            isLoading:false,
+            stocksInfo: stocksInfo
+          })
+        }.bind(this))
+      }
+      else
+      {
+        console.log('using cached result instead of listprofitAndloss api call');
+        var stocksInfoCached = JSON.parse(stocksInfoCachedAsStringTemp);
         this.setState({
           isLoading:false,
-          stocksInfo: stocksInfo
+          stocksInfo: stocksInfoCached
         })
-      }.bind(this))
+      }
     },
 
 render: function () {
