@@ -21,17 +21,17 @@ var RefreshContainer = React.createClass({
     localStorage.clear(); //clear cache
     console.log('local cache cleared');
 
-    finchakksapi.refresh().
-    then(function(updatedResponse)
-    {
-      var bStyle = updatedResponse.success ? 'success' : 'danger';
-      var bText =  updatedResponse.statusMessage;
-      this.setState({
-        buttonSytle : bStyle,
-        buttonText : bText,
-        buttonDisabled : false
-      })
-    }.bind(this))
+    // finchakksapi.refresh().
+    // then(function(updatedResponse)
+    // {
+    //   var bStyle = updatedResponse.success ? 'success' : 'danger';
+    //   var bText =  updatedResponse.statusMessage;
+    //   this.setState({
+    //     buttonSytle : bStyle,
+    //     buttonText : bText,
+    //     buttonDisabled : false
+    //   })
+    // }.bind(this))
   },
 
   render: function () {

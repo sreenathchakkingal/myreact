@@ -16,14 +16,30 @@ var UnrealizedSummaryContainer = React.createClass({
 
     componentDidMount: function()
     {
-      finchakksapi.listUnrealizedSummary().
-      then(function(stocksInfo)
+      var stocksInfoCachedAsStringTemp = localStorage.getItem('listUnrealizedSummary.stocksInfoCachedAsString');
+      if(stocksInfoCachedAsStringTemp == null || stocksInfoCachedAsStringTemp==='null')
       {
+        console.log('invoking listUnrealizedSummary api');
+        finchakksapi.listUnrealizedSummary().
+        then(function(stocksInfo)
+        {
+          localStorage.setItem('listUnrealizedSummary.stocksInfoCachedAsString', JSON.stringify(stocksInfo));
+          this.setState({
+            isLoading:false,
+            stocksInfo: stocksInfo
+          })
+        }.bind(this))
+      }
+      else
+      {
+        console.log('using cached result instead of listUnrealizedSummary api call');
+        var stocksInfoCached = JSON.parse(stocksInfoCachedAsStringTemp);
         this.setState({
           isLoading:false,
-          stocksInfo: stocksInfo
+          stocksInfo: stocksInfoCached
         })
-      }.bind(this))
+      }
+
     },
 
 render: function () {
