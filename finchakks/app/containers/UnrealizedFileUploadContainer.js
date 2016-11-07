@@ -40,7 +40,6 @@ var UnrealizedFileUploadContainer = React.createClass({
       finchakksapi.uploadUnrealized(this.state.fileContent).
       then(function(updatedResponse)
       {
-        console.log('handleSubmit.updatedResponse ', updatedResponse);
         var bStyle = updatedResponse.success ? 'success' : 'danger';
         var bText =  updatedResponse.statusMessage;
 
