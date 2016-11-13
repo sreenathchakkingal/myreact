@@ -18,7 +18,7 @@ var StockExceptionsContainer = React.createClass({
      {
        var stocksInfoCachedAsStringTemp = localStorage.getItem('listStockExceptions.stocksInfoCachedAsString');
 
-       if (stocksInfoCachedAsStringTemp == null || stocksInfoCachedAsStringTemp==='null')
+       if (stocksInfoCachedAsStringTemp == null || stocksInfoCachedAsStringTemp==='null' || stocksInfoCachedAsStringTemp === 'undefined')
        {
          console.log('invoking listStockExceptions api');
          finchakksapi.listStockExceptions().

@@ -10,10 +10,10 @@ var Menu = React.createClass({
     return (
       <div>
         <Nav bsStyle="tabs">
-          <NavItem> <IndexLink to="/">Home</IndexLink></NavItem>
-          <NavItem> <Link to="/calculator">Calculator</Link></NavItem>
-          <NavItem> <Link to="/investment">Investment</Link></NavItem>
-          <NavItem> <Link to="/maint">Maint</Link></NavItem>
+          <NavItem href="/#">Home</NavItem>
+          <NavItem href="#calculator">Calculator</NavItem>
+          <NavItem href="#investment">Investment</NavItem>
+          <NavItem href="#maint">Maintain</NavItem>
         </Nav>
       </div>
     )
