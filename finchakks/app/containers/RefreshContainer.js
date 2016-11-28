@@ -1,5 +1,8 @@
 var React = require('react');
+var Form  = require('react-bootstrap/lib/Form');
+var FormGroup = require('react-bootstrap/lib/FormGroup');
 var Refresh = require('../components/Refresh');
+var RefreshBrowserCache = require('../components/RefreshBrowserCache');
 var finchakksapi = require('../utils/finchakksapi');
 
 var RefreshContainer = React.createClass({
@@ -7,7 +10,9 @@ var RefreshContainer = React.createClass({
      return {
        buttonSytle :'primary',
        buttonText : 'Refresh',
-       buttonDisabled : false
+       buttonDisabled : false,
+       refreshBrowserCacheButtonSytle: 'primary',
+       refreshBrowserCacheButtonText  : 'Refresh Browser Cache'
      }
    },
 
@@ -15,7 +20,8 @@ var RefreshContainer = React.createClass({
     this.setState({
       buttonSytle :'info',
       buttonText : 'Refreshing',
-      buttonDisabled : true
+      buttonDisabled : true,
+
      });
 
     localStorage.clear(); //clear cache
@@ -34,14 +40,41 @@ var RefreshContainer = React.createClass({
     }.bind(this))
   },
 
+  handleRefreshBrowserCacheSubmit(e) {
+    this.setState({
+      refreshBrowserCacheButtonSytle :'info',
+      refreshBrowserCacheButtonText : 'Refreshing'
+     });
+
+    localStorage.clear(); //clear cache
+    console.log('local cache cleared');
+
+    this.setState({
+      refreshBrowserCacheButtonSytle :'success',
+      refreshBrowserCacheButtonText : 'Refreshed'
+     });
+  },
+
   render: function () {
       return (
-        <Refresh
-        onSubmit={this.handleSubmit}
-        buttonSytle={this.state.buttonSytle}
-        buttonDisabled={this.state.buttonDisabled}
-        buttonText={this.state.buttonText}
-        />
+        <Form inline>
+          <FormGroup>
+           <Refresh
+            onSubmit={this.handleSubmit}
+            buttonSytle={this.state.buttonSytle}
+            buttonDisabled={this.state.buttonDisabled}
+            buttonText={this.state.buttonText}
+            />
+          </FormGroup>
+            {' '}
+          <FormGroup>
+            <Refresh
+            onSubmit={this.handleRefreshBrowserCacheSubmit}
+            buttonSytle={this.state.refreshBrowserCacheButtonSytle}
+            buttonText={this.state.refreshBrowserCacheButtonText}
+            />
+          </FormGroup>
+        </Form>
       )
     }
 
