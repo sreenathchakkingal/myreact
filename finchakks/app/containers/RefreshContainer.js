@@ -2,7 +2,6 @@ var React = require('react');
 var Form  = require('react-bootstrap/lib/Form');
 var FormGroup = require('react-bootstrap/lib/FormGroup');
 var Refresh = require('../components/Refresh');
-var RefreshBrowserCache = require('../components/RefreshBrowserCache');
 var finchakksapi = require('../utils/finchakksapi');
 
 var RefreshContainer = React.createClass({
