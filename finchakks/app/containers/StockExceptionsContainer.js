@@ -1,5 +1,6 @@
 var React = require('react');
 var finchakksapi = require('../utils/finchakksapi');
+var sharedFunctions = require('../utils/sharedFunctions')
 var StocksException = require('../components/StocksException');
 
 var StockExceptionsContainer = React.createClass({
@@ -18,7 +19,7 @@ var StockExceptionsContainer = React.createClass({
      {
        var stocksInfoCachedAsStringTemp = localStorage.getItem('listStockExceptions.stocksInfoCachedAsString');
 
-       if (stocksInfoCachedAsStringTemp == null || stocksInfoCachedAsStringTemp==='null' || stocksInfoCachedAsStringTemp === 'undefined')
+       if (sharedFunctions.isInvalidString(stocksInfoCachedAsStringTemp))
        {
          console.log('invoking listStockExceptions api');
          finchakksapi.listStockExceptions().

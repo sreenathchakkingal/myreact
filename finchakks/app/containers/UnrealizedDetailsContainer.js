@@ -1,6 +1,7 @@
 var React = require('react');
 var UnrealizedDetails = require('../components/UnrealizedDetails');
 var finchakksapi = require('../utils/finchakksapi');
+var sharedFunctions = require('../utils/sharedFunctions');
 
 var UnrealizedDetailsContainer = React.createClass({
   contextTypes: {
@@ -17,7 +18,7 @@ var UnrealizedDetailsContainer = React.createClass({
     componentDidMount: function()
     {
       var stocksInfoCachedAsStringTemp = localStorage.getItem('listUnrealizedDetails.stocksInfoCachedAsString');
-      if(stocksInfoCachedAsStringTemp == null || stocksInfoCachedAsStringTemp==='null')
+      if(sharedFunctions.isInvalidString(stocksInfoCachedAsStringTemp))
       {
         console.log('invoking listUnrealizedDetails api');
         finchakksapi.listUnrealizedDetails().

@@ -1,6 +1,7 @@
 var React = require('react');
 var ProfitAndLoss = require('../components/ProfitAndLoss');
 var finchakksapi = require('../utils/finchakksapi');
+var sharedFunctions = require('../utils/sharedFunctions');
 
 var ProfitAndLossContainer = React.createClass({
   contextTypes: {
@@ -16,7 +17,7 @@ var ProfitAndLossContainer = React.createClass({
     componentDidMount: function()
     {
       var stocksInfoCachedAsStringTemp = localStorage.getItem('listprofitAndloss.stocksInfoCachedAsString');
-      if (stocksInfoCachedAsStringTemp == null || stocksInfoCachedAsStringTemp=='null')
+      if (sharedFunctions.isInvalidString(stocksInfoCachedAsStringTemp))
       {
         console.log('invoking listprofitAndloss api');
         finchakksapi.listprofitAndloss().

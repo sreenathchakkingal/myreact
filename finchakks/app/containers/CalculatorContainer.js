@@ -3,6 +3,7 @@ var Modal = require('react-bootstrap/lib/Modal');
 var Button = require('react-bootstrap/lib/Button');
 var Calculator  = require('../components/Calculator');
 var finchakkCalculatorApi = require('../utils/finchakkCalculatorApi');
+var sharedFunctions = require('../utils/sharedFunctions');
 
 var CalculatorContainer = React.createClass({
   getInitialState: function () {
@@ -52,12 +53,10 @@ var CalculatorContainer = React.createClass({
    {
      var bStyle = 'primary' ;
      var bText = 'Calculate';
-     var initialAmountTemp=typeof response.initialAmount==='undefined' ? 0.0 : response.initialAmount;
-     var interestRateTemp=typeof response.interestRate==='undefined' ? 0.0 : response.interestRate;
-
-     var durationInDaysTemp=typeof response.durationInDays==='undefined' ? 0.0 : response.durationInDays;
-
-     var finalAmountTemp=typeof response.finalAmount==='undefined' ? 0.0 : response.finalAmount;
+     var initialAmountTemp=sharedFunctions.nullSafeDouble(response.initialAmount);
+     var interestRateTemp=sharedFunctions.nullSafeDouble(response.interestRate);
+     var durationInDaysTemp=sharedFunctions.nullSafeDouble(response.durationInDays);
+     var finalAmountTemp=sharedFunctions.nullSafeDouble(response.finalAmount);
 
      this.setState({
        initialAmount : initialAmountTemp,

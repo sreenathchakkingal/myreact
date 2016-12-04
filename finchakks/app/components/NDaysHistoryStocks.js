@@ -1,7 +1,7 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
-var finchakksapi = require('../utils/finchakksapi');
 var Loading = require('./Loading');
+var sharedFunctions = require('../utils/sharedFunctions');
 var columnMetadata = require('./metadata/columnMetadata');
 var PanelWrapper = require('./wrapper/PanelWrapper');
 var GriddleWrapper = require('./wrapper/GriddleWrapper');
@@ -52,7 +52,7 @@ function NDaysHistoryStocks (props) {
      "simpleMovingAverageAndSellDeltaNormalized", "netNDaysGain",
     "stockRatingValue", "simpleMovingAverage","nDay1Gain","nDay2Gain"];
 
-    if(typeof props.nDaysMinOrMaxStocks!='undefined' && props.nDaysMinOrMaxStocks.length!=0)
+    if(sharedFunctions.isValidArray(props.nDaysMinOrMaxStocks))
     {
       stockRatingRows.push(
         <PanelWrapper header='Stocks that hit min/max' key='minMax'>
@@ -63,7 +63,7 @@ function NDaysHistoryStocks (props) {
           )
     }
 
-    if(typeof props.nDaysWatchlistedStocks!='undefined' && props.nDaysWatchlistedStocks.length!=0)
+    if(sharedFunctions.isValidArray(props.nDaysWatchlistedStocks))
     {
       stockRatingRows.push(
             <PanelWrapper header='Watch List' key='watchlist'>

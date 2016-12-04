@@ -1,6 +1,7 @@
 var React = require('react');
 var NDaysHistoryStocks = require('../components/NDaysHistoryStocks');
 var finchakksapi = require('../utils/finchakksapi');
+var sharedFunctions = require('../utils/sharedFunctions');
 
 var NDaysHistoryStocksContainer = React.createClass({
    getInitialState: function () {
@@ -14,7 +15,7 @@ var NDaysHistoryStocksContainer = React.createClass({
     componentDidMount: function()
     {
       var stocksInfoCachedAsStringTemp = localStorage.getItem('listNDaysHistoryStocks.stocksInfoCachedAsString');
-      if(stocksInfoCachedAsStringTemp == null || stocksInfoCachedAsStringTemp==='null')
+      if(sharedFunctions.isInvalidString(stocksInfoCachedAsStringTemp))
       {
         console.log('invoking listNDaysHistoryStocks api');
         finchakksapi.listNDaysHistoryStocks().

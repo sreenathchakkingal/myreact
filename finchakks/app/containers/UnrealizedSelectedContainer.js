@@ -1,6 +1,7 @@
 var React = require('react');
 var UnrealizedSelected = require('../components/UnrealizedSelected');
 var finchakksapi = require('../utils/finchakksapi');
+var sharedFunctions = require('../utils/sharedFunctions');
 
 var UnrealizedSelectedContainer = React.createClass({
   getInitialState: function () {
@@ -16,15 +17,15 @@ var UnrealizedSelectedContainer = React.createClass({
     var stockNameTemp=this.props.stockName;
     var keyName='listUnrealizedSelected.stocksInfoCachedAsString.'+stockNameTemp
     var stocksInfoCachedAsStringTemp = localStorage.getItem(keyName);
-    if(stocksInfoCachedAsStringTemp == null || stocksInfoCachedAsStringTemp==='null')
+    if(sharedFunctions.isInvalidString(stocksInfoCachedAsStringTemp))
     {
       console.log('invoking listUnrealizedSelected api');
       finchakksapi.listUnrealizedSelected(stockNameTemp).
       then(function(stocksInfo)
       {
         localStorage.setItem(keyName, JSON.stringify(stocksInfo));
-        summaryDbObjectTemp=typeof stocksInfo.summaryDbObject==='undefined' ? {} : stocksInfo.summaryDbObject;
-        detailDbObjectsTemp=typeof stocksInfo.detailDbObjects==='undefined' ? [] : stocksInfo.detailDbObjects;
+        summaryDbObjectTemp=sharedFunctions.nullSafeObject(stocksInfo.summaryDbObject);
+        detailDbObjectsTemp=sharedFunctions.nullSafeArray(stocksInfo.detailDbObjects);
         this.setState({
           isLoading:false,
           stockSummary: summaryDbObjectTemp,

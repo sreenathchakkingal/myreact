@@ -1,6 +1,7 @@
 var React = require('react');
 var TargetReachedStocks  = require('../components/TargetReachedStocks');
 var finchakksapi = require('../utils/finchakksapi');
+var sharedFunctions = require('../utils/sharedFunctions');
 
 var TargetReachedStocksContainer = React.createClass({
   contextTypes: {
@@ -17,7 +18,7 @@ var TargetReachedStocksContainer = React.createClass({
     componentDidMount: function()
     {
       var stocksInfoCachedAsStringTemp = localStorage.getItem('listTargetReachedStocks.stocksInfoCachedAsString');
-      if(stocksInfoCachedAsStringTemp == null || stocksInfoCachedAsStringTemp==='null')
+      if(sharedFunctions.isInvalidString(stocksInfoCachedAsStringTemp))
       {
         console.log('invoking listTargetReachedStocks api');
         finchakksapi.listTargetReachedStocks().

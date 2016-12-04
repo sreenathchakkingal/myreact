@@ -1,11 +1,12 @@
 var React = require('react');
 var RetrieveModifiableStockAttributes  = require('../components/RetrieveModifiableStockAttributes');
 var finchakksapi = require('../utils/finchakksapi');
+var sharedFunctions = require('../utils/sharedFunctions');
 
 var RetrieveModifiableStockAttributesContainer = React.createClass({
   getInitialState: function () {
      return {
-       stockName: typeof this.props.stockName==='undefined' ? '' : this.props.stockName,
+       stockName: sharedFunctions.nullSafeString(this.props.stockName),
        stocksInfo:[],
        isStocksInfoRetrieving: false,
        isStocksInfoRetrieved: false
