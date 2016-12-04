@@ -18,7 +18,7 @@ function StocksException (props) {
   else
   {
     var metaData=[
-      columnMetadata.stockNameWithoutOptions(),
+      columnMetadata.stockNameWithOptions(),
       columnMetadata.exceptionComment()
     ];
 
