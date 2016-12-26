@@ -292,6 +292,20 @@ var helpers = {
     });
   },
 
+  listTopMovingStocks: function() {
+    return getInitializeApiResult('listStockSummaryDiffs')
+    .then(function(response)
+    {
+      var stocksInfo= response.data.items;
+      console.log('listTopMovingStocks.response.data.items: ',response.data.items);
+      return stocksInfo;
+    })
+    .catch(function(err)
+    {
+        console.warn('Error in listStockSummaryDiffs ', err);
+    });
+  },
+
 };
 
 module.exports = helpers;

@@ -432,6 +432,39 @@ var helpers = {
       "customComponent": MinOrMaxFormat
     };
     return latestClosePriceMinimum;
+  },
+
+  currentReturnTillDate: function()
+  {
+    var currentReturnTillDate =
+    {
+      "columnName": "currentReturnTillDate",
+      "displayName": "Current Return %",
+      "customComponent": AppendPercent
+    };
+    return currentReturnTillDate;
+  },
+
+  prevReturnTillDate: function()
+  {
+    var prevReturnTillDate =
+    {
+      "columnName": "prevReturnTillDate",
+      "displayName": "Prev Return %",
+      "customComponent": AppendPercent
+    };
+    return prevReturnTillDate;
+  },
+
+  diffReturnTillDate: function()
+  {
+    var diffReturnTillDate =
+    {
+      "columnName": "diffReturnTillDate",
+      "displayName": "Diff Return %",
+      "customComponent": AppendPercent
+    };
+    return diffReturnTillDate;
   }
 
 };
