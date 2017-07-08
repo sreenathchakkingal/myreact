@@ -14,10 +14,15 @@ function puke(obj)
 function ProfitAndLoss (props) {
   if(props.isLoading ===true )
   {
-  return <Loading text='Loading ProfitAndLoss'/>;
+    return (
+      <div>
+      <PanelWrapper header='Summary Loading'/>
+    </div>
+    )
   }
   else
   {
+    console.log('value of props.isLoading ', props.isLoading);
     var stockData = props.stocksInfo;
     return (
       <div>
