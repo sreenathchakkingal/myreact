@@ -30,7 +30,7 @@ var UnrealizedFileUploadContainer = React.createClass({
     },
 
     handleSubmit(e) {
-      console.log('in handleSubmit');
+      
       this.setState({
         buttonSytle :'info',
         buttonText : 'Uploading Changes',

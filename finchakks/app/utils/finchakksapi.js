@@ -137,7 +137,15 @@ var helpers = {
         })
         .catch(function(err)
         {
-            console.warn('Error in uploadUnrealized ', err);
+            var errorMessage = "Status: "err.status+" Messge:  "+err.statusText;
+            var errorReponseData =
+            {
+              success: false,
+              statusMessage: errorMessage,
+            };
+
+            console.warn('Error in uploadUnrealized ',err);
+            return errorReponseData;
         });
   },
 
