@@ -11,12 +11,12 @@ function puke(obj)
 }
 
 function UnrealizedSummary (props) {
-  if(props.isLoading ===true )
-  {
-  return <Loading text='Loading UnrealizedSummary'/>;
-  }
-  else
-  {
+  // if(props.isLoading ===true )
+  // {
+  // return <Loading text='Loading UnrealizedSummary'/>;
+  // }
+  // else
+  // {
     var metaData=[
       columnMetadata.stockNameWithOptions(),
       columnMetadata.returnPercent(),
@@ -31,15 +31,25 @@ function UnrealizedSummary (props) {
       columnMetadata.upperSellPriceTarget()
     ];
 
+    var columnNames=[
+      "stockName",
+      "returnTillDate",
+      "quantity",
+      "totalInvestment",
+      "totalReturn",
+      "totalReturnIfBank",
+      "impactOnAverageReturn"
+    ]
+
     return (
       <PanelWrapper header='Unrealized Summary'>
         <GriddleWrapper results={props.stocksInfo}
-        columns={["stockName","returnTillDate","quantity", "totalInvestment","totalReturn", "totalReturnIfBank","impactOnAverageReturn"]}
+        columns={columnNames}
         columnMetadata={metaData}
         />
       </PanelWrapper>
     )
-  }
+  // }
 }
 
 UnrealizedSummary.propTypes = {

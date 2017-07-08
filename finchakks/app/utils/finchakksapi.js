@@ -137,7 +137,7 @@ var helpers = {
         })
         .catch(function(err)
         {
-            var errorMessage = "Status: "err.status+" Messge:  "+err.statusText;
+            var errorMessage = "Status: "+err.status+" Messge:  "+err.statusText;
             var errorReponseData =
             {
               success: false,

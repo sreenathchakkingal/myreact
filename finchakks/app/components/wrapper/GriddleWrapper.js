@@ -19,7 +19,8 @@ var GriddleWrapper = React.createClass({
       <div>
         <Griddle results={this.props.results}  columns={this.props.columns} columnMetadata={this.props.columnMetadata}
         tableClassName="table" showFilter={true} resultsPerPage="10"
-        enableInfiniteScroll={true} bodyHeight={bodyHeight} showSettings={true} useFixedHeader={true}
+        // enableInfiniteScroll={true} 
+        bodyHeight={bodyHeight} showSettings={true} useFixedHeader={true}
         />
       </div>
     )

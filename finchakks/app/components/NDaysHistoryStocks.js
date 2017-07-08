@@ -12,12 +12,12 @@ function puke(obj)
 }
 
 function NDaysHistoryStocks (props) {
-  if(props.isLoading ===true )
-  {
-  return <Loading text='Loading NDaysHistoryStocks'/>;
-  }
-  else
-  {
+  // if(props.isLoading ===true )
+  // {
+  // return <Loading text='Loading NDaysHistoryStocks'/>;
+  // }
+  // else
+  // {
     var metaData=[
       columnMetadata.stockNameWithOptions(),
       columnMetadata.smvPercent(),
@@ -78,7 +78,7 @@ function NDaysHistoryStocks (props) {
         {stockRatingRows}
       </div>
     )
-  }
+  // }
 }
 
 NDaysHistoryStocks.propTypes = {

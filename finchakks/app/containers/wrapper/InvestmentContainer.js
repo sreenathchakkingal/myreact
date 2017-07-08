@@ -15,7 +15,6 @@ var InvestmentContainer = React.createClass({
         </div>
       )
   }
-
 });
 
 module.exports = InvestmentContainer;

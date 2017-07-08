@@ -6,12 +6,12 @@ var GriddleWrapper = require('./wrapper/GriddleWrapper');
 var PanelWrapper = require('./wrapper/PanelWrapper');
 
 function TopMovingStocks (props) {
-  if(props.isLoading ===true )
-  {
-  return <Loading text='Loading TopMovingStocks'/>;
-  }
-  else
-  {
+  // if(props.isLoading ===true )
+  // {
+  // return <Loading text='Loading TopMovingStocks'/>;
+  // }
+  // else
+  // {
     var metaData=[
       columnMetadata.stockNameWithOptions(),
       columnMetadata.currentReturnTillDate(),
@@ -27,7 +27,7 @@ function TopMovingStocks (props) {
         />
       </PanelWrapper>
     )
-  }
+  // }
 }
 
 TopMovingStocks.propTypes = {

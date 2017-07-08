@@ -11,12 +11,12 @@ function puke(obj)
 }
 
 function StocksException (props) {
-  if(props.isLoading ===true )
-  {
-  return <Loading text='Loading StocksException' />;
-  }
-  else
-  {
+  // if(props.isLoading ===true )
+  // {
+  // return <Loading text='Loading StocksException' />;
+  // }
+  // else
+  // {
     var metaData=[
       columnMetadata.stockNameWithOptions(),
       columnMetadata.exceptionComment()
@@ -26,7 +26,7 @@ function StocksException (props) {
       <Griddle customNoDataComponent={NoDataComponent}
        results={props.stocksInfo} columnMetadata={metaData} bodyHeight={100} />
     )
-  }
+  // }
 }
 
 StocksException.propTypes = {

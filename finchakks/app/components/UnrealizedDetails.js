@@ -11,12 +11,12 @@ function puke(obj)
 }
 
 function UnrealizedDetails (props) {
-  if(props.isLoading ===true )
-  {
-  return <Loading text='Loading UnrealizedDetails'/>;
-  }
-  else
-  {
+  // if(props.isLoading ===true )
+  // {
+  // return <Loading text='Loading UnrealizedDetails'/>;
+  // }
+  // else
+  // {
     var metaData=[
       columnMetadata.stockNameWithOptions(),
       columnMetadata.returnPercent(),
@@ -31,17 +31,18 @@ function UnrealizedDetails (props) {
       columnMetadata.bankReturn(),
       columnMetadata.diff()
     ];
+    var columnNames=["stockName","returnTillDate","buyDate","buyPrice","duration","sellPrice",
+      "bankSellPrice","quantity","totalInvestment", "totalReturn", "totalReturnIfBank", "diff"];
 
     return (
       <PanelWrapper header='Unrealized Details'>
         <GriddleWrapper results={props.stocksInfo}
-        columns={["stockName","returnTillDate","buyDate","buyPrice","duration","sellPrice","bankSellPrice","quantity", "totalInvestment",
-          "totalReturn", "totalReturnIfBank", "diff"]}
+        columns={columnNames}
         columnMetadata={metaData}
         />
       </PanelWrapper>
     )
-  }
+  // }
 }
 
 UnrealizedDetails.propTypes = {

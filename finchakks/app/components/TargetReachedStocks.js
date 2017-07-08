@@ -12,12 +12,12 @@ function puke(obj)
 }
 
 function TargetReachedStocks (props) {
-  if(props.isLoading ===true )
-  {
-    return <Loading text='Loading TargetReachedStocks'/>;
-  }
-  else
-  {
+  // if(props.isLoading ===true )
+  // {
+  //   return <Loading text='Loading TargetReachedStocks'/>;
+  // }
+  // else
+  // {
     var metaData=[
       columnMetadata.stockNameWithOptions(),
       columnMetadata.returnPercent(),
@@ -36,17 +36,19 @@ function TargetReachedStocks (props) {
       columnMetadata.sellPrice()
     ];
 
+    var columnNames = ["stockName","returnTillDate", "lowerReturnPercentTarget","upperReturnPercentTarget",
+    "sellPrice", "quantity", "totalInvestment","totalReturn"
+  ];
+
     return (
       <PanelWrapper header='Target Reached Stocks'>
         <GriddleWrapper results={props.stocksInfo}
-        columns={["stockName","returnTillDate", "lowerReturnPercentTarget","upperReturnPercentTarget",
-        "sellPrice", "quantity", "totalInvestment","totalReturn"
-        ]}
+        columns={columnNames}
         columnMetadata={metaData}
         />
       </PanelWrapper>
     )
-  }
+  // }
 }
 
 TargetReachedStocks.propTypes = {
