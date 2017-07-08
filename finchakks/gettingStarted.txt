@@ -1,3 +1,17 @@
 npm init : that creates the package.json file
 npm install --save react react-dom
 npm install --save-dev html-webpack-plugin webpack webpack-dev-server babel-core babel-loader babel-preset-react
+
+to start locally :
+1)
+e:
+cd codebase
+cd myreact
+cd finchakks
+npm run start
+2) above should display "webpack: bundle is now VALID.". Then http://localhost:8080/#/
+3) from the broswer ->  F12 -> resource -> index_bundle.js copy paste the contents to
+E:\codebase\eclipseWorkspace\FinAnalyzer\war\myreactbundle.js
+
+To see the results in prod : deploy to GAE and go to
+ http://finchakks.appspot.com/myreact.html#/
