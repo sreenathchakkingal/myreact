@@ -23,7 +23,7 @@ function RetrieveModifiableStockAttributes (props) {
   return(
     <Form inline>
       <FormGroup controlId="formControlsText">
-        <ControlLabel >Stock Name</ControlLabel>
+        <ControlLabel >Stock Name(NSE Id)</ControlLabel>
         {' '}
         <FormControl type="text" defaultValue={props.stockName} onChange={props.onCaptureChange} />
       </FormGroup>
