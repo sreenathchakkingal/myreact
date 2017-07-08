@@ -1,5 +1,4 @@
 var React = require('react');
-var Loading = require('./Loading');
 var PropTypes = React.PropTypes;
 var Griddle = require('griddle-react');
 var NoDataComponent = require('./NoDataComponent');

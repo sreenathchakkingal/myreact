@@ -1,18 +1,18 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
-var Loading = require('./Loading');
+// var Loading = require('./Loading');
 var AppendPercent = require('./format/AppendPercent');
 var ConvertToPercent = require('./format/ConvertToPercent');
 var PanelWrapper = require('./wrapper/PanelWrapper');
 var GriddleWrapper = require('./wrapper/GriddleWrapper');
 
 function TargetHistorySelected (props) {
-  if(props.isLoading ===true )
-  {
-  return <Loading text='Loading TargetHistorySelected'/>;
-  }
-  else
-  {
+  // if(props.isLoading ===true )
+  // {
+  // return <Loading text='Loading TargetHistorySelected'/>;
+  // }
+  // else
+  // {
     var metaData=[
       {
         "columnName": "stockName",
@@ -33,8 +33,13 @@ function TargetHistorySelected (props) {
         "customComponent": AppendPercent
       }
     ];
-
-    var headerName = 'Target History Details: '+props.stocksInfo[0].stockName;
+    var stockName='';
+    if(props.isLoading !=true )
+    {
+      stockName=+props.stocksInfo[0].stockName
+    }
+    
+    var headerName = 'Target History Details: '+stockName;
     return (
       <PanelWrapper header={headerName}>
         <GriddleWrapper results={props.stocksInfo}
@@ -43,7 +48,7 @@ function TargetHistorySelected (props) {
         />
       </PanelWrapper>
     )
-  }
+  // }
 }
 
 TargetHistorySelected.propTypes = {

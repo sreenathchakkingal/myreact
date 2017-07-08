@@ -1,6 +1,5 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
-var Loading = require('./Loading');
 var AppendPercent = require('./format/AppendPercent');
 var MoneyFormat = require('./format/MoneyFormat');
 var ConvertToPercent = require('./format/ConvertToPercent');
@@ -10,12 +9,12 @@ var PanelWrapper = require('./wrapper/PanelWrapper');
 var GriddleWrapper = require('./wrapper/GriddleWrapper');
 
 function UnrealizedSelected (props) {
-  if(props.isLoading ===true )
-  {
-  return <Loading text='Loading UnrealizedSelected'/>;
-  }
-  else
-  {
+  // if(props.isLoading ===true )
+  // {
+  // return <Loading text='Loading UnrealizedSelected'/>;
+  // }
+  // else
+  // {
     var metaData=[
       {
       "columnName": "stockName",
@@ -104,7 +103,7 @@ function UnrealizedSelected (props) {
         </PanelWrapper>
       </div>
     )
-  } //else block
+  // } //else block
 
 }
 

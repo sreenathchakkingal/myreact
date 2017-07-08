@@ -1,6 +1,5 @@
 var React = require('react');
 var finchakksapi = require('../utils/finchakksapi');
-var Loading = require('./Loading');
 var columnMetadata = require('./metadata/columnMetadata');
 var PropTypes = React.PropTypes;
 var GriddleWrapper = require('./wrapper/GriddleWrapper');
@@ -12,12 +11,12 @@ function puke(obj)
 }
 
 function ListBlackListedStocks (props) {
-  if(props.isLoading ===true )
-  {
-  return <Loading text='Loading ListBlackListedStocks'/>;
-  }
-  else
-  {
+  // if(props.isLoading ===true )
+  // {
+  // return <Loading text='Loading ListBlackListedStocks'/>;
+  // }
+  // else
+  // {
   var metaData=[
     columnMetadata.stockNameWithOptions(),
     columnMetadata.impact(),
@@ -37,7 +36,7 @@ function ListBlackListedStocks (props) {
         </PanelWrapper>
       </div>
     )
-  }
+  // }
 }
 
 ListBlackListedStocks.propTypes = {

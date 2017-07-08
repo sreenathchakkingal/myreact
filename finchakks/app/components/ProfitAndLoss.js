@@ -1,6 +1,5 @@
 var React = require('react');
 var finchakksapi = require('../utils/finchakksapi');
-var Loading = require('./Loading');
 var PropTypes = React.PropTypes;
 var Table = require('react-bootstrap/lib/Table');
 var PanelWrapper = require('./wrapper/PanelWrapper');

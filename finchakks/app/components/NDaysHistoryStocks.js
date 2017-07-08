@@ -1,6 +1,5 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
-var Loading = require('./Loading');
 var sharedFunctions = require('../utils/sharedFunctions');
 var columnMetadata = require('./metadata/columnMetadata');
 var PanelWrapper = require('./wrapper/PanelWrapper');

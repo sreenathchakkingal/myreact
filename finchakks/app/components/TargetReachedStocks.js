@@ -1,6 +1,5 @@
 var React = require('react');
 var finchakksapi = require('../utils/finchakksapi');
-var Loading = require('./Loading');
 var columnMetadata = require('./metadata/columnMetadata');
 var PropTypes = React.PropTypes;
 var GriddleWrapper = require('./wrapper/GriddleWrapper');
