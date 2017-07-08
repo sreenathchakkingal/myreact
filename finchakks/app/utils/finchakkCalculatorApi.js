@@ -1,10 +1,7 @@
 var axios = require('axios');
 var querystring = require('querystring');
-var prodHost = 'https://finchakks.appspot.com/_ah/api/';
-var devHost = 'http://localhost:8888/_ah/api/';
-
-var envIsProd = true;
-var host = envIsProd ? prodHost : devHost;
+var environment = require('../config/environment');
+var host = environment.getHost();
 
 var calculatorEndPoint = host+'calculatorEndPoint/v1/calculateMissingCompoundInterestComponent';
 

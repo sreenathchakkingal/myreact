@@ -1,10 +1,7 @@
 var axios = require('axios');
 var querystring = require('querystring');
-var prodHost = 'https://finchakks.appspot.com/_ah/api/';
-var devHost = 'http://localhost:8888/_ah/api/';
-
-var envIsProd = true;
-var host = envIsProd ? prodHost : devHost;
+var environment = require('../config/environment');
+var host = environment.getHost();
 
 var maintEndPoint = host+'maintainanceControllerEndPoint/v1/';
 var listNDaysHistoryStocksResultCache={};
@@ -202,6 +199,7 @@ var helpers = {
   },
 
   listStockExceptions: function() {
+    console.log('host ', host);
     return getInitializeApiResult('stockexceptiondbobject')
     .then(function(response)
     {
