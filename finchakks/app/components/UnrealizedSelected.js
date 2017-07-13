@@ -7,6 +7,7 @@ var AppendPercentRoundedOff = require('./format/AppendPercentRoundedOff');
 var ConvertToPercentRoundedOff = require('./format/ConvertToPercentRoundedOff');
 var PanelWrapper = require('./wrapper/PanelWrapper');
 var GriddleWrapper = require('./wrapper/GriddleWrapper');
+var sharedFunctions = require('../utils/sharedFunctions');
 
 function UnrealizedSelected (props) {
   // if(props.isLoading ===true )
@@ -80,8 +81,11 @@ function UnrealizedSelected (props) {
     }
     ];
 
-    var detailsHeaderName = 'Unrealized Details: '+props.stockName;
-    var summaryHeaderName = 'Unrealized Summary: '+props.stockName;
+    var detailsHeaderName = sharedFunctions.appendLoadingStatus('Unrealized Details',
+                                  props.isLoading) +' : ' +props.stockName;
+
+    var summaryHeaderName = sharedFunctions.appendLoadingStatus('Unrealized Summary',
+                                  props.isLoading) +' : ' +props.stockName;
     var summaryArray=[];
     summaryArray[0] = props.stockSummary;
     return (

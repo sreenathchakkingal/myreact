@@ -3,6 +3,7 @@ var columnMetadata = require('./metadata/columnMetadata');
 var PropTypes = React.PropTypes;
 var GriddleWrapper = require('./wrapper/GriddleWrapper');
 var PanelWrapper = require('./wrapper/PanelWrapper');
+var sharedFunctions = require('../utils/sharedFunctions');
 
 function puke(obj)
 {
@@ -12,7 +13,7 @@ function puke(obj)
 function UnrealizedDetails (props) {
   // if(props.isLoading ===true )
   // {
-  // return <Loading text='Loading UnrealizedDetails'/>;
+  // return <Loading text='Unrealized Details' />;
   // }
   // else
   // {
@@ -34,7 +35,7 @@ function UnrealizedDetails (props) {
       "bankSellPrice","quantity","totalInvestment", "totalReturn", "totalReturnIfBank", "diff"];
 
     return (
-      <PanelWrapper header='Unrealized Details'>
+      <PanelWrapper header={sharedFunctions.appendLoadingStatus('Unrealized Details', props.isLoading)}>
         <GriddleWrapper results={props.stocksInfo}
         columns={columnNames}
         columnMetadata={metaData}

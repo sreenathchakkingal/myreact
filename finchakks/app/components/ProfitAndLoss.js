@@ -21,7 +21,6 @@ function ProfitAndLoss (props) {
   }
   else
   {
-    console.log('value of props.isLoading ', props.isLoading);
     var stockData = props.stocksInfo;
     return (
       <div>

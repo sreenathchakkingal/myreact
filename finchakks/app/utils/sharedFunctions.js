@@ -30,6 +30,10 @@ var helpers = {
     return inputArray==='undefined' ? [] : inputArray;
   },
 
+  appendLoadingStatus: function(inputString, loadingStatus)
+  {
+    return loadingStatus ? inputString+" Loading..." : inputString;
+  },
 
 };
 

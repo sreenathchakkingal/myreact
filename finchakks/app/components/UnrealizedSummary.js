@@ -41,7 +41,7 @@ function UnrealizedSummary (props) {
     ]
 
     return (
-      <PanelWrapper header='Unrealized Summary'>
+      <PanelWrapper header={sharedFunctions.appendLoadingStatus('Unrealized Summary', props.isLoading)}>
         <GriddleWrapper results={props.stocksInfo}
         columns={columnNames}
         columnMetadata={metaData}

@@ -3,11 +3,12 @@ var columnMetadata = require('./metadata/columnMetadata');
 var PropTypes = React.PropTypes;
 var GriddleWrapper = require('./wrapper/GriddleWrapper');
 var PanelWrapper = require('./wrapper/PanelWrapper');
+var sharedFunctions = require('../utils/sharedFunctions');
 
 function TopMovingStocks (props) {
   // if(props.isLoading ===true )
   // {
-  // return <Loading text='Loading TopMovingStocks'/>;
+  // return <Loading text='Loading Top Movers' />;
   // }
   // else
   // {
@@ -19,7 +20,7 @@ function TopMovingStocks (props) {
     ];
 
     return (
-      <PanelWrapper header='Top Movers'>
+      <PanelWrapper header={sharedFunctions.appendLoadingStatus('Top Movers', props.isLoading)}>
         <GriddleWrapper results={props.stocksInfo}
         columns={["stockName","currentReturnTillDate","prevReturnTillDate", "diffReturnTillDate"]}
         columnMetadata={metaData}

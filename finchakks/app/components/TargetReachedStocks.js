@@ -4,6 +4,7 @@ var columnMetadata = require('./metadata/columnMetadata');
 var PropTypes = React.PropTypes;
 var GriddleWrapper = require('./wrapper/GriddleWrapper');
 var PanelWrapper = require('./wrapper/PanelWrapper');
+var sharedFunctions = require('../utils/sharedFunctions');
 
 function puke(obj)
 {
@@ -40,7 +41,7 @@ function TargetReachedStocks (props) {
   ];
 
     return (
-      <PanelWrapper header='Target Reached Stocks'>
+      <PanelWrapper header={sharedFunctions.appendLoadingStatus('Target Reached Stocks', props.isLoading)}>
         <GriddleWrapper results={props.stocksInfo}
         columns={columnNames}
         columnMetadata={metaData}

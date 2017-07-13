@@ -5,6 +5,7 @@ var AppendPercent = require('./format/AppendPercent');
 var ConvertToPercent = require('./format/ConvertToPercent');
 var PanelWrapper = require('./wrapper/PanelWrapper');
 var GriddleWrapper = require('./wrapper/GriddleWrapper');
+var sharedFunctions = require('../utils/sharedFunctions');
 
 function TargetHistorySelected (props) {
   // if(props.isLoading ===true )
@@ -33,13 +34,11 @@ function TargetHistorySelected (props) {
         "customComponent": AppendPercent
       }
     ];
-    var stockName='';
-    if(props.isLoading !=true )
-    {
-      stockName=+props.stocksInfo[0].stockName
-    }
-    
-    var headerName = 'Target History Details: '+stockName;
+
+    var stockName = props.isLoading ? ''  : props.stocksInfo[0].stockName;
+
+    var headerName = sharedFunctions.appendLoadingStatus('Target History Details',
+                      props.isLoading)+' : ' + stockName;
     return (
       <PanelWrapper header={headerName}>
         <GriddleWrapper results={props.stocksInfo}

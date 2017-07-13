@@ -7,11 +7,12 @@ var AppendPercentRoundedOff = require('./format/AppendPercentRoundedOff');
 var ConvertToPercentRoundedOff = require('./format/ConvertToPercentRoundedOff');
 var PanelWrapper = require('./wrapper/PanelWrapper');
 var GriddleWrapper = require('./wrapper/GriddleWrapper');
+var sharedFunctions = require('../utils/sharedFunctions');
 
 function UnrealizedDetailsSelected (props) {
   // if(props.isLoading ===true )
   // {
-  // return <Loading text='Loading UnrealizedDetailsSelected'/>;
+  // return <Loading text='Loading Unrealized Details' />;
   // }
   // else
   // {
@@ -75,7 +76,8 @@ function UnrealizedDetailsSelected (props) {
     }
     ];
 
-    var headerName = 'Unrealized Details: '+props.stocksInfo[0].stockName;
+    var headerName = sharedFunctions.appendLoadingStatus('Unrealized Details', props.isLoading)
+                                  +' : ' +props.stocksInfo[0].stockName;
     return (
       <PanelWrapper header={headerName}>
         <GriddleWrapper results={props.stocksInfo}
