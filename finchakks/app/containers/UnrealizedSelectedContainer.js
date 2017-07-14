@@ -16,9 +16,9 @@ var UnrealizedSelectedContainer = React.createClass({
   {
     var stockNameTemp=this.props.stockName;
     var keyName='listUnrealizedSelected.stocksInfoCachedAsString.'+stockNameTemp
-    var stocksInfoCachedAsStringTemp = localStorage.getItem(keyName);
-    if(sharedFunctions.isInvalidString(stocksInfoCachedAsStringTemp))
-    {
+    // var stocksInfoCachedAsStringTemp = localStorage.getItem(keyName);
+    // if(sharedFunctions.isInvalidString(stocksInfoCachedAsStringTemp))
+    // {
       console.log('invoking listUnrealizedSelected api');
       finchakksapi.listUnrealizedSelected(stockNameTemp).
       then(function(stocksInfo)
@@ -32,19 +32,19 @@ var UnrealizedSelectedContainer = React.createClass({
           stockDetail: detailDbObjectsTemp
         })
       }.bind(this))
-    }
-    else
-    {
-      console.log('using cached result instead of listUnrealizedSelected api call');
-      var stocksInfoCached = JSON.parse(stocksInfoCachedAsStringTemp);
-      summaryDbObjectCachedTemp= stocksInfoCached.summaryDbObject;
-      detailDbObjectsCachedTemp= stocksInfoCached.detailDbObjects;
-      this.setState({
-        isLoading:false,
-        stockSummary: summaryDbObjectCachedTemp,
-        stockDetail: detailDbObjectsCachedTemp
-      })
-    }
+    // }
+    // else
+    // {
+    //   console.log('using cached result instead of listUnrealizedSelected api call');
+    //   var stocksInfoCached = JSON.parse(stocksInfoCachedAsStringTemp);
+    //   summaryDbObjectCachedTemp= stocksInfoCached.summaryDbObject;
+    //   detailDbObjectsCachedTemp= stocksInfoCached.detailDbObjects;
+    //   this.setState({
+    //     isLoading:false,
+    //     stockSummary: summaryDbObjectCachedTemp,
+    //     stockDetail: detailDbObjectsCachedTemp
+    //   })
+    // }
 
   },
 

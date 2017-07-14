@@ -17,9 +17,9 @@ var UnrealizedDetailsContainer = React.createClass({
 
     componentDidMount: function()
     {
-      var stocksInfoCachedAsStringTemp = localStorage.getItem('listUnrealizedDetails.stocksInfoCachedAsString');
-      if(sharedFunctions.isInvalidString(stocksInfoCachedAsStringTemp))
-      {
+      // var stocksInfoCachedAsStringTemp = localStorage.getItem('listUnrealizedDetails.stocksInfoCachedAsString');
+      // if(sharedFunctions.isInvalidString(stocksInfoCachedAsStringTemp))
+      // {
         console.log('invoking listUnrealizedDetails api');
         finchakksapi.listUnrealizedDetails().
         then(function(stocksInfo)
@@ -30,16 +30,16 @@ var UnrealizedDetailsContainer = React.createClass({
             stocksInfo: stocksInfo
           })
         }.bind(this))
-      }
-      else
-      {
-        console.log('using cached result instead of listUnrealizedDetails api call');
-        var stocksInfoCached = JSON.parse(stocksInfoCachedAsStringTemp);
-        this.setState({
-          isLoading:false,
-          stocksInfo: stocksInfoCached
-        })
-      }
+      // }
+      // else
+      // {
+      //   console.log('using cached result instead of listUnrealizedDetails api call');
+      //   var stocksInfoCached = JSON.parse(stocksInfoCachedAsStringTemp);
+      //   this.setState({
+      //     isLoading:false,
+      //     stocksInfo: stocksInfoCached
+      //   })
+      // }
 
     },
 

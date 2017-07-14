@@ -14,9 +14,9 @@ var NDaysHistoryStocksContainer = React.createClass({
 
     componentDidMount: function()
     {
-      var stocksInfoCachedAsStringTemp = localStorage.getItem('listNDaysHistoryStocks.stocksInfoCachedAsString');
-      if(sharedFunctions.isInvalidString(stocksInfoCachedAsStringTemp))
-      {
+      // var stocksInfoCachedAsStringTemp = localStorage.getItem('listNDaysHistoryStocks.stocksInfoCachedAsString');
+      // if(sharedFunctions.isInvalidString(stocksInfoCachedAsStringTemp))
+      // {
         console.log('invoking listNDaysHistoryStocks api');
         finchakksapi.listNDaysHistoryStocks().
         then(function(stocksInfo)
@@ -29,17 +29,17 @@ var NDaysHistoryStocksContainer = React.createClass({
             nDaysMinOrMaxStocks: stocksInfo.nDaysMinOrMaxStocks
           })
         }.bind(this))
-      }
-      else
-      {
-        console.log('using cached result instead of listNDaysHistoryStocks api call');
-        var stocksInfoCached = JSON.parse(stocksInfoCachedAsStringTemp);
-        this.setState({
-          isLoading:false,
-          nDaysWatchlistedStocks: stocksInfoCached.nDaysWatchlistedStocks,
-          nDaysMinOrMaxStocks: stocksInfoCached.nDaysMinOrMaxStocks
-        })
-      }
+      // }
+      // else
+      // {
+      //   console.log('using cached result instead of listNDaysHistoryStocks api call');
+      //   var stocksInfoCached = JSON.parse(stocksInfoCachedAsStringTemp);
+      //   this.setState({
+      //     isLoading:false,
+      //     nDaysWatchlistedStocks: stocksInfoCached.nDaysWatchlistedStocks,
+      //     nDaysMinOrMaxStocks: stocksInfoCached.nDaysMinOrMaxStocks
+      //   })
+      // }
     },
 
 render: function () {

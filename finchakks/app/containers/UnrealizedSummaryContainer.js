@@ -16,9 +16,9 @@ var UnrealizedSummaryContainer = React.createClass({
 
     componentDidMount: function()
     {
-      var stocksInfoCachedAsStringTemp = localStorage.getItem('listUnrealizedSummary.stocksInfoCachedAsString');
-      if(stocksInfoCachedAsStringTemp == null || stocksInfoCachedAsStringTemp==='null')
-      {
+      // var stocksInfoCachedAsStringTemp = localStorage.getItem('listUnrealizedSummary.stocksInfoCachedAsString');
+      // if(stocksInfoCachedAsStringTemp == null || stocksInfoCachedAsStringTemp==='null')
+      // {
         console.log('invoking listUnrealizedSummary api');
         finchakksapi.listUnrealizedSummary().
         then(function(stocksInfo)
@@ -29,16 +29,16 @@ var UnrealizedSummaryContainer = React.createClass({
             stocksInfo: stocksInfo
           })
         }.bind(this))
-      }
-      else
-      {
-        console.log('using cached result instead of listUnrealizedSummary api call');
-        var stocksInfoCached = JSON.parse(stocksInfoCachedAsStringTemp);
-        this.setState({
-          isLoading:false,
-          stocksInfo: stocksInfoCached
-        })
-      }
+      // }
+      // else
+      // {
+      //   console.log('using cached result instead of listUnrealizedSummary api call');
+      //   var stocksInfoCached = JSON.parse(stocksInfoCachedAsStringTemp);
+      //   this.setState({
+      //     isLoading:false,
+      //     stocksInfo: stocksInfoCached
+      //   })
+      // }
 
     },
 

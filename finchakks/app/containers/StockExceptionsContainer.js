@@ -17,10 +17,10 @@ var StockExceptionsContainer = React.createClass({
 
      componentDidMount: function()
      {
-       var stocksInfoCachedAsStringTemp = localStorage.getItem('listStockExceptions.stocksInfoCachedAsString');
-
-       if (sharedFunctions.isInvalidString(stocksInfoCachedAsStringTemp))
-       {
+      //  var stocksInfoCachedAsStringTemp = localStorage.getItem('listStockExceptions.stocksInfoCachedAsString');
+       //
+      //  if (sharedFunctions.isInvalidString(stocksInfoCachedAsStringTemp))
+      //  {
          console.log('invoking listStockExceptions api');
          finchakksapi.listStockExceptions().
          then(function(stocksInfo)
@@ -31,16 +31,16 @@ var StockExceptionsContainer = React.createClass({
              stocksInfo: stocksInfo
            })
          }.bind(this))
-       }
-       else
-       {
-         console.log('using cached result instead of listStockExceptions api call');
-         var stocksInfoCached = JSON.parse(stocksInfoCachedAsStringTemp);
-         this.setState({
-           isLoading:false,
-           stocksInfo: stocksInfoCached
-         })
-       }
+      //  }
+      //  else
+      //  {
+      //    console.log('using cached result instead of listStockExceptions api call');
+      //    var stocksInfoCached = JSON.parse(stocksInfoCachedAsStringTemp);
+      //    this.setState({
+      //      isLoading:false,
+      //      stocksInfo: stocksInfoCached
+      //    })
+      //  }
 
      },
 

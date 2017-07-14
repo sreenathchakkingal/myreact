@@ -13,9 +13,9 @@ var TopMovingStocksContainer = React.createClass({
 
     componentDidMount: function()
     {
-      var stocksInfoCachedAsStringTemp = localStorage.getItem('listTopMovingStocks.stocksInfoCachedAsString');
-      if(stocksInfoCachedAsStringTemp == null || stocksInfoCachedAsStringTemp==='null')
-      {
+      // var stocksInfoCachedAsStringTemp = localStorage.getItem('listTopMovingStocks.stocksInfoCachedAsString');
+      // if(stocksInfoCachedAsStringTemp == null || stocksInfoCachedAsStringTemp==='null')
+      // {
         console.log('invoking listTopMovingStocks api');
         finchakksapi.listTopMovingStocks().
         then(function(stocksInfo)
@@ -26,16 +26,16 @@ var TopMovingStocksContainer = React.createClass({
             stocksInfo: stocksInfo
           })
         }.bind(this))
-      }
-      else
-      {
-        console.log('using cached result instead of listTopMovingStocks api call');
-        var stocksInfoCached = JSON.parse(stocksInfoCachedAsStringTemp);
-        this.setState({
-          isLoading:false,
-          stocksInfo: stocksInfoCached
-        })
-      }
+      // }
+      // else
+      // {
+      //   console.log('using cached result instead of listTopMovingStocks api call');
+      //   var stocksInfoCached = JSON.parse(stocksInfoCachedAsStringTemp);
+      //   this.setState({
+      //     isLoading:false,
+      //     stocksInfo: stocksInfoCached
+      //   })
+      // }
 
     },
 

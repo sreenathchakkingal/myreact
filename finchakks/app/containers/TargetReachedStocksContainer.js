@@ -17,9 +17,9 @@ var TargetReachedStocksContainer = React.createClass({
 
     componentDidMount: function()
     {
-      var stocksInfoCachedAsStringTemp = localStorage.getItem('listTargetReachedStocks.stocksInfoCachedAsString');
-      if(sharedFunctions.isInvalidString(stocksInfoCachedAsStringTemp))
-      {
+      // var stocksInfoCachedAsStringTemp = localStorage.getItem('listTargetReachedStocks.stocksInfoCachedAsString');
+      // if(sharedFunctions.isInvalidString(stocksInfoCachedAsStringTemp))
+      // {
         console.log('invoking listTargetReachedStocks api');
         finchakksapi.listTargetReachedStocks().
         then(function(stocksInfo)
@@ -30,16 +30,16 @@ var TargetReachedStocksContainer = React.createClass({
             stocksInfo: stocksInfo
           })
         }.bind(this))
-      }
-      else
-      {
-        console.log('using cached result instead of listTargetReachedStocks api call');
-        var stocksInfoCached = JSON.parse(stocksInfoCachedAsStringTemp);
-        this.setState({
-          isLoading:false,
-          stocksInfo: stocksInfoCached
-        })
-      }
+      // }
+      // else
+      // {
+      //   console.log('using cached result instead of listTargetReachedStocks api call');
+      //   var stocksInfoCached = JSON.parse(stocksInfoCachedAsStringTemp);
+      //   this.setState({
+      //     isLoading:false,
+      //     stocksInfo: stocksInfoCached
+      //   })
+      // }
 
     },
 
