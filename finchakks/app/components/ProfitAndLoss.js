@@ -15,7 +15,7 @@ function ProfitAndLoss (props) {
   {
     return (
       <div>
-      <PanelWrapper header='Summary Loading'/>
+      <PanelWrapper header='Summary Loading...'/>
     </div>
     )
   }

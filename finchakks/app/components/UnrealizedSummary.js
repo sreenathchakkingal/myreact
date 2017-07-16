@@ -3,6 +3,7 @@ var columnMetadata = require('./metadata/columnMetadata');
 var PropTypes = React.PropTypes;
 var GriddleWrapper = require('./wrapper/GriddleWrapper');
 var PanelWrapper = require('./wrapper/PanelWrapper');
+var sharedFunctions = require('../utils/sharedFunctions');
 
 function puke(obj)
 {
