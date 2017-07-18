@@ -20,7 +20,7 @@ var TopMovingStocksContainer = React.createClass({
         finchakksapi.listTopMovingStocks().
         then(function(stocksInfo)
         {
-          localStorage.setItem('listTopMovingStocks.stocksInfoCachedAsString', JSON.stringify(stocksInfo));
+          // localStorage.setItem('listTopMovingStocks.stocksInfoCachedAsString', JSON.stringify(stocksInfo));
           this.setState({
             isLoading:false,
             stocksInfo: stocksInfo
