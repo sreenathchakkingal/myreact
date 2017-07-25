@@ -23,7 +23,7 @@ var ProfitAndLossContainer = React.createClass({
         finchakksapi.listprofitAndloss().
         then(function(stocksInfo)
         {
-          localStorage.setItem('listprofitAndloss.stocksInfoCachedAsString', JSON.stringify(stocksInfo));
+          // localStorage.setItem('listprofitAndloss.stocksInfoCachedAsString', JSON.stringify(stocksInfo));
           this.setState({
             isLoading:false,
             stocksInfo: stocksInfo

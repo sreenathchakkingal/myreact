@@ -30,11 +30,11 @@ function ProfitAndLoss (props) {
               <tr>
                 <th>Return(%)</th>
                 <th>Prev Return(%)</th>
-                <th>Diff</th>
+                <th>Diff(%)</th>
+                <th>Diff(Amount)</th>
                 <th>Investment</th>
                 <th>Return</th>
                 <th>Prev Return</th>
-                <th>Diff</th>
                 <th>Return(Bank)</th>
                 <th>Diff compared to Bank</th>
               </tr>
@@ -44,10 +44,10 @@ function ProfitAndLoss (props) {
                 <td>{formatter.convertToPercent(stockData.averageReturn)}</td>
                 <td>{formatter.convertToPercent(stockData.prevAverageReturn)}</td>
                 <td>{formatter.convertToPercent(stockData.diffInCurrentAndPrevAverageReturn)}</td>
+                <td>{formatter.moneyFormat(stockData.diffInCurrentAndPrevTotalReturn)}</td>
                 <td>{formatter.moneyFormat(stockData.totalInvestment)}</td>
                 <td>{formatter.moneyFormat(stockData.totalReturn)}</td>
                 <td>{formatter.moneyFormat(stockData.prevTotalReturn)}</td>
-                <td>{formatter.moneyFormat(stockData.diffInCurrentAndPrevTotalReturn)}</td>
                 <td>{formatter.moneyFormat(stockData.totalReturnIfBank)}</td>
                 <td>{formatter.moneyFormat(stockData.totalReturnVsIfBank)}</td>
               </tr>
