@@ -2,11 +2,9 @@ var React = require('react');
 var RetrieveModifiableStockAttributesContainer = require("../RetrieveModifiableStockAttributesContainer");
 var UnrealizedFileUploadContainer = require("../UnrealizedFileUploadContainer");
 var RefreshContainer = require("../RefreshContainer");
-var Main  = require("../../components/Main");
 var Panel = require('react-bootstrap/lib/Panel');
 var Accordion = require('react-bootstrap/lib/Accordion');
 var PanelWrapper = require('../../components/wrapper/PanelWrapper');
-var Menu  = require("../../components/Menu");
 
 var MaintenanceContainer = React.createClass({
     render: function () {

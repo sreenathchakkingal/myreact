@@ -1,7 +1,11 @@
 var React = require('react');
 
-function NoDataComponent (props) {
-  return <div/>
+class NoDataComponent extends  React.Component{
+  render () {
+      return(
+        <div/>
+      )
+    }
 }
 
 module.exports = NoDataComponent

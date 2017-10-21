@@ -3,19 +3,16 @@ var finchakksapi = require('../utils/finchakksapi');
 var sharedFunctions = require('../utils/sharedFunctions')
 var StocksException = require('../components/StocksException');
 
-var StockExceptionsContainer = React.createClass({
-  contextTypes: {
-      router: React.PropTypes.object.isRequired
-    },
-
-    getInitialState: function () {
-       return {
-         isLoading: true,
-         stocksInfo:[]
-       }
-     },
-
-     componentDidMount: function()
+class StockExceptionsContainer extends React.Component {
+  constructor (props) {
+      super(props)
+      this.state =  {
+        isLoading : true,
+        stocksInfo : []
+      }
+      this.componentDidMount = this.componentDidMount.bind(this);
+  }
+     componentDidMount()
      {
       //  var stocksInfoCachedAsStringTemp = localStorage.getItem('listStockExceptions.stocksInfoCachedAsString');
        //
@@ -31,26 +28,15 @@ var StockExceptionsContainer = React.createClass({
              stocksInfo: stocksInfo
            })
          }.bind(this))
-      //  }
-      //  else
-      //  {
-      //    console.log('using cached result instead of listStockExceptions api call');
-      //    var stocksInfoCached = JSON.parse(stocksInfoCachedAsStringTemp);
-      //    this.setState({
-      //      isLoading:false,
-      //      stocksInfo: stocksInfoCached
-      //    })
-      //  }
+     }
 
-     },
+     render() {
+         return (
+           <StocksException isLoading={this.state.isLoading}
+           stocksInfo={this.state.stocksInfo} />
+         )
+     }
 
-     render: function () {
-      return (
-        <StocksException isLoading={this.state.isLoading}
-        stocksInfo={this.state.stocksInfo} />
-      )
-  }
-
-});
+}
 
 module.exports = StockExceptionsContainer;

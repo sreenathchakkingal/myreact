@@ -4,28 +4,19 @@ var Griddle = require('griddle-react');
 var NoDataComponent = require('./NoDataComponent');
 var columnMetadata = require('./metadata/columnMetadata');
 
-function puke(obj)
+class StocksException extends  React.Component
 {
-  return <pre>{JSON.stringify(obj , null, ' ')}</pre>
-}
 
-function StocksException (props) {
-  // if(props.isLoading ===true )
-  // {
-  // return <Loading text='Loading StocksException' />;
-  // }
-  // else
-  // {
+  render () {
     var metaData=[
       columnMetadata.stockNameWithOptions(),
       columnMetadata.exceptionComment()
     ];
-
-    return (
-      <Griddle customNoDataComponent={NoDataComponent}
-       results={props.stocksInfo} columnMetadata={metaData} bodyHeight={100} />
-    )
-  // }
+      return(
+        <Griddle customNoDataComponent={NoDataComponent} showFilter={false}
+         results={this.props.stocksInfo} columnMetadata={metaData} bodyHeight={100} />
+      )
+    }
 }
 
 StocksException.propTypes = {

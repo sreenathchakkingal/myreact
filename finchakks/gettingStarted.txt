@@ -1,6 +1,12 @@
+folder : E:\codebase\myreact\finchakks
+
 npm init : that creates the package.json file
 npm install --save react react-dom
 npm install --save-dev html-webpack-plugin webpack webpack-dev-server babel-core babel-loader babel-preset-react
+
+if the npm install command fails with "npm WARN optional Skipping failed optional dependency /webpack/watchpack/chokida
+r/fsevents: npm WARN notsup Not compatible with your operating system or architecture: fsevents@1.1.2"
+eg: npm install --no-optional --save react-google-login
 
 to start locally :
 1)
